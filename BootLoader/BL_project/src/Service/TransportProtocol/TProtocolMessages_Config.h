@@ -13,10 +13,10 @@
 
 
 typedef enum{
-	EraseCommand	 	= 0x45,
-	ResponseCommand   	= 0x52,
-	DataCommand			= 0x44,
-	VerifyCommand		= 0x46
+	ID_EraseCommand	 		= 0x45,
+	ID_ResponseCommand   	= 0x52,
+	ID_DataCommand			= 0x44,
+	ID_VerifyCommand		= 0x46
 }Message_ID;
 
 /*TODO: to add R_NOT types*/
@@ -43,8 +43,8 @@ typedef struct{
 }DataCommand_t;
 
 typedef struct{
-	u8 	Response;
 	u32 CheckSum;
+	u8  Reserved;
 }VerifyCommand_t;
 
 #endif /* SERVICE_TRANSPORTPROTOCOL_TPROTOCOLMESSAGES_CONFIG_H_ */

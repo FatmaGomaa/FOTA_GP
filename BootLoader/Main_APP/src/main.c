@@ -6,17 +6,17 @@
 int main()
 {
 	RCC_SelectSystemClk(RCC_SYS_CLK_HSE);
-	RCC_APB2_SetPeripheralClk(RCC_APB2_CLK_PORTC , RCC_STAT_ON);
+	RCC_APB2_SetPeripheralClk(RCC_APB2_CLK_PORTA , RCC_STAT_ON);
 
-	GPIO_InitOnePin(PORTC,PIN13 , MODE_OUTPUT_10_GP_PUSHPULL);
+	GPIO_InitOnePin(PORTA,PIN0 , MODE_OUTPUT_10_GP_PUSHPULL);
 
 	while(1)
 	{
 
-		GPIO_writePinValue(PORTC , P_NUM13 , HIGH);
-		Delay_ms(1000);
-		GPIO_writePinValue(PORTC , P_NUM13 , LOW);
-		Delay_ms(1000);
+		GPIO_writePinValue(PORTA , P_NUM0 , HIGH);
+		Delay_ms(500);
+		GPIO_writePinValue(PORTA , P_NUM0 , LOW);
+		Delay_ms(500);
 
 	}
 }

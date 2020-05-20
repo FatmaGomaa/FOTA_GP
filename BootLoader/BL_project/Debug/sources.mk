@@ -27,9 +27,16 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-src/GPIO \
-src/LIB \
-src/RCC \
+src/Application \
+src/ECUAL/RCC_Handler \
+src/ECUAL/USART_Handler \
+src/Libraries/ARM_Delay \
+src/MCAL/Flash \
+src/MCAL/GPIO \
+src/MCAL/NVIC \
+src/MCAL/RCC \
+src/MCAL/USART \
+src/Service/TransportProtocol \
 src \
 system/src/cmsis \
 system/src/cortexm \

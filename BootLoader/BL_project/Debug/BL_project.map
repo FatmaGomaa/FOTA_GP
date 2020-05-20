@@ -1,41 +1,41 @@
 Archive member included to satisfy reference by file (symbol)
 
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
-                              ./src/LIB/DELAY.o (__aeabi_fsub)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
-                              ./src/LIB/DELAY.o (__aeabi_fdiv)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
-                              ./src/LIB/DELAY.o (__aeabi_f2uiz)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                              ./src/Libraries/ARM_Delay/DELAY.o (__aeabi_fsub)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                              ./src/Libraries/ARM_Delay/DELAY.o (__aeabi_fdiv)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                              ./src/Libraries/ARM_Delay/DELAY.o (__aeabi_f2uiz)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
                               ./system/src/newlib/_sbrk.o (__errno)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o) (_impure_ptr)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o) (_impure_ptr)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
                               ./system/src/diag/Trace.o (strlen)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
                               ./system/src/diag/Trace.o (vsnprintf)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o) (_svfprintf_r)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_printf_i)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (memchr)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (memcpy)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (memmove)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_free_r)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_malloc_r)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_realloc_r)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o) (_sbrk_r)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o) (__malloc_lock)
-h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
-                              h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o) (_malloc_usable_size_r)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o) (_svfprintf_r)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_printf_i)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (memchr)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (memcpy)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (memmove)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_free_r)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_malloc_r)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o) (_realloc_r)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o) (_sbrk_r)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o) (__malloc_lock)
+g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                              g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o) (_malloc_usable_size_r)
 
 Allocating common symbols
 Common symbol       size              file
@@ -126,8 +126,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 ./system/src/stm32f1-stdperiph/misc.o
  .debug_macro   0x00000000       0x35 ./system/src/stm32f1-stdperiph/misc.o
  .debug_macro   0x00000000       0x85 ./system/src/stm32f1-stdperiph/misc.o
- .debug_line    0x00000000      0x411 ./system/src/stm32f1-stdperiph/misc.o
- .debug_str     0x00000000    0x4e197 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_line    0x00000000      0x407 ./system/src/stm32f1-stdperiph/misc.o
+ .debug_str     0x00000000    0x4e19a ./system/src/stm32f1-stdperiph/misc.o
  .comment       0x00000000       0x6f ./system/src/stm32f1-stdperiph/misc.o
  .debug_frame   0x00000000       0x90 ./system/src/stm32f1-stdperiph/misc.o
  .ARM.attributes
@@ -240,8 +240,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x8b ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
  .debug_macro   0x00000000       0x35 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
  .debug_macro   0x00000000      0x2a6 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
- .debug_line    0x00000000      0x8ee ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
- .debug_str     0x00000000    0x4e515 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_line    0x00000000      0x8e4 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
+ .debug_str     0x00000000    0x4e518 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
  .comment       0x00000000       0x6f ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
  .debug_frame   0x00000000      0x1e8 ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o
  .ARM.attributes
@@ -386,8 +386,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x8b ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
  .debug_macro   0x00000000       0x35 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
  .debug_macro   0x00000000      0x3dc ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
- .debug_line    0x00000000      0x838 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
- .debug_str     0x00000000    0x4eae4 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_line    0x00000000      0x82e ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
+ .debug_str     0x00000000    0x4eae7 ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
  .comment       0x00000000       0x6f ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
  .debug_frame   0x00000000      0x31c ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o
  .ARM.attributes
@@ -473,8 +473,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./system/src/newlib/_cxx.o
  .debug_macro   0x00000000       0x35 ./system/src/newlib/_cxx.o
  .debug_macro   0x00000000      0x513 ./system/src/newlib/_cxx.o
- .debug_line    0x00000000      0x461 ./system/src/newlib/_cxx.o
- .debug_str     0x00000000     0x8650 ./system/src/newlib/_cxx.o
+ .debug_line    0x00000000      0x425 ./system/src/newlib/_cxx.o
+ .debug_str     0x00000000     0x8653 ./system/src/newlib/_cxx.o
  .comment       0x00000000       0x6f ./system/src/newlib/_cxx.o
  .debug_frame   0x00000000       0x40 ./system/src/newlib/_cxx.o
  .ARM.attributes
@@ -786,8 +786,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x40 ./system/src/newlib/assert.o
  .debug_macro   0x00000000       0xd7 ./system/src/newlib/assert.o
  .debug_macro   0x00000000      0x513 ./system/src/newlib/assert.o
- .debug_line    0x00000000      0x380 ./system/src/newlib/assert.o
- .debug_str     0x00000000     0x7998 ./system/src/newlib/assert.o
+ .debug_line    0x00000000      0x358 ./system/src/newlib/assert.o
+ .debug_str     0x00000000     0x799b ./system/src/newlib/assert.o
  .comment       0x00000000       0x6f ./system/src/newlib/assert.o
  .debug_frame   0x00000000       0x40 ./system/src/newlib/assert.o
  .ARM.attributes
@@ -1102,8 +1102,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 ./system/src/cortexm/_reset_hardware.o
  .debug_macro   0x00000000       0x8b ./system/src/cortexm/_reset_hardware.o
  .debug_macro   0x00000000       0x35 ./system/src/cortexm/_reset_hardware.o
- .debug_line    0x00000000      0x373 ./system/src/cortexm/_reset_hardware.o
- .debug_str     0x00000000    0x4dfc5 ./system/src/cortexm/_reset_hardware.o
+ .debug_line    0x00000000      0x369 ./system/src/cortexm/_reset_hardware.o
+ .debug_str     0x00000000    0x4dfc8 ./system/src/cortexm/_reset_hardware.o
  .comment       0x00000000       0x6f ./system/src/cortexm/_reset_hardware.o
  .debug_frame   0x00000000       0x20 ./system/src/cortexm/_reset_hardware.o
  .ARM.attributes
@@ -1293,66 +1293,391 @@ Discarded input sections
  .bss           0x00000000        0x0 ./system/src/cmsis/vectors_stm32f10x.o
  .debug_macro   0x00000000      0x88c ./system/src/cmsis/vectors_stm32f10x.o
  .debug_macro   0x00000000      0x34e ./system/src/cmsis/vectors_stm32f10x.o
- .group         0x00000000        0x8 ./src/RCC/RCC_program.o
- .group         0x00000000        0x8 ./src/RCC/RCC_program.o
- .group         0x00000000        0x8 ./src/RCC/RCC_program.o
- .text          0x00000000        0x0 ./src/RCC/RCC_program.o
- .data          0x00000000        0x0 ./src/RCC/RCC_program.o
- .bss           0x00000000        0x0 ./src/RCC/RCC_program.o
- .text.RCC_SetClkStatus
-                0x00000000       0x64 ./src/RCC/RCC_program.o
- .text.RCC_HSE_ConfigBypass
-                0x00000000       0x40 ./src/RCC/RCC_program.o
- .text.RCC_PLL_Config
-                0x00000000       0x2c ./src/RCC/RCC_program.o
- .text.RCC_CSS_Config
-                0x00000000       0x40 ./src/RCC/RCC_program.o
- .text.RCC_MCO_Config
-                0x00000000       0x38 ./src/RCC/RCC_program.o
- .text.RCC_ADC_ConfigPrescaler
-                0x00000000       0x34 ./src/RCC/RCC_program.o
- .text.RCC_APB2_ConfigPrescaler
-                0x00000000       0x38 ./src/RCC/RCC_program.o
- .text.RCC_APB1_ConfigPrescaler
-                0x00000000       0x38 ./src/RCC/RCC_program.o
- .text.RCC_APB2_ResetPeripheral
-                0x00000000        0xc ./src/RCC/RCC_program.o
- .text.RCC_APB1_ResetPeripheral
-                0x00000000        0xc ./src/RCC/RCC_program.o
- .text.RCC_AHB_SetPeripheralClk
-                0x00000000       0x28 ./src/RCC/RCC_program.o
- .text.RCC_APB1_SetPeripheralClk
-                0x00000000       0x28 ./src/RCC/RCC_program.o
- .debug_macro   0x00000000      0x88c ./src/RCC/RCC_program.o
- .group         0x00000000        0x8 ./src/LIB/DELAY.o
- .group         0x00000000        0x8 ./src/LIB/DELAY.o
- .text          0x00000000        0x0 ./src/LIB/DELAY.o
- .data          0x00000000        0x0 ./src/LIB/DELAY.o
- .bss           0x00000000        0x0 ./src/LIB/DELAY.o
- .debug_macro   0x00000000      0x88c ./src/LIB/DELAY.o
- .debug_macro   0x00000000       0x16 ./src/LIB/DELAY.o
- .group         0x00000000        0x8 ./src/GPIO/GPIO_program.o
- .group         0x00000000        0x8 ./src/GPIO/GPIO_program.o
- .group         0x00000000        0x8 ./src/GPIO/GPIO_program.o
- .text          0x00000000        0x0 ./src/GPIO/GPIO_program.o
- .data          0x00000000        0x0 ./src/GPIO/GPIO_program.o
- .bss           0x00000000        0x0 ./src/GPIO/GPIO_program.o
- .text.GPIO_InitStr
-                0x00000000       0xfc ./src/GPIO/GPIO_program.o
- .text.GPIO_SetPinValue
-                0x00000000       0x44 ./src/GPIO/GPIO_program.o
- .text.GPIO_GetPinValue
-                0x00000000       0x3c ./src/GPIO/GPIO_program.o
- .text.GPIO_InitPins
-                0x00000000      0x15c ./src/GPIO/GPIO_program.o
- .text.GPIO_writePinValue
-                0x00000000       0x34 ./src/GPIO/GPIO_program.o
- .text.GPIO_writePortValue
-                0x00000000       0x24 ./src/GPIO/GPIO_program.o
- .text.GPIO_ReadPinValue
-                0x00000000       0x34 ./src/GPIO/GPIO_program.o
- .debug_macro   0x00000000      0x88c ./src/GPIO/GPIO_program.o
- .debug_macro   0x00000000       0x16 ./src/GPIO/GPIO_program.o
+ .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocol.o
+ .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocol.o
+ .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocol.o
+ .text          0x00000000        0x0 ./src/Service/TransportProtocol/TProtocol.o
+ .data          0x00000000        0x0 ./src/Service/TransportProtocol/TProtocol.o
+ .bss           0x00000000        0x0 ./src/Service/TransportProtocol/TProtocol.o
+ .text.TProtcol_sendFrame
+                0x00000000       0x24 ./src/Service/TransportProtocol/TProtocol.o
+ .text.TProtocol_ReceiveFrame
+                0x00000000       0x20 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_info    0x00000000      0x1b8 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_abbrev  0x00000000       0xf7 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_loc     0x00000000       0x96 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_aranges
+                0x00000000       0x28 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_ranges  0x00000000       0x18 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_macro   0x00000000       0x43 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_macro   0x00000000      0x88c ./src/Service/TransportProtocol/TProtocol.o
+ .debug_macro   0x00000000       0x1c ./src/Service/TransportProtocol/TProtocol.o
+ .debug_macro   0x00000000       0x16 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_line    0x00000000       0xff ./src/Service/TransportProtocol/TProtocol.o
+ .debug_str     0x00000000     0x2729 ./src/Service/TransportProtocol/TProtocol.o
+ .comment       0x00000000       0x6f ./src/Service/TransportProtocol/TProtocol.o
+ .debug_frame   0x00000000       0x3c ./src/Service/TransportProtocol/TProtocol.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/Service/TransportProtocol/TProtocol.o
+ .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .text          0x00000000        0x0 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .data          0x00000000        0x0 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .bss           0x00000000        0x0 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_info    0x00000000       0x68 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_abbrev  0x00000000       0x1e ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_aranges
+                0x00000000       0x18 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_macro   0x00000000       0x31 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_macro   0x00000000      0x88c ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_macro   0x00000000       0x1c ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_macro   0x00000000       0x16 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_line    0x00000000       0xc7 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .debug_str     0x00000000     0x2655 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .comment       0x00000000       0x6f ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+ .group         0x00000000        0x8 ./src/MCAL/USART/dUART.o
+ .group         0x00000000        0x8 ./src/MCAL/USART/dUART.o
+ .group         0x00000000        0x8 ./src/MCAL/USART/dUART.o
+ .text          0x00000000        0x0 ./src/MCAL/USART/dUART.o
+ .data          0x00000000        0x0 ./src/MCAL/USART/dUART.o
+ .bss           0x00000000        0x0 ./src/MCAL/USART/dUART.o
+ .text.UART_Send
+                0x00000000       0x5c ./src/MCAL/USART/dUART.o
+ .text.UART_Reveive
+                0x00000000       0x48 ./src/MCAL/USART/dUART.o
+ .text.UART_Configure
+                0x00000000       0x38 ./src/MCAL/USART/dUART.o
+ .text.UART_setTxCbf
+                0x00000000        0xc ./src/MCAL/USART/dUART.o
+ .text.UART_setRxCbf
+                0x00000000        0xc ./src/MCAL/USART/dUART.o
+ .debug_macro   0x00000000      0x88c ./src/MCAL/USART/dUART.o
+ .debug_macro   0x00000000       0x1c ./src/MCAL/USART/dUART.o
+ .group         0x00000000        0x8 ./src/MCAL/RCC/dRCC.o
+ .group         0x00000000        0x8 ./src/MCAL/RCC/dRCC.o
+ .group         0x00000000        0x8 ./src/MCAL/RCC/dRCC.o
+ .text          0x00000000        0x0 ./src/MCAL/RCC/dRCC.o
+ .data          0x00000000        0x0 ./src/MCAL/RCC/dRCC.o
+ .bss           0x00000000        0x0 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_ControlClock
+                0x00000000       0xb4 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetSYSClock
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetPLLMUL
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetPLLSRC
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetPLLXTPRE
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetHPRE
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetPPRE1
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_GetPPRE2
+                0x00000000       0x20 ./src/MCAL/RCC/dRCC.o
+ .text.RCC_ConfigPLL
+                0x00000000       0x80 ./src/MCAL/RCC/dRCC.o
+ .debug_macro   0x00000000      0x88c ./src/MCAL/RCC/dRCC.o
+ .debug_macro   0x00000000       0x1c ./src/MCAL/RCC/dRCC.o
+ .group         0x00000000        0x8 ./src/MCAL/NVIC/DNVIC_program.o
+ .group         0x00000000        0x8 ./src/MCAL/NVIC/DNVIC_program.o
+ .group         0x00000000        0x8 ./src/MCAL/NVIC/DNVIC_program.o
+ .group         0x00000000        0x8 ./src/MCAL/NVIC/DNVIC_program.o
+ .text          0x00000000        0x0 ./src/MCAL/NVIC/DNVIC_program.o
+ .data          0x00000000        0x0 ./src/MCAL/NVIC/DNVIC_program.o
+ .bss           0x00000000        0x0 ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_SetPriorityGrouping
+                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_EnableIRQ
+                0x00000000       0x1c ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_DisableIRQ
+                0x00000000       0x18 ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_SetPending
+                0x00000000       0x1c ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_ClearPending
+                0x00000000       0x18 ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_GetActive
+                0x00000000       0x2c ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_GetPendingIRQ
+                0x00000000       0x2c ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_SetPriority
+                0x00000000       0x10 ./src/MCAL/NVIC/DNVIC_program.o
+ .text.DNVIC_GetPriority
+                0x00000000        0x4 ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_EnablePRIMASK
+                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_DisablePRIMASK
+                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_EnableFAULTMASK
+                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_DisableFAULTMASK
+                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_EnableBASEPRI
+                0x00000000        0x8 ./src/MCAL/NVIC/DNVIC_program.o
+ .text.NVIC_DisableBASEPRI
+                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_info    0x00000000      0x347 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_abbrev  0x00000000       0xb1 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_loc     0x00000000      0x1c6 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_aranges
+                0x00000000       0x90 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_ranges  0x00000000       0x80 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_macro   0x00000000       0x5c ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_macro   0x00000000      0x88c ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_macro   0x00000000      0x34e ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_macro   0x00000000       0x1c ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_macro   0x00000000      0x208 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_line    0x00000000      0x209 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_str     0x00000000     0x37d1 ./src/MCAL/NVIC/DNVIC_program.o
+ .comment       0x00000000       0x6f ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_frame   0x00000000      0x118 ./src/MCAL/NVIC/DNVIC_program.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/MCAL/NVIC/DNVIC_program.o
+ .group         0x00000000        0x8 ./src/MCAL/GPIO/dGPIO.o
+ .group         0x00000000        0x8 ./src/MCAL/GPIO/dGPIO.o
+ .group         0x00000000        0x8 ./src/MCAL/GPIO/dGPIO.o
+ .text          0x00000000        0x0 ./src/MCAL/GPIO/dGPIO.o
+ .data          0x00000000        0x0 ./src/MCAL/GPIO/dGPIO.o
+ .bss           0x00000000        0x0 ./src/MCAL/GPIO/dGPIO.o
+ .text.GPIO_STD_ERROR_writePort
+                0x00000000        0x8 ./src/MCAL/GPIO/dGPIO.o
+ .text.GPIO_u8getPinValue
+                0x00000000        0xc ./src/MCAL/GPIO/dGPIO.o
+ .debug_macro   0x00000000      0x88c ./src/MCAL/GPIO/dGPIO.o
+ .debug_macro   0x00000000       0x1c ./src/MCAL/GPIO/dGPIO.o
+ .group         0x00000000        0x8 ./src/MCAL/Flash/dFlash.o
+ .group         0x00000000        0x8 ./src/MCAL/Flash/dFlash.o
+ .text          0x00000000        0x0 ./src/MCAL/Flash/dFlash.o
+ .data          0x00000000        0x0 ./src/MCAL/Flash/dFlash.o
+ .bss           0x00000000        0x0 ./src/MCAL/Flash/dFlash.o
+ .text.Flash_WriteWord
+                0x00000000       0x54 ./src/MCAL/Flash/dFlash.o
+ .text.Flash_ProgramWrite
+                0x00000000       0x84 ./src/MCAL/Flash/dFlash.o
+ .text.Flash_Lock
+                0x00000000       0x20 ./src/MCAL/Flash/dFlash.o
+ .text.Flash_Unlock
+                0x00000000       0x28 ./src/MCAL/Flash/dFlash.o
+ .text.Flash_ErassPage
+                0x00000000       0x7c ./src/MCAL/Flash/dFlash.o
+ .text.Flash_EraseMass
+                0x00000000       0x2c ./src/MCAL/Flash/dFlash.o
+ .debug_info    0x00000000      0x2b1 ./src/MCAL/Flash/dFlash.o
+ .debug_abbrev  0x00000000      0x11b ./src/MCAL/Flash/dFlash.o
+ .debug_loc     0x00000000      0x11d ./src/MCAL/Flash/dFlash.o
+ .debug_aranges
+                0x00000000       0x48 ./src/MCAL/Flash/dFlash.o
+ .debug_ranges  0x00000000       0x38 ./src/MCAL/Flash/dFlash.o
+ .debug_macro   0x00000000       0xcc ./src/MCAL/Flash/dFlash.o
+ .debug_macro   0x00000000      0x88c ./src/MCAL/Flash/dFlash.o
+ .debug_macro   0x00000000       0x1c ./src/MCAL/Flash/dFlash.o
+ .debug_line    0x00000000      0x153 ./src/MCAL/Flash/dFlash.o
+ .debug_str     0x00000000     0x2aa1 ./src/MCAL/Flash/dFlash.o
+ .comment       0x00000000       0x6f ./src/MCAL/Flash/dFlash.o
+ .debug_frame   0x00000000       0x90 ./src/MCAL/Flash/dFlash.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/MCAL/Flash/dFlash.o
+ .group         0x00000000        0x8 ./src/Libraries/ARM_Delay/DELAY.o
+ .group         0x00000000        0x8 ./src/Libraries/ARM_Delay/DELAY.o
+ .text          0x00000000        0x0 ./src/Libraries/ARM_Delay/DELAY.o
+ .data          0x00000000        0x0 ./src/Libraries/ARM_Delay/DELAY.o
+ .bss           0x00000000        0x0 ./src/Libraries/ARM_Delay/DELAY.o
+ .text.Delay_ms
+                0x00000000       0x34 ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_info    0x00000000       0xaf ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_abbrev  0x00000000       0x74 ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_loc     0x00000000       0x40 ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_aranges
+                0x00000000       0x20 ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_ranges  0x00000000       0x10 ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_macro   0x00000000       0x30 ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_macro   0x00000000      0x88c ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_macro   0x00000000       0x1c ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_line    0x00000000       0xaf ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_str     0x00000000     0x25e8 ./src/Libraries/ARM_Delay/DELAY.o
+ .comment       0x00000000       0x6f ./src/Libraries/ARM_Delay/DELAY.o
+ .debug_frame   0x00000000       0x28 ./src/Libraries/ARM_Delay/DELAY.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/Libraries/ARM_Delay/DELAY.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .text          0x00000000        0x0 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .data          0x00000000        0x0 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .bss           0x00000000        0x0 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .data.UART_GPIO_TX_Map
+                0x00000000       0x24 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .rodata.App_UART_Config
+                0x00000000       0x14 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .data.UART_GPIO_RX_Map
+                0x00000000       0x24 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_info    0x00000000      0x22e ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_abbrev  0x00000000       0xb3 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_aranges
+                0x00000000       0x18 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000       0x7a ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000      0x88c ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000       0x1c ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000       0x7c ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000      0x148 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000       0x1c ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00000000       0x28 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_line    0x00000000      0x147 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_str     0x00000000     0x3088 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .comment       0x00000000       0x6f ./src/ECUAL/USART_Handler/hUART_Config.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .text          0x00000000        0x0 ./src/ECUAL/USART_Handler/hUSART.o
+ .data          0x00000000        0x0 ./src/ECUAL/USART_Handler/hUSART.o
+ .bss           0x00000000        0x0 ./src/ECUAL/USART_Handler/hUSART.o
+ .text.UART_Init
+                0x00000000       0xb4 ./src/ECUAL/USART_Handler/hUSART.o
+ .text.UART_SendBuffer
+                0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .text.UART_ReceiveBuffer
+                0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .text.UART_setTransmitterCbf
+                0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .text.UART_setRecveiverCbf
+                0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_info    0x00000000      0x4f0 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_abbrev  0x00000000      0x167 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_loc     0x00000000      0x11e ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_aranges
+                0x00000000       0x40 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_ranges  0x00000000       0x30 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000       0x50 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000      0x88c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000       0x1c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000      0x208 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000       0x7c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000      0x148 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000       0x1c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000       0x1c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00000000       0x28 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_line    0x00000000      0x1f7 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_str     0x00000000     0x34c5 ./src/ECUAL/USART_Handler/hUSART.o
+ .comment       0x00000000       0x6f ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_frame   0x00000000       0x94 ./src/ECUAL/USART_Handler/hUSART.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/ECUAL/USART_Handler/hUSART.o
+ .group         0x00000000        0x8 ./src/ECUAL/RCC_Handler/hRCC.o
+ .group         0x00000000        0x8 ./src/ECUAL/RCC_Handler/hRCC.o
+ .group         0x00000000        0x8 ./src/ECUAL/RCC_Handler/hRCC.o
+ .text          0x00000000        0x0 ./src/ECUAL/RCC_Handler/hRCC.o
+ .data          0x00000000        0x0 ./src/ECUAL/RCC_Handler/hRCC.o
+ .bss           0x00000000        0x0 ./src/ECUAL/RCC_Handler/hRCC.o
+ .text.RCC_GetSystemClockMGZ
+                0x00000000       0x64 ./src/ECUAL/RCC_Handler/hRCC.o
+ .text.RCC_GetPeripheralClockMGZ
+                0x00000000       0xc0 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_info    0x00000000      0x256 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_abbrev  0x00000000       0xd5 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_loc     0x00000000      0x1a2 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_aranges
+                0x00000000       0x28 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_ranges  0x00000000       0x18 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_macro   0x00000000       0x9f ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_macro   0x00000000      0x88c ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_macro   0x00000000       0x1c ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_macro   0x00000000      0x148 ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_line    0x00000000      0x15e ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_str     0x00000000     0x2e0b ./src/ECUAL/RCC_Handler/hRCC.o
+ .comment       0x00000000       0x6f ./src/ECUAL/RCC_Handler/hRCC.o
+ .debug_frame   0x00000000       0x54 ./src/ECUAL/RCC_Handler/hRCC.o
+ .ARM.attributes
+                0x00000000       0x33 ./src/ECUAL/RCC_Handler/hRCC.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .group         0x00000000        0x8 ./src/Application/main.o
+ .text          0x00000000        0x0 ./src/Application/main.o
+ .data          0x00000000        0x0 ./src/Application/main.o
+ .bss           0x00000000        0x0 ./src/Application/main.o
+ .debug_macro   0x00000000      0x88c ./src/Application/main.o
+ .debug_macro   0x00000000       0x1c ./src/Application/main.o
+ .debug_macro   0x00000000       0x7c ./src/Application/main.o
+ .debug_macro   0x00000000      0x148 ./src/Application/main.o
+ .debug_macro   0x00000000       0x1c ./src/Application/main.o
+ .debug_macro   0x00000000      0x208 ./src/Application/main.o
+ .debug_macro   0x00000000       0x16 ./src/Application/main.o
+ .debug_macro   0x00000000       0x28 ./src/Application/main.o
+ .debug_macro   0x00000000       0x50 ./src/Application/main.o
+ .debug_macro   0x00000000      0x34e ./src/Application/main.o
+ .debug_macro   0x00000000       0x35 ./src/Application/main.o
+ .debug_macro   0x00000000       0x34 ./src/Application/main.o
+ .debug_macro   0x00000000      0xb8e ./src/Application/main.o
+ .debug_macro   0x00000000     0x7dbe ./src/Application/main.o
+ .debug_macro   0x00000000      0x2e4 ./src/Application/main.o
+ .debug_macro   0x00000000      0x144 ./src/Application/main.o
+ .debug_macro   0x00000000      0x3cf ./src/Application/main.o
+ .debug_macro   0x00000000       0xc8 ./src/Application/main.o
+ .debug_macro   0x00000000      0x17a ./src/Application/main.o
+ .debug_macro   0x00000000       0xac ./src/Application/main.o
+ .debug_macro   0x00000000      0x3ad ./src/Application/main.o
+ .debug_macro   0x00000000       0x9d ./src/Application/main.o
+ .debug_macro   0x00000000      0x2cf ./src/Application/main.o
+ .debug_macro   0x00000000      0x279 ./src/Application/main.o
+ .debug_macro   0x00000000      0x2ac ./src/Application/main.o
+ .debug_macro   0x00000000      0x2b4 ./src/Application/main.o
+ .debug_macro   0x00000000       0x64 ./src/Application/main.o
+ .debug_macro   0x00000000       0x82 ./src/Application/main.o
+ .debug_macro   0x00000000      0x3e2 ./src/Application/main.o
+ .debug_macro   0x00000000       0x58 ./src/Application/main.o
+ .debug_macro   0x00000000      0x344 ./src/Application/main.o
+ .debug_macro   0x00000000      0x2c4 ./src/Application/main.o
+ .debug_macro   0x00000000      0x711 ./src/Application/main.o
+ .debug_macro   0x00000000      0x222 ./src/Application/main.o
+ .debug_macro   0x00000000       0x34 ./src/Application/main.o
+ .debug_macro   0x00000000       0x8b ./src/Application/main.o
+ .debug_macro   0x00000000       0x35 ./src/Application/main.o
  .group         0x00000000        0x8 ./src/_write.o
  .text          0x00000000        0x0 ./src/_write.o
  .data          0x00000000        0x0 ./src/_write.o
@@ -1364,136 +1689,76 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./src/_write.o
  .debug_macro   0x00000000      0x88c ./src/_write.o
  .debug_line    0x00000000       0x30 ./src/_write.o
- .debug_str     0x00000000     0x2501 ./src/_write.o
+ .debug_str     0x00000000     0x2504 ./src/_write.o
  .comment       0x00000000       0x6f ./src/_write.o
  .ARM.attributes
                 0x00000000       0x33 ./src/_write.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .group         0x00000000        0x8 ./src/main.o
- .text          0x00000000        0x0 ./src/main.o
- .data          0x00000000        0x0 ./src/main.o
- .bss           0x00000000        0x0 ./src/main.o
- .debug_macro   0x00000000      0x88c ./src/main.o
- .debug_macro   0x00000000       0x16 ./src/main.o
- .debug_macro   0x00000000      0x39c ./src/main.o
- .debug_macro   0x00000000      0x154 ./src/main.o
- .debug_macro   0x00000000       0x50 ./src/main.o
- .debug_macro   0x00000000      0x34e ./src/main.o
- .debug_macro   0x00000000       0x35 ./src/main.o
- .debug_macro   0x00000000       0x34 ./src/main.o
- .debug_macro   0x00000000      0xb8e ./src/main.o
- .debug_macro   0x00000000     0x7dbe ./src/main.o
- .debug_macro   0x00000000      0x2e4 ./src/main.o
- .debug_macro   0x00000000      0x144 ./src/main.o
- .debug_macro   0x00000000      0x3cf ./src/main.o
- .debug_macro   0x00000000       0xc8 ./src/main.o
- .debug_macro   0x00000000      0x17a ./src/main.o
- .debug_macro   0x00000000       0xac ./src/main.o
- .debug_macro   0x00000000      0x3ad ./src/main.o
- .debug_macro   0x00000000       0x9d ./src/main.o
- .debug_macro   0x00000000      0x2cf ./src/main.o
- .debug_macro   0x00000000      0x279 ./src/main.o
- .debug_macro   0x00000000      0x2ac ./src/main.o
- .debug_macro   0x00000000      0x2b4 ./src/main.o
- .debug_macro   0x00000000       0x64 ./src/main.o
- .debug_macro   0x00000000       0x82 ./src/main.o
- .debug_macro   0x00000000      0x3e2 ./src/main.o
- .debug_macro   0x00000000       0x58 ./src/main.o
- .debug_macro   0x00000000      0x344 ./src/main.o
- .debug_macro   0x00000000      0x2c4 ./src/main.o
- .debug_macro   0x00000000      0x711 ./src/main.o
- .debug_macro   0x00000000      0x222 ./src/main.o
- .debug_macro   0x00000000       0x34 ./src/main.o
- .debug_macro   0x00000000       0x8b ./src/main.o
- .debug_macro   0x00000000       0x35 ./src/main.o
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
- .rodata._global_impure_ptr
-                0x00000000        0x4 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
- .text          0x00000000       0x10 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
+ .text          0x00000000      0x21c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x00000000       0x17 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00000000       0x1d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+ .text          0x00000000      0x2a0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x00000000       0x1d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .text          0x00000000       0x40 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .ARM.attributes
+                0x00000000       0x1d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000       0x10 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x00000000       0x17 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .text.__ssprint_r
-                0x00000000       0xfe h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .text          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
- .data          0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
- .bss           0x00000000        0x0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x00000000       0xfe g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .text          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+ .data          0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+ .bss           0x00000000        0x0 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
 Memory Configuration
 
@@ -1501,7 +1766,6 @@ Name             Origin             Length             Attributes
 RAM              0x20000000         0x00005000         xrw
 CCMRAM           0x00000000         0x00000000         xrw
 FLASH            0x08000000         0x00002000         xr
-MARKER           0x08002000         0x00000400         xr
 FLASHB1          0x00000000         0x00000000         xr
 EXTMEMB0         0x00000000         0x00000000         xr
 EXTMEMB1         0x00000000         0x00000000         xr
@@ -1528,21 +1792,29 @@ LOAD ./system/src/cortexm/_reset_hardware.o
 LOAD ./system/src/cortexm/exception_handlers.o
 LOAD ./system/src/cmsis/system_stm32f10x.o
 LOAD ./system/src/cmsis/vectors_stm32f10x.o
-LOAD ./src/RCC/RCC_program.o
-LOAD ./src/LIB/DELAY.o
-LOAD ./src/GPIO/GPIO_program.o
+LOAD ./src/Service/TransportProtocol/TProtocol.o
+LOAD ./src/Service/TransportProtocol/TProtocolMessages_Config.o
+LOAD ./src/MCAL/USART/dUART.o
+LOAD ./src/MCAL/RCC/dRCC.o
+LOAD ./src/MCAL/NVIC/DNVIC_program.o
+LOAD ./src/MCAL/GPIO/dGPIO.o
+LOAD ./src/MCAL/Flash/dFlash.o
+LOAD ./src/Libraries/ARM_Delay/DELAY.o
+LOAD ./src/ECUAL/USART_Handler/hUART_Config.o
+LOAD ./src/ECUAL/USART_Handler/hUSART.o
+LOAD ./src/ECUAL/RCC_Handler/hRCC.o
+LOAD ./src/Application/main.o
 LOAD ./src/_write.o
-LOAD ./src/main.o
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libstdc++_nano.a
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libm.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libstdc++_nano.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libm.a
 START GROUP
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
 END GROUP
 START GROUP
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
-LOAD h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
+LOAD g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libc_nano.a
 END GROUP
                 0x20005000                __stack = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20005000                _estack = __stack
@@ -1551,7 +1823,7 @@ END GROUP
                 0x20004c00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
-                0x20000124                PROVIDE (_Heap_Begin, _end_noinit)
+                0x2000014c                PROVIDE (_Heap_Begin, _end_noinit)
                 0x20004c00                PROVIDE (_Heap_Limit, (__stack - __Main_Stack_Size))
 
 .isr_vector     0x08000000      0x354
@@ -1663,7 +1935,6 @@ END GROUP
                 0x08000350                TIM8_BRK_IRQHandler
                 0x08000350                CAN1_SCE_IRQHandler
                 0x08000350                FLASH_IRQHandler
-                0x08000350                USART1_IRQHandler
                 0x08000350                OTG_FS_IRQHandler
                 0x08000350                SPI3_IRQHandler
                 0x08000350                I2C1_ER_IRQHandler
@@ -1673,16 +1944,16 @@ END GROUP
 
 .inits          0x08000354       0x28
                 0x08000354                __data_regions_array_start = .
-                0x08000354        0x4 LONG 0x8001804 LOADADDR (.data)
+                0x08000354        0x4 LONG 0x80013a4 LOADADDR (.data)
                 0x08000358        0x4 LONG 0x20000000 ADDR (.data)
                 0x0800035c        0x4 LONG 0x20000088 (ADDR (.data) + SIZEOF (.data))
-                0x08000360        0x4 LONG 0x8001804 LOADADDR (.data_CCMRAM)
+                0x08000360        0x4 LONG 0x80013a4 LOADADDR (.data_CCMRAM)
                 0x08000364        0x4 LONG 0x0 ADDR (.data_CCMRAM)
                 0x08000368        0x4 LONG 0x0 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x0800036c                __data_regions_array_end = .
                 0x0800036c                __bss_regions_array_start = .
                 0x0800036c        0x4 LONG 0x20000088 ADDR (.bss)
-                0x08000370        0x4 LONG 0x20000124 (ADDR (.bss) + SIZEOF (.bss))
+                0x08000370        0x4 LONG 0x2000014c (ADDR (.bss) + SIZEOF (.bss))
                 0x08000374        0x4 LONG 0x0 ADDR (.bss_CCMRAM)
                 0x08000378        0x4 LONG 0x0 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x0800037c                __bss_regions_array_end = .
@@ -1708,7 +1979,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x0800037c     0x1487
+.text           0x0800037c     0x1027
  *(.text .text.*)
  .text._exit    0x0800037c        0x4 ./system/src/newlib/_exit.o
                 0x0800037c                _exit
@@ -1747,146 +2018,122 @@ END GROUP
  .text.SystemCoreClockUpdate
                 0x080006bc       0x94 ./system/src/cmsis/system_stm32f10x.o
                 0x080006bc                SystemCoreClockUpdate
- .text.RCC_SelectSystemClk
-                0x08000750       0x2c ./src/RCC/RCC_program.o
-                0x08000750                RCC_SelectSystemClk
- .text.RCC_APB2_SetPeripheralClk
-                0x0800077c       0x28 ./src/RCC/RCC_program.o
-                0x0800077c                RCC_APB2_SetPeripheralClk
- .text.Delay_ms
-                0x080007a4       0x34 ./src/LIB/DELAY.o
-                0x080007a4                Delay_ms
- .text.GPIO_InitOnePin
-                0x080007d8       0xd4 ./src/GPIO/GPIO_program.o
-                0x080007d8                GPIO_InitOnePin
+ .text.USART1_IRQHandler
+                0x08000750       0xa0 ./src/MCAL/USART/dUART.o
+                0x08000750                USART1_IRQHandler
+ .text.RCC_SetSYSClock
+                0x080007f0       0x24 ./src/MCAL/RCC/dRCC.o
+                0x080007f0                RCC_SetSYSClock
+ .text.RCC_ControlPerihperal
+                0x08000814       0x70 ./src/MCAL/RCC/dRCC.o
+                0x08000814                RCC_ControlPerihperal
+ .text.GPIO_Config
+                0x08000884       0x94 ./src/MCAL/GPIO/dGPIO.o
+                0x08000884                GPIO_Config
+ .text.GPIO_writePin
+                0x08000918       0x10 ./src/MCAL/GPIO/dGPIO.o
+                0x08000918                GPIO_writePin
  .text.start_app
-                0x080008ac        0x8 ./src/main.o
- .text.main     0x080008b4       0x44 ./src/main.o
-                0x080008b4                main
- .text          0x080008f8      0x21c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
-                0x080008f8                __aeabi_frsub
-                0x08000900                __subsf3
-                0x08000900                __aeabi_fsub
-                0x08000904                __aeabi_fadd
-                0x08000904                __addsf3
-                0x08000a64                __aeabi_ui2f
-                0x08000a64                __floatunsisf
-                0x08000a6c                __aeabi_i2f
-                0x08000a6c                __floatsisf
-                0x08000a88                __aeabi_ul2f
-                0x08000a88                __floatundisf
-                0x08000a98                __aeabi_l2f
-                0x08000a98                __floatdisf
- .text          0x08000b14      0x2a0 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
-                0x08000b14                __mulsf3
-                0x08000b14                __aeabi_fmul
-                0x08000c7c                __aeabi_fdiv
-                0x08000c7c                __divsf3
- .text          0x08000db4       0x40 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
-                0x08000db4                __fixunssfsi
-                0x08000db4                __aeabi_f2uiz
- .text.__errno  0x08000df4        0xc h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
-                0x08000df4                __errno
+                0x08000928        0x8 ./src/Application/main.o
+ .text.main     0x08000930       0x58 ./src/Application/main.o
+                0x08000930                main
+ .text.__errno  0x08000988        0xc g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x08000988                __errno
  .text._vsnprintf_r
-                0x08000e00       0x56 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08000e00                _vsniprintf_r
-                0x08000e00                _vsnprintf_r
- *fill*         0x08000e56        0x2 
+                0x08000994       0x56 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x08000994                _vsniprintf_r
+                0x08000994                _vsnprintf_r
+ *fill*         0x080009ea        0x2 
  .text.vsnprintf
-                0x08000e58       0x1c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08000e58                vsniprintf
-                0x08000e58                vsnprintf
+                0x080009ec       0x1c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x080009ec                vsniprintf
+                0x080009ec                vsnprintf
  .text.__ssputs_r
-                0x08000e74       0xb2 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08000e74                __ssputs_r
- *fill*         0x08000f26        0x2 
+                0x08000a08       0xb2 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08000a08                __ssputs_r
+ *fill*         0x08000aba        0x2 
  .text._svfprintf_r
-                0x08000f28      0x1e8 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08000f28                _svfiprintf_r
-                0x08000f28                _svfprintf_r
+                0x08000abc      0x1e8 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08000abc                _svfiprintf_r
+                0x08000abc                _svfprintf_r
  .text._printf_common
-                0x08001110       0xec h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08001110                _printf_common
+                0x08000ca4       0xec g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08000ca4                _printf_common
  .text._printf_i
-                0x080011fc      0x24c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x080011fc                _printf_i
- .text.memchr   0x08001448       0x1c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
-                0x08001448                memchr
- .text.memcpy   0x08001464       0x16 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x08001464                memcpy
- .text.memmove  0x0800147a       0x36 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
-                0x0800147a                memmove
- .text._free_r  0x080014b0       0x98 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
-                0x080014b0                _free_r
+                0x08000d90      0x24c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08000d90                _printf_i
+ .text.memchr   0x08000fdc       0x1c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x08000fdc                memchr
+ .text.memcpy   0x08000ff8       0x16 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x08000ff8                memcpy
+ .text.memmove  0x0800100e       0x36 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x0800100e                memmove
+ .text._free_r  0x08001044       0x98 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x08001044                _free_r
  .text._malloc_r
-                0x08001548       0xbc h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x08001548                _malloc_r
+                0x080010dc       0xbc g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x080010dc                _malloc_r
  .text._realloc_r
-                0x08001604       0x4c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
-                0x08001604                _realloc_r
- .text._sbrk_r  0x08001650       0x20 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
-                0x08001650                _sbrk_r
+                0x08001198       0x4c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x08001198                _realloc_r
+ .text._sbrk_r  0x080011e4       0x20 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+                0x080011e4                _sbrk_r
  .text.__malloc_lock
-                0x08001670        0x2 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                0x08001670                __malloc_lock
+                0x08001204        0x2 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x08001204                __malloc_lock
  .text.__malloc_unlock
-                0x08001672        0x2 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                0x08001672                __malloc_unlock
+                0x08001206        0x2 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x08001206                __malloc_unlock
  .text._malloc_usable_size_r
-                0x08001674       0x14 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
-                0x08001674                _malloc_usable_size_r
+                0x08001208       0x14 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x08001208                _malloc_usable_size_r
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.str1.4
-                0x08001688      0x148 ./system/src/cortexm/exception_handlers.o
+                0x0800121c      0x148 ./system/src/cortexm/exception_handlers.o
                                 0x146 (size before relaxing)
+ .rodata        0x08001364        0xc ./src/Application/main.o
  .rodata.str1.1
-                0x080017d0       0x11 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08001370       0x11 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata.str1.1
-                0x080017e1       0x22 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08001381       0x22 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x08001803        0x0 linker stubs
+ .glue_7        0x080013a3        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08001803        0x0 linker stubs
+ .glue_7t       0x080013a3        0x0 linker stubs
 
-.vfp11_veneer   0x08001804        0x0
- .vfp11_veneer  0x08001804        0x0 linker stubs
+.vfp11_veneer   0x080013a4        0x0
+ .vfp11_veneer  0x080013a4        0x0 linker stubs
 
-.v4_bx          0x08001804        0x0
- .v4_bx         0x08001804        0x0 linker stubs
+.v4_bx          0x080013a4        0x0
+ .v4_bx         0x080013a4        0x0 linker stubs
 
-.iplt           0x08001804        0x0
- .iplt          0x08001804        0x0 ./system/src/stm32f1-stdperiph/misc.o
+.iplt           0x080013a4        0x0
+ .iplt          0x080013a4        0x0 ./system/src/stm32f1-stdperiph/misc.o
 
-.rel.dyn        0x08001804        0x0
- .rel.iplt      0x08001804        0x0 ./system/src/stm32f1-stdperiph/misc.o
-
-.marker         0x08002000        0x1
- *(.marker .marker.*)
- .marker        0x08002000        0x1 ./src/main.o
-                0x08002000                MyMarker
- *(.marker*)
+.rel.dyn        0x080013a4        0x0
+ .rel.iplt      0x080013a4        0x0 ./system/src/stm32f1-stdperiph/misc.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08002004                . = ALIGN (0x4)
-                0x08002004                __exidx_start = .
+                0x080013a4                . = ALIGN (0x4)
+                0x080013a4                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08002004                __exidx_end = .
-                0x08002004                . = ALIGN (0x4)
-                0x08002004                _etext = .
-                0x08002004                __etext = .
+                0x080013a4                __exidx_end = .
+                0x080013a4                . = ALIGN (0x4)
+                0x080013a4                _etext = .
+                0x080013a4                __etext = .
 
-.data_CCMRAM    0x00000000        0x0 load address 0x08001804
+.data_CCMRAM    0x00000000        0x0 load address 0x080013a4
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x00000000                . = ALIGN (0x4)
-                0x08001804                _sidata = LOADADDR (.data)
+                0x080013a4                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x88 load address 0x08001804
+.data           0x20000000       0x88 load address 0x080013a4
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -1902,9 +2149,9 @@ END GROUP
                 0x2000001c        0x4 ./system/src/cmsis/system_stm32f10x.o
                 0x2000001c                SystemCoreClock
  .data.impure_data
-                0x20000020       0x60 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x20000020       0x60 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .data._impure_ptr
-                0x20000080        0x4 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x20000080        0x4 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
                 0x20000080                _impure_ptr
  *(.data_end .data_end.*)
  .data_end      0x20000084        0x4 ./system/src/newlib/_startup.o
@@ -1912,13 +2159,13 @@ END GROUP
                 0x20000088                _edata = .
                 0x20000088                __data_end__ = .
 
-.igot.plt       0x20000088        0x0 load address 0x0800188c
+.igot.plt       0x20000088        0x0 load address 0x0800142c
  .igot.plt      0x20000088        0x0 ./system/src/stm32f1-stdperiph/misc.o
 
 .bss_CCMRAM     0x00000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x20000088       0x9c
+.bss            0x20000088       0xc4
                 0x20000088                __bss_start__ = .
                 0x20000088                _sbss = .
  *(.bss_begin .bss_begin.*)
@@ -1930,37 +2177,43 @@ END GROUP
                 0x20000090        0x1 ./system/src/newlib/_syscalls.o
  *fill*         0x20000091        0x3 
  .bss.buf.5179  0x20000094       0x80 ./system/src/diag/Trace.o
+ .bss.AppRxNotify
+                0x20000114        0x4 ./src/MCAL/USART/dUART.o
+ .bss.AppTxNotify
+                0x20000118        0x4 ./src/MCAL/USART/dUART.o
+ .bss.RxBuffer  0x2000011c       0x10 ./src/MCAL/USART/dUART.o
+ .bss.TxBuffer  0x2000012c       0x10 ./src/MCAL/USART/dUART.o
  .bss.__malloc_sbrk_start
-                0x20000114        0x4 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20000114                __malloc_sbrk_start
+                0x2000013c        0x4 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x2000013c                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x20000118        0x4 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20000118                __malloc_free_list
+                0x20000140        0x4 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x20000140                __malloc_free_list
  *(COMMON)
- COMMON         0x2000011c        0x4 ./system/src/newlib/_syscalls.o
-                0x2000011c                errno
+ COMMON         0x20000144        0x4 ./system/src/newlib/_syscalls.o
+                0x20000144                errno
  *(.bss_end .bss_end.*)
- .bss_end       0x20000120        0x4 ./system/src/newlib/_startup.o
-                0x20000124                . = ALIGN (0x4)
-                0x20000124                __bss_end__ = .
-                0x20000124                _ebss = .
+ .bss_end       0x20000148        0x4 ./system/src/newlib/_startup.o
+                0x2000014c                . = ALIGN (0x4)
+                0x2000014c                __bss_end__ = .
+                0x2000014c                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x20000124        0x0
-                0x20000124                _noinit = .
+.noinit         0x2000014c        0x0
+                0x2000014c                _noinit = .
  *(.noinit .noinit.*)
-                0x20000124                . = ALIGN (0x4)
-                0x20000124                _end_noinit = .
+                0x2000014c                . = ALIGN (0x4)
+                0x2000014c                _end_noinit = .
                 [!provide]                PROVIDE (end, _end_noinit)
                 [!provide]                PROVIDE (_end, _end_noinit)
                 [!provide]                PROVIDE (__end, _end_noinit)
                 [!provide]                PROVIDE (__end__, _end_noinit)
 
-._check_stack   0x20000124      0x100
-                0x20000224                . = (. + _Minimum_Stack_Size)
- *fill*         0x20000124      0x100 
+._check_stack   0x2000014c      0x100
+                0x2000024c                . = (. + _Minimum_Stack_Size)
+ *fill*         0x2000014c      0x100 
 
 .b1text
  *(.b1text)
@@ -2018,10 +2271,10 @@ END GROUP
  .comment       0x0000006e       0x6f ./system/src/cortexm/exception_handlers.o
  .comment       0x0000006e       0x6f ./system/src/cmsis/system_stm32f10x.o
  .comment       0x0000006e       0x6f ./system/src/cmsis/vectors_stm32f10x.o
- .comment       0x0000006e       0x6f ./src/RCC/RCC_program.o
- .comment       0x0000006e       0x6f ./src/LIB/DELAY.o
- .comment       0x0000006e       0x6f ./src/GPIO/GPIO_program.o
- .comment       0x0000006e       0x6f ./src/main.o
+ .comment       0x0000006e       0x6f ./src/MCAL/USART/dUART.o
+ .comment       0x0000006e       0x6f ./src/MCAL/RCC/dRCC.o
+ .comment       0x0000006e       0x6f ./src/MCAL/GPIO/dGPIO.o
+ .comment       0x0000006e       0x6f ./src/Application/main.o
 
 .ARM.attributes
                 0x00000000       0x31
@@ -2046,47 +2299,41 @@ END GROUP
  .ARM.attributes
                 0x000001cb       0x33 ./system/src/cmsis/vectors_stm32f10x.o
  .ARM.attributes
-                0x000001fe       0x33 ./src/RCC/RCC_program.o
+                0x000001fe       0x33 ./src/MCAL/USART/dUART.o
  .ARM.attributes
-                0x00000231       0x33 ./src/LIB/DELAY.o
+                0x00000231       0x33 ./src/MCAL/RCC/dRCC.o
  .ARM.attributes
-                0x00000264       0x33 ./src/GPIO/GPIO_program.o
+                0x00000264       0x33 ./src/MCAL/GPIO/dGPIO.o
  .ARM.attributes
-                0x00000297       0x33 ./src/main.o
+                0x00000297       0x33 ./src/Application/main.o
  .ARM.attributes
-                0x000002ca       0x1d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x000002ca       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x000002e7       0x1d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x000002f7       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000304       0x1d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                0x00000324       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
  .ARM.attributes
-                0x00000321       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x00000351       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x0000034e       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x0000037e       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x0000037b       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x000003ab       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
  .ARM.attributes
-                0x000003a8       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000003d8       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x000003d5       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000405       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x00000402       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x00000432       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x0000042f       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x0000045f       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x0000045c       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x0000048c       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x00000489       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x000004b9       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x000004b6       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x000004e6       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
  .ARM.attributes
-                0x000004e3       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .ARM.attributes
-                0x00000510       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .ARM.attributes
-                0x0000053d       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .ARM.attributes
-                0x0000056a       0x2d h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x00000513       0x2d g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
 .debug
  *(.debug)
@@ -2100,7 +2347,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x358
+.debug_aranges  0x00000000      0x348
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ./system/src/newlib/_exit.o
@@ -2123,18 +2370,18 @@ END GROUP
  .debug_aranges
                 0x00000210       0x20 ./system/src/cmsis/vectors_stm32f10x.o
  .debug_aranges
-                0x00000230       0x88 ./src/RCC/RCC_program.o
+                0x00000230       0x48 ./src/MCAL/USART/dUART.o
  .debug_aranges
-                0x000002b8       0x20 ./src/LIB/DELAY.o
+                0x00000278       0x70 ./src/MCAL/RCC/dRCC.o
  .debug_aranges
-                0x000002d8       0x58 ./src/GPIO/GPIO_program.o
+                0x000002e8       0x38 ./src/MCAL/GPIO/dGPIO.o
  .debug_aranges
-                0x00000330       0x28 ./src/main.o
+                0x00000320       0x28 ./src/Application/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2d28
+.debug_info     0x00000000     0x2dfe
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xef ./system/src/newlib/_exit.o
  .debug_info    0x000000ef      0x11f ./system/src/newlib/_sbrk.o
@@ -2146,12 +2393,12 @@ END GROUP
  .debug_info    0x000010cd      0x8da ./system/src/cortexm/exception_handlers.o
  .debug_info    0x000019a7      0x497 ./system/src/cmsis/system_stm32f10x.o
  .debug_info    0x00001e3e       0xd1 ./system/src/cmsis/vectors_stm32f10x.o
- .debug_info    0x00001f0f      0x56e ./src/RCC/RCC_program.o
- .debug_info    0x0000247d       0xaf ./src/LIB/DELAY.o
- .debug_info    0x0000252c      0x473 ./src/GPIO/GPIO_program.o
- .debug_info    0x0000299f      0x389 ./src/main.o
+ .debug_info    0x00001f0f      0x3a1 ./src/MCAL/USART/dUART.o
+ .debug_info    0x000022b0      0x3b7 ./src/MCAL/RCC/dRCC.o
+ .debug_info    0x00002667      0x2cd ./src/MCAL/GPIO/dGPIO.o
+ .debug_info    0x00002934      0x4ca ./src/Application/main.o
 
-.debug_abbrev   0x00000000     0x1083
+.debug_abbrev   0x00000000     0x10f9
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x8e ./system/src/newlib/_exit.o
  .debug_abbrev  0x0000008e       0xb9 ./system/src/newlib/_sbrk.o
@@ -2163,29 +2410,29 @@ END GROUP
  .debug_abbrev  0x000007e7      0x247 ./system/src/cortexm/exception_handlers.o
  .debug_abbrev  0x00000a2e      0x159 ./system/src/cmsis/system_stm32f10x.o
  .debug_abbrev  0x00000b87       0x9d ./system/src/cmsis/vectors_stm32f10x.o
- .debug_abbrev  0x00000c24      0x134 ./src/RCC/RCC_program.o
- .debug_abbrev  0x00000d58       0x74 ./src/LIB/DELAY.o
- .debug_abbrev  0x00000dcc      0x163 ./src/GPIO/GPIO_program.o
- .debug_abbrev  0x00000f2f      0x154 ./src/main.o
+ .debug_abbrev  0x00000c24      0x145 ./src/MCAL/USART/dUART.o
+ .debug_abbrev  0x00000d69       0xd8 ./src/MCAL/RCC/dRCC.o
+ .debug_abbrev  0x00000e41      0x108 ./src/MCAL/GPIO/dGPIO.o
+ .debug_abbrev  0x00000f49      0x1b0 ./src/Application/main.o
 
-.debug_line     0x00000000     0x303d
+.debug_line     0x00000000     0x2f34
  *(.debug_line)
- .debug_line    0x00000000      0x345 ./system/src/newlib/_exit.o
- .debug_line    0x00000345      0x2f6 ./system/src/newlib/_sbrk.o
- .debug_line    0x0000063b      0x3ac ./system/src/newlib/_startup.o
- .debug_line    0x000009e7      0x413 ./system/src/newlib/_syscalls.o
- .debug_line    0x00000dfa      0x3b3 ./system/src/diag/Trace.o
- .debug_line    0x000011ad      0x62b ./system/src/diag/trace_impl.o
- .debug_line    0x000017d8      0x375 ./system/src/cortexm/_initialize_hardware.o
- .debug_line    0x00001b4d      0x6d4 ./system/src/cortexm/exception_handlers.o
- .debug_line    0x00002221      0x3d5 ./system/src/cmsis/system_stm32f10x.o
- .debug_line    0x000025f6      0x105 ./system/src/cmsis/vectors_stm32f10x.o
- .debug_line    0x000026fb      0x274 ./src/RCC/RCC_program.o
- .debug_line    0x0000296f       0x65 ./src/LIB/DELAY.o
- .debug_line    0x000029d4      0x259 ./src/GPIO/GPIO_program.o
- .debug_line    0x00002c2d      0x410 ./src/main.o
+ .debug_line    0x00000000      0x31d ./system/src/newlib/_exit.o
+ .debug_line    0x0000031d      0x2ce ./system/src/newlib/_sbrk.o
+ .debug_line    0x000005eb      0x384 ./system/src/newlib/_startup.o
+ .debug_line    0x0000096f      0x3e1 ./system/src/newlib/_syscalls.o
+ .debug_line    0x00000d50      0x38b ./system/src/diag/Trace.o
+ .debug_line    0x000010db      0x603 ./system/src/diag/trace_impl.o
+ .debug_line    0x000016de      0x36b ./system/src/cortexm/_initialize_hardware.o
+ .debug_line    0x00001a49      0x6ac ./system/src/cortexm/exception_handlers.o
+ .debug_line    0x000020f5      0x3cb ./system/src/cmsis/system_stm32f10x.o
+ .debug_line    0x000024c0       0xfb ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_line    0x000025bb      0x13c ./src/MCAL/USART/dUART.o
+ .debug_line    0x000026f7      0x1b0 ./src/MCAL/RCC/dRCC.o
+ .debug_line    0x000028a7      0x103 ./src/MCAL/GPIO/dGPIO.o
+ .debug_line    0x000029aa      0x58a ./src/Application/main.o
 
-.debug_frame    0x00000000      0x93c
+.debug_frame    0x00000000      0x918
  *(.debug_frame)
  .debug_frame   0x00000000       0x38 ./system/src/newlib/_exit.o
  .debug_frame   0x00000038       0x28 ./system/src/newlib/_sbrk.o
@@ -2197,56 +2444,56 @@ END GROUP
  .debug_frame   0x00000260      0x158 ./system/src/cortexm/exception_handlers.o
  .debug_frame   0x000003b8       0x68 ./system/src/cmsis/system_stm32f10x.o
  .debug_frame   0x00000420       0x20 ./system/src/cmsis/vectors_stm32f10x.o
- .debug_frame   0x00000440       0xf0 ./src/RCC/RCC_program.o
- .debug_frame   0x00000530       0x28 ./src/LIB/DELAY.o
- .debug_frame   0x00000558       0xc0 ./src/GPIO/GPIO_program.o
- .debug_frame   0x00000618       0x38 ./src/main.o
- .debug_frame   0x00000650       0x20 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00000670       0x48 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
- .debug_frame   0x000006b8       0x90 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x00000748       0x60 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x000007a8       0x28 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
- .debug_frame   0x000007d0       0x28 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x000007f8       0x28 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x00000820       0x38 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00000858       0x2c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00000884       0x3c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x000008c0       0x2c h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x000008ec       0x30 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x0000091c       0x20 h:/tourkey course/tools/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x00000440       0x8c ./src/MCAL/USART/dUART.o
+ .debug_frame   0x000004cc       0xc0 ./src/MCAL/RCC/dRCC.o
+ .debug_frame   0x0000058c       0x64 ./src/MCAL/GPIO/dGPIO.o
+ .debug_frame   0x000005f0       0x3c ./src/Application/main.o
+ .debug_frame   0x0000062c       0x20 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000064c       0x48 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+ .debug_frame   0x00000694       0x90 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x00000724       0x60 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x00000784       0x28 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+ .debug_frame   0x000007ac       0x28 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000007d4       0x28 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x000007fc       0x38 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00000834       0x2c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00000860       0x3c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x0000089c       0x2c g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x000008c8       0x30 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x000008f8       0x20 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000    0x56827
+.debug_str      0x00000000    0x567c3
  *(.debug_str)
- .debug_str     0x00000000     0x6d1c ./system/src/newlib/_exit.o
-                               0x6e93 (size before relaxing)
- .debug_str     0x00006d1c      0x4de ./system/src/newlib/_sbrk.o
-                               0x627e (size before relaxing)
- .debug_str     0x000071fa      0xbc3 ./system/src/newlib/_startup.o
-                               0x5e33 (size before relaxing)
- .debug_str     0x00007dbd      0xe18 ./system/src/newlib/_syscalls.o
-                               0x70de (size before relaxing)
- .debug_str     0x00008bd5      0x890 ./system/src/diag/Trace.o
-                               0x7683 (size before relaxing)
- .debug_str     0x00009465    0x4b2af ./system/src/diag/trace_impl.o
-                              0x51e45 (size before relaxing)
- .debug_str     0x00054714       0xc4 ./system/src/cortexm/_initialize_hardware.o
-                              0x4dfff (size before relaxing)
- .debug_str     0x000547d8      0x1a6 ./system/src/cortexm/exception_handlers.o
-                              0x52c07 (size before relaxing)
- .debug_str     0x0005497e       0xeb ./system/src/cmsis/system_stm32f10x.o
-                              0x4e0a9 (size before relaxing)
- .debug_str     0x00054a69       0x57 ./system/src/cmsis/vectors_stm32f10x.o
-                               0x304e (size before relaxing)
- .debug_str     0x00054ac0     0x16b8 ./src/RCC/RCC_program.o
-                               0x3c1f (size before relaxing)
- .debug_str     0x00056178       0x38 ./src/LIB/DELAY.o
-                               0x25d8 (size before relaxing)
- .debug_str     0x000561b0      0x615 ./src/GPIO/GPIO_program.o
-                               0x2bc1 (size before relaxing)
- .debug_str     0x000567c5       0x62 ./src/main.o
-                              0x4f65c (size before relaxing)
+ .debug_str     0x00000000     0x6d1f ./system/src/newlib/_exit.o
+                               0x6e96 (size before relaxing)
+ .debug_str     0x00006d1f      0x4de ./system/src/newlib/_sbrk.o
+                               0x6281 (size before relaxing)
+ .debug_str     0x000071fd      0xbc3 ./system/src/newlib/_startup.o
+                               0x5e36 (size before relaxing)
+ .debug_str     0x00007dc0      0xe18 ./system/src/newlib/_syscalls.o
+                               0x70e1 (size before relaxing)
+ .debug_str     0x00008bd8      0x890 ./system/src/diag/Trace.o
+                               0x7686 (size before relaxing)
+ .debug_str     0x00009468    0x4b2af ./system/src/diag/trace_impl.o
+                              0x51e48 (size before relaxing)
+ .debug_str     0x00054717       0xc4 ./system/src/cortexm/_initialize_hardware.o
+                              0x4e002 (size before relaxing)
+ .debug_str     0x000547db      0x1a6 ./system/src/cortexm/exception_handlers.o
+                              0x52c0a (size before relaxing)
+ .debug_str     0x00054981      0x124 ./system/src/cmsis/system_stm32f10x.o
+                              0x4e0ac (size before relaxing)
+ .debug_str     0x00054aa5       0x57 ./system/src/cmsis/vectors_stm32f10x.o
+                               0x3051 (size before relaxing)
+ .debug_str     0x00054afc      0x57d ./src/MCAL/USART/dUART.o
+                               0x2adf (size before relaxing)
+ .debug_str     0x00055079      0xce5 ./src/MCAL/RCC/dRCC.o
+                               0x326e (size before relaxing)
+ .debug_str     0x00055d5e      0x272 ./src/MCAL/GPIO/dGPIO.o
+                               0x2827 (size before relaxing)
+ .debug_str     0x00055fd0      0x7f3 ./src/Application/main.o
+                              0x4ef49 (size before relaxing)
 
-.debug_loc      0x00000000     0x17b2
+.debug_loc      0x00000000     0x138e
  *(.debug_loc)
  .debug_loc     0x00000000       0x82 ./system/src/newlib/_sbrk.o
  .debug_loc     0x00000082      0x265 ./system/src/newlib/_startup.o
@@ -2255,10 +2502,9 @@ END GROUP
  .debug_loc     0x0000044c      0x17c ./system/src/diag/trace_impl.o
  .debug_loc     0x000005c8      0x2a8 ./system/src/cortexm/exception_handlers.o
  .debug_loc     0x00000870       0xdf ./system/src/cmsis/system_stm32f10x.o
- .debug_loc     0x0000094f      0x587 ./src/RCC/RCC_program.o
- .debug_loc     0x00000ed6       0x40 ./src/LIB/DELAY.o
- .debug_loc     0x00000f16      0x874 ./src/GPIO/GPIO_program.o
- .debug_loc     0x0000178a       0x28 ./src/main.o
+ .debug_loc     0x0000094f      0x2c3 ./src/MCAL/USART/dUART.o
+ .debug_loc     0x00000c12      0x527 ./src/MCAL/RCC/dRCC.o
+ .debug_loc     0x00001139      0x255 ./src/MCAL/GPIO/dGPIO.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2276,7 +2522,7 @@ END GROUP
  *(.debug_varnames)
 OUTPUT(BL_project.elf elf32-littlearm)
 
-.debug_ranges   0x00000000      0x2f0
+.debug_ranges   0x00000000      0x2b0
  .debug_ranges  0x00000000       0x18 ./system/src/newlib/_exit.o
  .debug_ranges  0x00000018       0x10 ./system/src/newlib/_sbrk.o
  .debug_ranges  0x00000028       0x48 ./system/src/newlib/_startup.o
@@ -2287,12 +2533,12 @@ OUTPUT(BL_project.elf elf32-littlearm)
  .debug_ranges  0x00000108       0x98 ./system/src/cortexm/exception_handlers.o
  .debug_ranges  0x000001a0       0x28 ./system/src/cmsis/system_stm32f10x.o
  .debug_ranges  0x000001c8       0x10 ./system/src/cmsis/vectors_stm32f10x.o
- .debug_ranges  0x000001d8       0x78 ./src/RCC/RCC_program.o
- .debug_ranges  0x00000250       0x10 ./src/LIB/DELAY.o
- .debug_ranges  0x00000260       0x78 ./src/GPIO/GPIO_program.o
- .debug_ranges  0x000002d8       0x18 ./src/main.o
+ .debug_ranges  0x000001d8       0x38 ./src/MCAL/USART/dUART.o
+ .debug_ranges  0x00000210       0x60 ./src/MCAL/RCC/dRCC.o
+ .debug_ranges  0x00000270       0x28 ./src/MCAL/GPIO/dGPIO.o
+ .debug_ranges  0x00000298       0x18 ./src/Application/main.o
 
-.debug_macro    0x00000000     0x2c96
+.debug_macro    0x00000000     0x2a99
  .debug_macro   0x00000000      0x19c ./system/src/newlib/_exit.o
  .debug_macro   0x0000019c       0x9c ./system/src/newlib/_exit.o
  .debug_macro   0x00000238      0x10e ./system/src/newlib/_exit.o
@@ -2337,10 +2583,10 @@ OUTPUT(BL_project.elf elf32-littlearm)
  .debug_macro   0x0000235e       0x10 ./system/src/cortexm/exception_handlers.o
  .debug_macro   0x0000236e      0x16e ./system/src/cmsis/system_stm32f10x.o
  .debug_macro   0x000024dc       0x34 ./system/src/cmsis/vectors_stm32f10x.o
- .debug_macro   0x00002510       0x89 ./src/RCC/RCC_program.o
- .debug_macro   0x00002599       0x16 ./src/RCC/RCC_program.o
- .debug_macro   0x000025af      0x39c ./src/RCC/RCC_program.o
- .debug_macro   0x0000294b       0x26 ./src/LIB/DELAY.o
- .debug_macro   0x00002971       0x3b ./src/GPIO/GPIO_program.o
- .debug_macro   0x000029ac      0x154 ./src/GPIO/GPIO_program.o
- .debug_macro   0x00002b00      0x196 ./src/main.o
+ .debug_macro   0x00002510       0xb9 ./src/MCAL/USART/dUART.o
+ .debug_macro   0x000025c9       0x1c ./src/MCAL/USART/dUART.o
+ .debug_macro   0x000025e5      0x101 ./src/MCAL/RCC/dRCC.o
+ .debug_macro   0x000026e6      0x148 ./src/MCAL/RCC/dRCC.o
+ .debug_macro   0x0000282e       0x23 ./src/MCAL/GPIO/dGPIO.o
+ .debug_macro   0x00002851       0x7c ./src/MCAL/GPIO/dGPIO.o
+ .debug_macro   0x000028cd      0x1cc ./src/Application/main.o

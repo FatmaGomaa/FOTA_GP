@@ -1,20 +1,16 @@
 #include "STD_TYPES.h"
+#include "dGPIO.h"
+#include "dRCC.h"
+#include "dUART.h"
+#include "DNVIC_interface.h"
+#include "TProtocol.h"
+#include "TProtocolMessages_Config.h"
+#include "hUART_Config.h"
 #include "DELAY.h"
-#include "RCC_interface.h"
-#include "GPIO_interface.h"
 #include "cmsis_device.h"
 
 
-uint8_t MyMarker __attribute__((section(".marker"),used));
-
-//typedef void (*APP_Entrypoint_t)(void) ;
-//APP_Entrypoint_t APP_Entrypoint __attribute__((section(".app"),used));
-
-//const APP_Entrypoint_t APP_Entrypoint = (APP_Entrypoint_t) 0x08003004;//0x080038e0;//0x0800310C;
-
-
 static void start_app(uint32_t pc, uint32_t sp) __attribute__((naked));
-
 
 static void start_app(uint32_t pc, uint32_t sp)
 {
@@ -22,25 +18,29 @@ static void start_app(uint32_t pc, uint32_t sp)
 	asm(" bx r0");
 }
 
-#define __approm_start__	0x08003000
+//#define AppEntryPoint			 0x08003000
+
+u32 AppEntryPoint=0;
 
 int main()
 {
+	GPIO_t	LED={
+			.PORT = PORT_C,
+			.PIN  = PIN_13,
+			.MOOD = OUTPUT_GP_PUSH_PULL_10MHZ
+	};
 
-	RCC_SelectSystemClk(RCC_SYS_CLK_HSE);
+	RCC_SetSYSClock(HSE_SW);
+	RCC_ControlPerihperal(APB2,RCC_APB2_CLOCK_PORT_C,ON);
 
-	RCC_APB2_SetPeripheralClk(RCC_APB2_CLK_PORTC , RCC_STAT_ON);
-	GPIO_InitOnePin(PORTC,PIN13 , MODE_OUTPUT_10_GP_PUSHPULL);
-
-	Delay_ms(1000);
+	GPIO_Config(&LED);
+	GPIO_writePin(LED.PORT,LED.PIN,LOW);
 
 	SCB->VTOR = 0x00003000 << 9;
 
-
-
-	uint32_t *app_code = (uint32_t *)__approm_start__;
-	uint32_t app_sp = app_code[0];
-	uint32_t app_start = app_code[1];
+	volatile uint32_t *app_code = (uint32_t *)AppEntryPoint;
+	volatile uint32_t app_sp = app_code[0];
+	volatile uint32_t app_start = app_code[1];
 	start_app(app_start, app_sp);
 
 //	APP_Entrypoint();  // by this method the program counter is not updated right why ?!!!!!!!!!!!!!!!!!!!
@@ -88,3 +88,4 @@ int main()
  *
  *
  * */
+

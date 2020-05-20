@@ -218,18 +218,6 @@ SECTIONS
 
 
 
-   .marker : ALIGN(4)
-    {
-
-
-        *(.marker .marker.*)
-        KEEP(*(.marker*))
-
-
-    } >MARKER
-
-
-
 	/* ARM magic sections */
 	.ARM.extab : ALIGN(4)
    	{

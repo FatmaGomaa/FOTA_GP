@@ -1,8 +1,8 @@
 #include "STD_TYPES.h"
+#include "DELAY.h"
+
 #define t1 (0.00111f)
 #define tm (0.06352f)
-
-
 /* for AVR*/
 /* for loop time          t1 = 5.39875 us */
 /* calculation time       t2 = 627.875 us */
@@ -19,10 +19,10 @@
 /* ARM values are not accurate */
 
 
-void Delay_ms(uint32_t Value)
+void Delay_ms(u32 Value)
 {
-	 uint32_t i;
-	 uint32_t count = (uint32_t)((float)Value-tm)/t1;
+	 u32 i;
+	 u32 count = (u32)((float)Value-tm)/t1;
 
 	for(i=0 ; i<count ; i++)
 	{

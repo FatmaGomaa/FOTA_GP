@@ -26,7 +26,7 @@ void TProtcol_sendFrame(void* Data, u8* RawTrasnmitterBuffer, u8 MessageId){
 		Frame->Data[Iteration] = *(u8*)(Data+Iteration);
 	}
 
-	//Frame->EOF = END_OF_FRAME;
+	Frame->End = END_OF_FRAME;
 
 }
 

@@ -23,7 +23,7 @@ typedef struct{
 typedef struct{
 	TProtocolHeader_t Header;
 	u8 Data[FRAME_DATA_BYTES];
-	u8 EOF;
+	u8 End;
 }ProtocolFrame_t;
 
 

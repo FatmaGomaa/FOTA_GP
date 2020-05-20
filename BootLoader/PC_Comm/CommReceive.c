@@ -13,10 +13,11 @@
 
 	#include <Windows.h>
 	#include <stdio.h>
+	#include "elf_parser.h"
 	#include "STD_TYPES.h"
 	#include "TProtocol.h"
 	#include "TProtocolMessages_Config.h"
-	#include "elf_parser.h"
+
 
 
 	#define DATA_BLOCK_SIZE					1000
@@ -37,9 +38,9 @@
 	long long z=0,x=0;						//Iterators used for producing delay
 	char PortClosedFlag=0;
 	
-	char ProgramData[60*1024]={0};		// 60 K Program Data Buffer
+	char ProgramData[1024*1024]={0};		// 60 K Program Data Buffer
 	char ProgramDataToSend[30*1024]={0};	//30K only Program Header Sections
-	char ElfFileName[30]="Main_APP.elf";
+	char ElfFileName[]="G:\\ITI\\Tourky\\Elf Parser\\PC_Comm\\Main_APP.elf";
 	FILE * ElfFileDescriptor;
 	long size=0;
 	static long SentDataIDX=0;
@@ -69,6 +70,10 @@
 			 DataCommand_t DataCommand;
 			 VerifyCommand_t VerifyCommand;
 			 
+			//printf("Enter File Name\n");
+			//scanf("%s",ElfFileName);
+			ElfFileDescriptor = fopen(ElfFileName, "rb"); // read mode
+			
 			 long long ProgramIterator=0;
 			 for(ProgramIterator=0;ProgramIterator <sizeof(ProgramDataToSend);ProgramIterator++){
 				 ProgramDataToSend[ProgramIterator] = 0xFF;
@@ -79,7 +84,7 @@
 			
 			
 		while(PortClosedFlag == 0){
-
+			
 			printf("-				please select one of the following choices					\n");
 			printf("1- Send Command			2- Receive Command			3-Close Program \n");
 			scanf("%d", &userChoice);
@@ -87,19 +92,22 @@
 				case 1:
 					printf("-				please select one of the following choices					\n");
 					printf("1- Erase Command			2-Data Command	 \n");
-					scanf("%d", &userChoice);
+					scanf("%d", &CommandType);
 					switch(CommandType){
 						case 1:
+							openPort();
 							printf("Please Enter Sections Count to erase: \n");
 							scanf("%d", &EraseCommand.SectionsCount);
 							printf("Please Enter Sections Offset: \n");
 							scanf("%d", &EraseCommand.SectionOffset);
 							EraseCommand.CheckSum = ( (uint8_t)EraseCommand.SectionsCount  )^(  (uint8_t)EraseCommand.SectionOffset );
 							TProtcol_sendFrame((void*)&EraseCommand, CommandToSend, ID_EraseCommand );
+							sendCommand(CommandToSend);
+							closePort();
 						break;
 						case 2:
 							/*TODO: */
-							ElfFileDescriptor = fopen(ElfFileName, "rb"); // read mode
+
 								if (ElfFileDescriptor == NULL)
 								{
 									printf("Error while opening the file.\n");
@@ -113,9 +121,11 @@
 									
 									/*save elf file content in buffer*/
 									char ch = fgetc(ElfFileDescriptor);
+									printf("%d\n",size);
 									long long i=0;
 									while (i != size)
 									{
+										//printf("Here");
 									ProgramData[i]=ch;
 									i++;
 									ch = fgetc(ElfFileDescriptor);
@@ -124,9 +134,10 @@
 									/*close elf file to open the output file*/
 									fclose(ElfFileDescriptor);
 
-
+									
 									Header = (Elf32_Ehdr *) &ProgramData[0];
 									ProgramHeader = (Elf32_Phdr *)(&ProgramData[0] + Header->e_phoff);
+									
 									
 									
 									for(i= 0 ; i < (ProgramHeader[0].p_filesz); i++ ){
@@ -141,17 +152,22 @@
 										ProgramDataToSend[  ProgramHeader[0].p_memsz + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + i   ];
 										
 									}
+									
+									for(i=0;i<0x5000;i++){
+										printf("%d",ProgramDataToSend[i]);
+									}
 								
 								openPort();
-								
 								while ( (SentDataBlockIDX< EraseCommand.SectionsCount) ){
 									
 									/*send 1000 Byte*/
 									for ( i=0; i < (DATA_BLOCK_SIZE/FRAME_DATA_BYTES) ; i++ ){
 										
 										SentDataIDX = i*5 ;
-										TProtcol_sendFrame(ProgramDataToSend[lastSavedIDX + SentDataIDX], CommandToSend, ID_DataCommand);
+										TProtcol_sendFrame(&ProgramDataToSend[lastSavedIDX + SentDataIDX], CommandToSend, ID_DataCommand);
+										
 										CheckSum += (ProgramDataToSend[lastSavedIDX + SentDataIDX] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 1] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 2] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 3] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 4 ]);
+										
 										sendCommand(CommandToSend);
 									}
 									/*verify with checksome*/
@@ -168,7 +184,7 @@
 									}
 									/*repeat till end*/
 								}
-								
+								closePort();
 								
 						break;
 						
@@ -176,7 +192,7 @@
 						
 					}
 
-								closePort();
+								//closePort();
 					
 				break;
 				case 2:

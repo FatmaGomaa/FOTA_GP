@@ -10,8 +10,8 @@
 #include "TProtocolMessages_Config.h"
 #include "TProtocol.h"
 
-#define FRAME_HEADER_START				'a'
-#define END_OF_FRAME					'z'
+#define FRAME_HEADER_START				'A'
+#define END_OF_FRAME					'M'
 
 #define TP_HEADER_LENGHT				2
 

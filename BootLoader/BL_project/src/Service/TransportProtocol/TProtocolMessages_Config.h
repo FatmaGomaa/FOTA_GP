@@ -13,10 +13,10 @@
 
 
 typedef enum{
-	EraseCommand	 	= 1,
-	ResponseCommand   	= 2,
-	DataCommand			= 3,
-	VerifyCommand		= 4
+	EraseCommand	 	= 0x45,
+	ResponseCommand   	= 0x52,
+	DataCommand			= 0x44,
+	VerifyCommand		= 0x46
 }Message_ID;
 
 /*TODO: to add R_NOT types*/

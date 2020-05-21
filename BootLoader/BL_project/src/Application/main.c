@@ -19,10 +19,60 @@ static void start_app(uint32_t pc, uint32_t sp)
 }
 
 //#define AppEntryPoint			 0x08003000
+void func(void);
+#define APP1MARKER 0
 
 u32 AppEntryPoint=0;
 
-int main()
+extern const UART_Frame_Cfg_t App_UART_Config[APP_USARTs_NUM];
+EraseCommand_t Switchs = {48+8,0};
+EraseCommand_t Switchs2;
+
+u8 TrasnmitterBuffer[15] =  {0};
+volatile u8 RXBuffer[16] = {0};
+u8 MessageID;
+u8 x;
+u8 CommandFlag =0;
+u8 Marker;
+int main(void)
+{
+	RCC_SetSYSClock(HSE_SW);
+
+	RCC_ControlPerihperal(APB2,RCC_APB2_CLOCK_UART1EN,ON);
+	RCC_ControlPerihperal(APB2,RCC_APB2_CLOCK_PORT_A,ON);
+
+	switch(Marker)
+	{
+	case APP1MARKER:
+		/*new app*/
+		break;
+	default:
+		/*wait to receive new application*/
+
+		break;
+	}
+	UART_setRecveiverCbf (func);
+	UART_Init(&App_UART_Config[0]);
+    UART_ReceiveBuffer(RXBuffer , 1);
+
+}
+
+void func(void){
+
+	if (RXBuffer[0]=='A' && CommandFlag == 0){
+		UART_ReceiveBuffer( &RXBuffer[1] , 7);
+		CommandFlag =1;
+	}else if (CommandFlag == 1){
+		CommandFlag =0;
+		TProtocol_ReceiveFrame( RXBuffer, &Switchs2, &MessageID);
+	}else{
+		UART_ReceiveBuffer(RXBuffer , 1);
+	}
+
+	x++;
+}
+
+/*int main()
 {
 	GPIO_t	LED={
 			.PORT = PORT_C,
@@ -52,7 +102,7 @@ int main()
 	return 0;
 }
 
-
+ */
 
 
 /*
@@ -62,7 +112,7 @@ int main()
  *    .app : ALIGN(4)
     {
 
-        *(.app .app.*)
+ *(.app .app.*)
         KEEP(*(.app*))
 
 
@@ -80,7 +130,7 @@ int main()
     {
 
 
-        *(.marker .marker.*)
+ *(.marker .marker.*)
         KEEP(*(.marker*))
 
 

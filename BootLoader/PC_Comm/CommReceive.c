@@ -100,7 +100,7 @@
 							scanf("%d", &EraseCommand.SectionsCount);
 							printf("Please Enter Sections Offset: \n");
 							scanf("%d", &EraseCommand.SectionOffset);
-							EraseCommand.CheckSum = ( (uint8_t)EraseCommand.SectionsCount  )^(  (uint8_t)EraseCommand.SectionOffset );
+							EraseCommand.CheckSum = ( (uint8_t)EraseCommand.SectionsCount  ) + (  (uint8_t)EraseCommand.SectionOffset );
 							TProtcol_sendFrame((void*)&EraseCommand, CommandToSend, ID_EraseCommand );
 							sendCommand(CommandToSend);
 							closePort();
@@ -139,22 +139,25 @@
 									ProgramHeader = (Elf32_Phdr *)(&ProgramData[0] + Header->e_phoff);
 									
 									
-									
+									/*TODO: to add section header parser*/
 									for(i= 0 ; i < (ProgramHeader[0].p_filesz); i++ ){
 										
-										ProgramDataToSend[i] = ProgramData[  ProgramHeader[0].p_offset + i   ];
+										ProgramDataToSend[i] = ProgramData[ 12288 + ProgramHeader[0].p_offset + i   ];
 										
 									}
 
 
 									for(i= 0 ; i < (ProgramHeader[1].p_filesz); i++ ){
 										
-										ProgramDataToSend[  ProgramHeader[0].p_memsz + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + i   ];
+										ProgramDataToSend[  ProgramHeader[0].p_memsz + 1 + i  ] = ProgramData[ 12288 + ProgramHeader[1].p_offset + i   ];
 										
 									}
-									
-									for(i=0;i<0x5000;i++){
-										printf("%d",ProgramDataToSend[i]);
+									int j=0;
+									for(i=0;i<20480;i++){
+										
+										printf("%.02x",ProgramDataToSend[ i ]);
+										
+										//printf("\n");
 									}
 								
 								openPort();
@@ -173,12 +176,14 @@
 									/*verify with checksome*/
 									VerifyCommand.CheckSum = CheckSum;
 									TProtcol_sendFrame( &VerifyCommand, CommandToSend, ID_VerifyCommand);
+									sendCommand(CommandToSend);
+									
 									/*wait for response*/
 									receiveCommand();
 									TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
 									if(ResponseCommand.Response == R_OK){
 										SentDataBlockIDX++;
-										lastSavedIDX += SentDataIDX; //0	1000	2000		30000
+										lastSavedIDX += SentDataIDX + 5; //0	1000	2000		30000
 									}
 									
 									}

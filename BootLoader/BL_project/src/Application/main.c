@@ -41,17 +41,16 @@ extern const UART_Frame_Cfg_t App_UART_Config[APP_USARTs_NUM];
 u8 TrasnmitterBuffer[8] = {0};
 volatile u8 RXBuffer[8] = {0};
 u8 MessageID;
-u8 x=0;
+
+/* TODO : u16 better than u8 */
 u8 EraseCheckSum=0;
 u32 DataCheckSum=0;
 u8 CommandFlag =0;
 u8 Marker=1;
-u8 SectionNumber=0;
 u8 DataBytes[MAX_DATA_BLOCK];
 static long DataIterator=0;
 long LastSavedDataIterator=0;
 u8 FrameBytes=0;
-u8 VerifyIterator=0;
 u8 FirstTimeFlag=1;
 u8 startOfReceptionFlag=0;
 
@@ -87,8 +86,8 @@ int main(void)
 		case APP1MARKER:
 			/*existing app*/
 			FirstTimeFlag=1;
-			x=0;
 			SCB->VTOR = 0x00003000 << 9;
+
 
 			volatile uint32_t *app_code = (uint32_t *)AppEntryPoint;
 			volatile uint32_t app_sp = app_code[0];
@@ -97,9 +96,8 @@ int main(void)
 			break;
 		default:
 			/*wait to receive new application*/
-			if(FirstTimeFlag == 1 && x==0 )
+			if( FirstTimeFlag == 1 )
 			{
-				x=1;
 				FirstTimeFlag=0;
 				UART_ReceiveBuffer(RXBuffer , 1);
 			}
@@ -120,20 +118,22 @@ void newApp(void){
 	if (RXBuffer[0]== STARTOFFRAME && CommandFlag == 0){
 		UART_ReceiveBuffer( &RXBuffer[1] , 7);
 		CommandFlag =1;
-		startOfReceptionFlag=1;
+		//startOfReceptionFlag=1;
 	}else if (CommandFlag == 1){
 		CommandFlag =0;
 		switch(RXBuffer[1])
 		{
 		case ID_EraseCommand:
 			TProtocol_ReceiveFrame( RXBuffer, &EraseCommand, &MessageID);
+
+			/* TODO : change sectionCounts from u16 to u8 & CheckSum from u8 to u16 */
 			EraseCheckSum = ( (u8)EraseCommand.SectionsCount  ) + ((u8)EraseCommand.SectionOffset );
 			if(EraseCommand.CheckSum == EraseCheckSum )
 			{
 
-				while(SectionCount <EraseCommand.SectionsCount && ErrorCounter < MAXERRORCOUNT)
+				while(SectionCount < EraseCommand.SectionsCount && ErrorCounter < MAXERRORCOUNT)
 				{
-					Local_Error=Flash_ErassPage(MAINADDRESS+(EraseCommand.SectionOffset) +( PAGESIZE*SectionCount));
+					Local_Error = Flash_ErassPage( MAINADDRESS + (EraseCommand.SectionOffset) + ( PAGESIZE * SectionCount) );
 					if(Local_Error == OK)
 					{
 						SectionCount++;
@@ -153,8 +153,10 @@ void newApp(void){
 				{
 					ResponseCommand.Response=R_NOT_EraseFailure;
 				}
-				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
-				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
+				EraseCheckSum = 0;
+				/*TODO : check the MessageID send to the TP , ID is wrong its an EraseFrame ID instead of a ResponseFrame ID*/
+				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, &MessageID);
+				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYES);
 
 			}
 			else
@@ -162,6 +164,7 @@ void newApp(void){
 
 				ResponseCommand.Response=R_NOT_MismatchData;
 
+				/* TODO : take the  TProtcol_sendFrame & UART_SendBuffer from here and from above, and place it after this else*/
 				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
 				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
 			}
@@ -170,9 +173,9 @@ void newApp(void){
 		case ID_DataCommand:
 			TProtocol_ReceiveFrame( RXBuffer, &DataCommand, &MessageID);
 			FrameBytes=0;
-			while(FrameBytes<FRAME_DATA_BYTES)
+			while(FrameBytes < FRAME_DATA_BYTES)
 			{
-				DataBytes[DataIterator]=DataCommand.Data[FrameBytes];
+				DataBytes[DataIterator] = DataCommand.Data[FrameBytes];
 				DataCheckSum+=DataCommand.Data[FrameBytes];
 				DataIterator++;
 				FrameBytes++;
@@ -184,24 +187,21 @@ void newApp(void){
 			if(DataCheckSum == VerifyCommand.CheckSum)
 			{
 				ResponseCommand.Response=R_OK;
-				DataCheckSum=0;
+				DataCheckSum = 0;
 				NVIC_EnablePRIMASK();
-				Local_Error=Flash_ProgramWrite(MAINADDRESS+(EraseCommand.SectionOffset) +( PAGESIZE*DataBlock),DataBytes,PAGESIZE);
-				DataIterator=0;
+				Local_Error = Flash_ProgramWrite( MAINADDRESS + (EraseCommand.SectionOffset) + ( MAX_DATA_BLOCK * DataBlock), DataBytes, MAX_DATA_BLOCK);
+				DataIterator = 0;
 				DataBlock++;
 				if(DataBlock == EraseCommand.SectionsCount + 1 )
 				{
 					/*TODO*/
 					/*flash marker*/
-					Marker=APP1MARKER;
-					DataBlock=0;
-					VerifyIterator=0;
-					DataIterator=0;
-					FrameBytes=0;
-					SectionNumber=0;
-					DataCheckSum=0;
-					EraseCheckSum=0;
-					startOfReceptionFlag=0;
+					Marker = APP1MARKER;
+					DataBlock = 0;
+					FrameBytes = 0;
+					//DataCheckSum = 0;
+					//EraseCheckSum = 0;
+					//startOfReceptionFlag = 0;
 				}
 				NVIC_DisablePRIMASK();
 			}
@@ -210,15 +210,15 @@ void newApp(void){
 				DataIterator=0;
 				ResponseCommand.Response=R_NOT_MismatchData;
 			}
-			TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
-			UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
+			TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, &MessageID);
+			UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYES);
 			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 		}
 
 	}else{
 		//if(startOfReceptionFlag == 0){
-			UART_ReceiveBuffer(RXBuffer , 1);
+		UART_ReceiveBuffer(RXBuffer , 1);
 
 		//}
 	}

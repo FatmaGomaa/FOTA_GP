@@ -27,7 +27,7 @@ typedef struct{
 }ProtocolFrame_t;
 
 
-void TProtcol_sendFrame(void* Data, u8* RawTrasnmitterBuffer, u8 MessageId);
+void TProtcol_sendFrame(void* Data, u8* RawTrasnmitterBuffer, u8  MessageId);
 void TProtocol_ReceiveFrame( u8* RawReceiveBuffer,void* Data,  u8* MessageID);
 
 

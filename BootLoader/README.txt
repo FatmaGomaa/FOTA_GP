@@ -1,1 +1,0 @@
-The project is working but we can't debug a session with the marker section exists in linker script 

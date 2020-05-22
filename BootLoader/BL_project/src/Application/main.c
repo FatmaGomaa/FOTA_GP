@@ -22,7 +22,7 @@ static void start_app(uint32_t pc, uint32_t sp)
 
 //#define AppEntryPoint			 0x08003000
 
-#define APP1MARKER       0
+#define APP1MARKER       5
 #define STARTOFFRAME    'A'
 #define MAX_DATA_BLOCK  1000
 #define MAINADDRESS     0x08000000
@@ -41,7 +41,7 @@ extern const UART_Frame_Cfg_t App_UART_Config[APP_USARTs_NUM];
 u8 TrasnmitterBuffer[8] = {0};
 volatile u8 RXBuffer[8] = {0};
 u8 MessageID;
-u8 x;
+u8 x=0;
 u8 EraseCheckSum=0;
 u32 DataCheckSum=0;
 u8 CommandFlag =0;
@@ -49,20 +49,36 @@ u8 Marker=1;
 u8 SectionNumber=0;
 u8 DataBytes[MAX_DATA_BLOCK];
 static long DataIterator=0;
+long LastSavedDataIterator=0;
 u8 FrameBytes=0;
 u8 VerifyIterator=0;
 u8 FirstTimeFlag=1;
+u8 startOfReceptionFlag=0;
+
 int main(void)
 {
 
-
-	RCC_SetSYSClock(HSE_SW);
+	RCC_SetSYSClock(PLL_SW);
 
 	RCC_ControlPerihperal(APB2,RCC_APB2_CLOCK_UART1EN,ON);
 	RCC_ControlPerihperal(APB2,RCC_APB2_CLOCK_PORT_A,ON);
+	RCC_ControlPerihperal(APB2,RCC_APB2_CLOCK_PORT_C,ON);
 	UART_Init(&App_UART_Config[0]);
 	UART_setRecveiverCbf (newApp);
 	Flash_Unlock();
+
+	GPIO_t	LED={
+			.PORT = PORT_C,
+			.PIN  = PIN_13,
+			.MOOD = OUTPUT_GP_PUSH_PULL_10MHZ
+	};
+
+	GPIO_Config(&LED);
+	GPIO_writePin(LED.PORT,LED.PIN,LOW);
+	Delay_ms(1000);
+	GPIO_writePin(LED.PORT,LED.PIN,HIGH);
+
+
 
 	while(1)
 	{
@@ -71,6 +87,7 @@ int main(void)
 		case APP1MARKER:
 			/*existing app*/
 			FirstTimeFlag=1;
+			x=0;
 			SCB->VTOR = 0x00003000 << 9;
 
 			volatile uint32_t *app_code = (uint32_t *)AppEntryPoint;
@@ -80,8 +97,9 @@ int main(void)
 			break;
 		default:
 			/*wait to receive new application*/
-			if(FirstTimeFlag == 1)
+			if(FirstTimeFlag == 1 && x==0 )
 			{
+				x=1;
 				FirstTimeFlag=0;
 				UART_ReceiveBuffer(RXBuffer , 1);
 			}
@@ -102,6 +120,7 @@ void newApp(void){
 	if (RXBuffer[0]== STARTOFFRAME && CommandFlag == 0){
 		UART_ReceiveBuffer( &RXBuffer[1] , 7);
 		CommandFlag =1;
+		startOfReceptionFlag=1;
 	}else if (CommandFlag == 1){
 		CommandFlag =0;
 		switch(RXBuffer[1])
@@ -136,6 +155,7 @@ void newApp(void){
 				}
 				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
 				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
+
 			}
 			else
 			{
@@ -145,9 +165,9 @@ void newApp(void){
 				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
 				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
 			}
+			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 		case ID_DataCommand:
-
 			TProtocol_ReceiveFrame( RXBuffer, &DataCommand, &MessageID);
 			FrameBytes=0;
 			while(FrameBytes<FRAME_DATA_BYTES)
@@ -157,6 +177,7 @@ void newApp(void){
 				DataIterator++;
 				FrameBytes++;
 			}
+			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 		case ID_VerifyCommand:
 			TProtocol_ReceiveFrame( RXBuffer, &VerifyCommand, &MessageID);
@@ -172,7 +193,7 @@ void newApp(void){
 				{
 					/*TODO*/
 					/*flash marker*/
-					Marker=0;
+					Marker=APP1MARKER;
 					DataBlock=0;
 					VerifyIterator=0;
 					DataIterator=0;
@@ -180,6 +201,7 @@ void newApp(void){
 					SectionNumber=0;
 					DataCheckSum=0;
 					EraseCheckSum=0;
+					startOfReceptionFlag=0;
 				}
 				NVIC_DisablePRIMASK();
 			}
@@ -189,14 +211,18 @@ void newApp(void){
 			}
 			TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
 			UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
+			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 		}
 
 	}else{
-		UART_ReceiveBuffer(RXBuffer , 1);
+		//if(startOfReceptionFlag == 0){
+			UART_ReceiveBuffer(RXBuffer , 1);
+
+		//}
 	}
 
-	x++;
+
 }
 
 /*int main()

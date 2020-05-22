@@ -1,4 +1,4 @@
-Micro Controller Data frame Transport Protocol BootLoader documentation:
+# Micro Controller Data frame Transport Protocol BootLoader documentation:
 
 
 - adding the application marker at the last index in flash in the memory file
@@ -6,7 +6,8 @@ Micro Controller Data frame Transport Protocol BootLoader documentation:
 - error can't resolve std_types.h (no such file or directory) -> put in folder includes
 - error can't resolve gpio (no such file or directory) -> all the problems are solved by removing the GP/FOTA folder inlusions from (properties -> C/C++ build -> settings -> tool settings -> GNU ARM Cross C Compilers -> includes)
 
-**- Sending Sequence: 
+## Sending Sequence: 
+
 - PC sends an erase command with the sector numbers to be erased
 - RCC enable the UART1 and Port A
 - UART_ReceiveBuffer listens on UART to receive the data frame from the PC
@@ -15,7 +16,8 @@ Micro Controller Data frame Transport Protocol BootLoader documentation:
 - make a switch case to check on the marker if it has the address of the application the system will jump to it, if not it will go to the default case which listens till it gets the address of the application
 - a switch case on the ID_Command sent by the Sender
 
-***-EraseCommand
+## EraseCommand
+
 - in ID_EraseCommand we receive by tprotocol_ReceiveFrame the buffer and the erase command and the message id to check that the mcu received the command correctly
 - then we calculate checksum of that frame to check that we received the frame bytes correctly
 - we enter a while loop to erase the amount of sections stated in EraseCommand.SectionCount and also check on the ErrorCounter if its less than MAXERRORCOUNT
@@ -27,12 +29,14 @@ Micro Controller Data frame Transport Protocol BootLoader documentation:
 - if the Checksum of the EraseFrame is not equal to the EraseCommand.Checksum then set the response in responseCommand = R_NOT_ 
 - Send the ResponseFrame to the TProtocol_SendFrame to fill the TransmitterBuffer and send it through UART to the Sender
 
-***-DataCommand
+## DataCommand
+
 - in ID_DataCommand we receive by tprotocol_ReceiveFrame the buffer and the DataCommand and the message id to check that the mcu received the command correctly
 - Receive the data from the DataCommand.Data[FrameBytes] in the DataBytes[DataIterator]
 - Calculate the Checksum for the Data send in the DataCommand.Data[FrameBytes]
 
-***-VerifyCommand
+## VerifyCommand
+
 - in ID_VerifyCommand we receive by tprotocol_ReceiveFrame the buffer and the VerifyCommand and the message id to check that the mcu received the command correctly
 - check if the DataCheckSum is equal VerifyCommand.CheckSum then set the response in the responseCommand = R_OK
 - in case (R_OK) we Enable PRIMASK to stop the interrupts (make a critical section)

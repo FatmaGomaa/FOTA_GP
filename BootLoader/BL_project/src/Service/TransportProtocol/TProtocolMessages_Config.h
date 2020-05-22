@@ -24,7 +24,8 @@ typedef enum{
 	R_OK,
 	R_NOT_SectionOffestViolation,
 	R_NOT_SectionsOutOfScope,
-	R_NOT_MismatchData
+	R_NOT_MismatchData,
+	R_NOT_EraseFailure
 }Response_t;
 
 typedef struct{

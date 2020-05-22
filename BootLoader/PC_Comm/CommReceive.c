@@ -23,7 +23,7 @@
 	#define DATA_BLOCK_SIZE					1000
 	
 	HANDLE hComm;                          // Handle to the Serial port
-	char  ComPortName[] = "COM4";  // Name of the Serial port(May Change) to be opened,
+	char  ComPortName[] = "COM3";  // Name of the Serial port(May Change) to be opened,
 	BOOL  Status;                          // Status of the various operations 
 	DWORD dwEventMask;                     // Event mask to trigger
 	char  TempChar;                        // Temperory Character
@@ -103,6 +103,8 @@
 							EraseCommand.CheckSum = ( (uint8_t)EraseCommand.SectionsCount  ) + (  (uint8_t)EraseCommand.SectionOffset );
 							TProtcol_sendFrame((void*)&EraseCommand, CommandToSend, ID_EraseCommand );
 							sendCommand(CommandToSend);
+							receiveCommand();
+							TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
 							closePort();
 						break;
 						case 2:
@@ -160,7 +162,7 @@
 										//printf("\n");
 									}
 								
-								openPort();
+								//openPort();
 								while ( (SentDataBlockIDX< EraseCommand.SectionsCount) ){
 									
 									/*send 1000 Byte*/
@@ -170,16 +172,20 @@
 										TProtcol_sendFrame(&ProgramDataToSend[lastSavedIDX + SentDataIDX], CommandToSend, ID_DataCommand);
 										
 										CheckSum += (ProgramDataToSend[lastSavedIDX + SentDataIDX] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 1] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 2] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 3] + ProgramDataToSend[lastSavedIDX + SentDataIDX + 4 ]);
-										
+										openPort();
 										sendCommand(CommandToSend);
+										closePort();
 									}
 									/*verify with checksome*/
 									VerifyCommand.CheckSum = CheckSum;
 									TProtcol_sendFrame( &VerifyCommand, CommandToSend, ID_VerifyCommand);
+									openPort();
 									sendCommand(CommandToSend);
-									
+									closePort();
 									/*wait for response*/
+									openPort();
 									receiveCommand();
+									closePort();
 									TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
 									if(ResponseCommand.Response == R_OK){
 										SentDataBlockIDX++;
@@ -189,7 +195,7 @@
 									}
 									/*repeat till end*/
 								}
-								closePort();
+								//closePort();
 								
 						break;
 						
@@ -271,6 +277,15 @@ void sendCommand(char * command){
 		for (z=0;z<100000000;z++){
 			x++;
 		}
+		x=0;
+		for (z=0;z<100000000;z++){
+			x++;
+		}
+		x=0;
+		for (z=0;z<100000000;z++){
+			x++;
+		}
+		
 		
 		FlushFileBuffers(hComm);
 }

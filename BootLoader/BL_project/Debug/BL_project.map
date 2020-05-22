@@ -47,8 +47,7 @@ errno               0x4               ./system/src/newlib/_syscalls.o
 ResponseCommand     0x8               ./src/Application/main.o
 VerifyCommand       0x8               ./src/Application/main.o
 EraseCommand        0x6               ./src/Application/main.o
-EraseCheckSum       0x4               ./src/Application/main.o
-DataBytes           0x2ee             ./src/Application/main.o
+DataBytes           0x3e8             ./src/Application/main.o
 
 Discarded input sections
 
@@ -1307,8 +1306,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/Service/TransportProtocol/TProtocol.o
  .data          0x00000000        0x0 ./src/Service/TransportProtocol/TProtocol.o
  .bss           0x00000000        0x0 ./src/Service/TransportProtocol/TProtocol.o
- .text.TProtcol_sendFrame
-                0x00000000       0x24 ./src/Service/TransportProtocol/TProtocol.o
  .debug_macro   0x00000000      0x88c ./src/Service/TransportProtocol/TProtocol.o
  .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
  .group         0x00000000        0x8 ./src/Service/TransportProtocol/TProtocolMessages_Config.o
@@ -1335,8 +1332,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/MCAL/USART/dUART.o
  .data          0x00000000        0x0 ./src/MCAL/USART/dUART.o
  .bss           0x00000000        0x0 ./src/MCAL/USART/dUART.o
- .text.UART_Send
-                0x00000000       0x5c ./src/MCAL/USART/dUART.o
  .text.UART_setTxCbf
                 0x00000000        0xc ./src/MCAL/USART/dUART.o
  .debug_macro   0x00000000      0x88c ./src/MCAL/USART/dUART.o
@@ -1388,10 +1383,6 @@ Discarded input sections
                 0x00000000       0x10 ./src/MCAL/NVIC/DNVIC_program.o
  .text.DNVIC_GetPriority
                 0x00000000        0x4 ./src/MCAL/NVIC/DNVIC_program.o
- .text.NVIC_EnablePRIMASK
-                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
- .text.NVIC_DisablePRIMASK
-                0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
  .text.NVIC_EnableFAULTMASK
                 0x00000000        0xc ./src/MCAL/NVIC/DNVIC_program.o
  .text.NVIC_DisableFAULTMASK
@@ -1421,31 +1412,12 @@ Discarded input sections
  .bss           0x00000000        0x0 ./src/MCAL/Flash/dFlash.o
  .text.Flash_WriteWord
                 0x00000000       0x54 ./src/MCAL/Flash/dFlash.o
- .text.Flash_ProgramWrite
-                0x00000000       0x84 ./src/MCAL/Flash/dFlash.o
  .text.Flash_Lock
                 0x00000000       0x20 ./src/MCAL/Flash/dFlash.o
- .text.Flash_Unlock
-                0x00000000       0x28 ./src/MCAL/Flash/dFlash.o
- .text.Flash_ErassPage
-                0x00000000       0x7c ./src/MCAL/Flash/dFlash.o
  .text.Flash_EraseMass
                 0x00000000       0x2c ./src/MCAL/Flash/dFlash.o
- .debug_info    0x00000000      0x2b1 ./src/MCAL/Flash/dFlash.o
- .debug_abbrev  0x00000000      0x11b ./src/MCAL/Flash/dFlash.o
- .debug_loc     0x00000000      0x11d ./src/MCAL/Flash/dFlash.o
- .debug_aranges
-                0x00000000       0x48 ./src/MCAL/Flash/dFlash.o
- .debug_ranges  0x00000000       0x38 ./src/MCAL/Flash/dFlash.o
- .debug_macro   0x00000000       0xcc ./src/MCAL/Flash/dFlash.o
  .debug_macro   0x00000000      0x88c ./src/MCAL/Flash/dFlash.o
  .debug_macro   0x00000000       0x1c ./src/MCAL/Flash/dFlash.o
- .debug_line    0x00000000      0x158 ./src/MCAL/Flash/dFlash.o
- .debug_str     0x00000000     0x2aa6 ./src/MCAL/Flash/dFlash.o
- .comment       0x00000000       0x6f ./src/MCAL/Flash/dFlash.o
- .debug_frame   0x00000000       0x90 ./src/MCAL/Flash/dFlash.o
- .ARM.attributes
-                0x00000000       0x33 ./src/MCAL/Flash/dFlash.o
  .group         0x00000000        0x8 ./src/Libraries/ARM_Delay/DELAY.o
  .group         0x00000000        0x8 ./src/Libraries/ARM_Delay/DELAY.o
  .text          0x00000000        0x0 ./src/Libraries/ARM_Delay/DELAY.o
@@ -1493,8 +1465,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/ECUAL/USART_Handler/hUSART.o
  .data          0x00000000        0x0 ./src/ECUAL/USART_Handler/hUSART.o
  .bss           0x00000000        0x0 ./src/ECUAL/USART_Handler/hUSART.o
- .text.UART_SendBuffer
-                0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
  .text.UART_setTransmitterCbf
                 0x00000000        0x8 ./src/ECUAL/USART_Handler/hUSART.o
  .debug_macro   0x00000000      0x88c ./src/ECUAL/USART_Handler/hUSART.o
@@ -1571,12 +1541,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/Application/main.o
  .data          0x00000000        0x0 ./src/Application/main.o
  .bss           0x00000000        0x0 ./src/Application/main.o
- .bss.AppEntryPoint
-                0x00000000        0x4 ./src/Application/main.o
- .bss.SectionNumber
-                0x00000000        0x1 ./src/Application/main.o
- .bss.TrasnmitterBuffer
-                0x00000000        0xf ./src/Application/main.o
  .debug_macro   0x00000000      0x88c ./src/Application/main.o
  .debug_macro   0x00000000       0x1c ./src/Application/main.o
  .debug_macro   0x00000000       0x7c ./src/Application/main.o
@@ -1760,7 +1724,7 @@ END GROUP
                 0x20004c00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                PROVIDE (_Main_Stack_Limit, __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
-                0x200004cc                PROVIDE (_Heap_Begin, _end_noinit)
+                0x200005cc                PROVIDE (_Heap_Begin, _end_noinit)
                 0x20004c00                PROVIDE (_Heap_Limit, (__stack - __Main_Stack_Size))
 
 .isr_vector     0x08000000      0x354
@@ -1881,16 +1845,16 @@ END GROUP
 
 .inits          0x08000354       0x28
                 0x08000354                __data_regions_array_start = .
-                0x08000354        0x4 LONG 0x8001644 LOADADDR (.data)
+                0x08000354        0x4 LONG 0x8001960 LOADADDR (.data)
                 0x08000358        0x4 LONG 0x20000000 ADDR (.data)
-                0x0800035c        0x4 LONG 0x200000d4 (ADDR (.data) + SIZEOF (.data))
-                0x08000360        0x4 LONG 0x8001644 LOADADDR (.data_CCMRAM)
+                0x0800035c        0x4 LONG 0x200000d8 (ADDR (.data) + SIZEOF (.data))
+                0x08000360        0x4 LONG 0x8001960 LOADADDR (.data_CCMRAM)
                 0x08000364        0x4 LONG 0x0 ADDR (.data_CCMRAM)
                 0x08000368        0x4 LONG 0x0 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x0800036c                __data_regions_array_end = .
                 0x0800036c                __bss_regions_array_start = .
-                0x0800036c        0x4 LONG 0x200000d4 ADDR (.bss)
-                0x08000370        0x4 LONG 0x200004cc (ADDR (.bss) + SIZEOF (.bss))
+                0x0800036c        0x4 LONG 0x200000d8 ADDR (.bss)
+                0x08000370        0x4 LONG 0x200005cc (ADDR (.bss) + SIZEOF (.bss))
                 0x08000374        0x4 LONG 0x0 ADDR (.bss_CCMRAM)
                 0x08000378        0x4 LONG 0x0 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x0800037c                __bss_regions_array_end = .
@@ -1916,7 +1880,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x0800037c     0x12c7
+.text           0x0800037c     0x15e3
  *(.text .text.*)
  .text._exit    0x0800037c        0x4 ./system/src/newlib/_exit.o
                 0x0800037c                _exit
@@ -1955,151 +1919,177 @@ END GROUP
  .text.SystemCoreClockUpdate
                 0x080006bc       0x94 ./system/src/cmsis/system_stm32f10x.o
                 0x080006bc                SystemCoreClockUpdate
+ .text.TProtcol_sendFrame
+                0x08000750       0x24 ./src/Service/TransportProtocol/TProtocol.o
+                0x08000750                TProtcol_sendFrame
  .text.TProtocol_ReceiveFrame
-                0x08000750       0x20 ./src/Service/TransportProtocol/TProtocol.o
-                0x08000750                TProtocol_ReceiveFrame
+                0x08000774       0x20 ./src/Service/TransportProtocol/TProtocol.o
+                0x08000774                TProtocol_ReceiveFrame
  .text.USART1_IRQHandler
-                0x08000770       0xa0 ./src/MCAL/USART/dUART.o
-                0x08000770                USART1_IRQHandler
+                0x08000794       0xa0 ./src/MCAL/USART/dUART.o
+                0x08000794                USART1_IRQHandler
+ .text.UART_Send
+                0x08000834       0x5c ./src/MCAL/USART/dUART.o
+                0x08000834                UART_Send
  .text.UART_Reveive
-                0x08000810       0x48 ./src/MCAL/USART/dUART.o
-                0x08000810                UART_Reveive
+                0x08000890       0x48 ./src/MCAL/USART/dUART.o
+                0x08000890                UART_Reveive
  .text.UART_Configure
-                0x08000858       0x38 ./src/MCAL/USART/dUART.o
-                0x08000858                UART_Configure
+                0x080008d8       0x38 ./src/MCAL/USART/dUART.o
+                0x080008d8                UART_Configure
  .text.UART_setRxCbf
-                0x08000890        0xc ./src/MCAL/USART/dUART.o
-                0x08000890                UART_setRxCbf
+                0x08000910        0xc ./src/MCAL/USART/dUART.o
+                0x08000910                UART_setRxCbf
  .text.RCC_SetSYSClock
-                0x0800089c       0x24 ./src/MCAL/RCC/dRCC.o
-                0x0800089c                RCC_SetSYSClock
+                0x0800091c       0x24 ./src/MCAL/RCC/dRCC.o
+                0x0800091c                RCC_SetSYSClock
  .text.RCC_ControlPerihperal
-                0x080008c0       0x70 ./src/MCAL/RCC/dRCC.o
-                0x080008c0                RCC_ControlPerihperal
+                0x08000940       0x70 ./src/MCAL/RCC/dRCC.o
+                0x08000940                RCC_ControlPerihperal
  .text.DNVIC_EnableIRQ
-                0x08000930       0x1c ./src/MCAL/NVIC/DNVIC_program.o
-                0x08000930                DNVIC_EnableIRQ
+                0x080009b0       0x1c ./src/MCAL/NVIC/DNVIC_program.o
+                0x080009b0                DNVIC_EnableIRQ
  .text.DNVIC_ClearPending
-                0x0800094c       0x18 ./src/MCAL/NVIC/DNVIC_program.o
-                0x0800094c                DNVIC_ClearPending
+                0x080009cc       0x18 ./src/MCAL/NVIC/DNVIC_program.o
+                0x080009cc                DNVIC_ClearPending
+ .text.NVIC_EnablePRIMASK
+                0x080009e4        0xc ./src/MCAL/NVIC/DNVIC_program.o
+                0x080009e4                NVIC_EnablePRIMASK
+ .text.NVIC_DisablePRIMASK
+                0x080009f0        0xc ./src/MCAL/NVIC/DNVIC_program.o
+                0x080009f0                NVIC_DisablePRIMASK
  .text.GPIO_Config
-                0x08000964       0x94 ./src/MCAL/GPIO/dGPIO.o
-                0x08000964                GPIO_Config
+                0x080009fc       0x94 ./src/MCAL/GPIO/dGPIO.o
+                0x080009fc                GPIO_Config
  .text.GPIO_writePin
-                0x080009f8       0x10 ./src/MCAL/GPIO/dGPIO.o
-                0x080009f8                GPIO_writePin
+                0x08000a90       0x10 ./src/MCAL/GPIO/dGPIO.o
+                0x08000a90                GPIO_writePin
+ .text.Flash_ProgramWrite
+                0x08000aa0       0x84 ./src/MCAL/Flash/dFlash.o
+                0x08000aa0                Flash_ProgramWrite
+ .text.Flash_Unlock
+                0x08000b24       0x28 ./src/MCAL/Flash/dFlash.o
+                0x08000b24                Flash_Unlock
+ .text.Flash_ErassPage
+                0x08000b4c       0x7c ./src/MCAL/Flash/dFlash.o
+                0x08000b4c                Flash_ErassPage
  .text.UART_Init
-                0x08000a08       0xb4 ./src/ECUAL/USART_Handler/hUSART.o
-                0x08000a08                UART_Init
+                0x08000bc8       0xb4 ./src/ECUAL/USART_Handler/hUSART.o
+                0x08000bc8                UART_Init
+ .text.UART_SendBuffer
+                0x08000c7c        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+                0x08000c7c                UART_SendBuffer
  .text.UART_ReceiveBuffer
-                0x08000abc        0x8 ./src/ECUAL/USART_Handler/hUSART.o
-                0x08000abc                UART_ReceiveBuffer
+                0x08000c84        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+                0x08000c84                UART_ReceiveBuffer
  .text.UART_setRecveiverCbf
-                0x08000ac4        0x8 ./src/ECUAL/USART_Handler/hUSART.o
-                0x08000ac4                UART_setRecveiverCbf
- .text.newApp   0x08000acc      0x108 ./src/Application/main.o
-                0x08000acc                newApp
- .text.main     0x08000bd4       0x4c ./src/Application/main.o
-                0x08000bd4                main
- .text.__errno  0x08000c20        0xc k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
-                0x08000c20                __errno
+                0x08000c8c        0x8 ./src/ECUAL/USART_Handler/hUSART.o
+                0x08000c8c                UART_setRecveiverCbf
+ .text.start_app
+                0x08000c94        0x8 ./src/Application/main.o
+ .text.newApp   0x08000c9c      0x210 ./src/Application/main.o
+                0x08000c9c                newApp
+ .text.main     0x08000eac       0x90 ./src/Application/main.o
+                0x08000eac                main
+ .text.__errno  0x08000f3c        0xc k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x08000f3c                __errno
  .text._vsnprintf_r
-                0x08000c2c       0x56 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08000c2c                _vsniprintf_r
-                0x08000c2c                _vsnprintf_r
- *fill*         0x08000c82        0x2 
+                0x08000f48       0x56 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x08000f48                _vsniprintf_r
+                0x08000f48                _vsnprintf_r
+ *fill*         0x08000f9e        0x2 
  .text.vsnprintf
-                0x08000c84       0x1c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
-                0x08000c84                vsniprintf
-                0x08000c84                vsnprintf
+                0x08000fa0       0x1c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x08000fa0                vsniprintf
+                0x08000fa0                vsnprintf
  .text.__ssputs_r
-                0x08000ca0       0xb2 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08000ca0                __ssputs_r
- *fill*         0x08000d52        0x2 
+                0x08000fbc       0xb2 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08000fbc                __ssputs_r
+ *fill*         0x0800106e        0x2 
  .text._svfprintf_r
-                0x08000d54      0x1e8 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x08000d54                _svfiprintf_r
-                0x08000d54                _svfprintf_r
+                0x08001070      0x1e8 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x08001070                _svfiprintf_r
+                0x08001070                _svfprintf_r
  .text._printf_common
-                0x08000f3c       0xec k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08000f3c                _printf_common
+                0x08001258       0xec k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08001258                _printf_common
  .text._printf_i
-                0x08001028      0x24c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x08001028                _printf_i
- .text.memchr   0x08001274       0x1c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
-                0x08001274                memchr
- .text.memcpy   0x08001290       0x16 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x08001290                memcpy
- .text.memmove  0x080012a6       0x36 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
-                0x080012a6                memmove
- .text._free_r  0x080012dc       0x98 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
-                0x080012dc                _free_r
+                0x08001344      0x24c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x08001344                _printf_i
+ .text.memchr   0x08001590       0x1c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x08001590                memchr
+ .text.memcpy   0x080015ac       0x16 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x080015ac                memcpy
+ .text.memmove  0x080015c2       0x36 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x080015c2                memmove
+ .text._free_r  0x080015f8       0x98 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x080015f8                _free_r
  .text._malloc_r
-                0x08001374       0xbc k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x08001374                _malloc_r
+                0x08001690       0xbc k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x08001690                _malloc_r
  .text._realloc_r
-                0x08001430       0x4c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
-                0x08001430                _realloc_r
- .text._sbrk_r  0x0800147c       0x20 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
-                0x0800147c                _sbrk_r
+                0x0800174c       0x4c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x0800174c                _realloc_r
+ .text._sbrk_r  0x08001798       0x20 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+                0x08001798                _sbrk_r
  .text.__malloc_lock
-                0x0800149c        0x2 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                0x0800149c                __malloc_lock
+                0x080017b8        0x2 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x080017b8                __malloc_lock
  .text.__malloc_unlock
-                0x0800149e        0x2 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
-                0x0800149e                __malloc_unlock
+                0x080017ba        0x2 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x080017ba                __malloc_unlock
  .text._malloc_usable_size_r
-                0x080014a0       0x14 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
-                0x080014a0                _malloc_usable_size_r
+                0x080017bc       0x14 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x080017bc                _malloc_usable_size_r
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.str1.4
-                0x080014b4      0x148 ./system/src/cortexm/exception_handlers.o
+                0x080017d0      0x148 ./system/src/cortexm/exception_handlers.o
                                 0x146 (size before relaxing)
  .rodata.App_UART_Config
-                0x080015fc       0x14 ./src/ECUAL/USART_Handler/hUART_Config.o
-                0x080015fc                App_UART_Config
+                0x08001918       0x14 ./src/ECUAL/USART_Handler/hUART_Config.o
+                0x08001918                App_UART_Config
  .rodata.str1.1
-                0x08001610       0x11 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x0800192c       0x11 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata.str1.1
-                0x08001621       0x22 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0800193d       0x22 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x08001643        0x0 linker stubs
+ .glue_7        0x0800195f        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08001643        0x0 linker stubs
+ .glue_7t       0x0800195f        0x0 linker stubs
 
-.vfp11_veneer   0x08001644        0x0
- .vfp11_veneer  0x08001644        0x0 linker stubs
+.vfp11_veneer   0x08001960        0x0
+ .vfp11_veneer  0x08001960        0x0 linker stubs
 
-.v4_bx          0x08001644        0x0
- .v4_bx         0x08001644        0x0 linker stubs
+.v4_bx          0x08001960        0x0
+ .v4_bx         0x08001960        0x0 linker stubs
 
-.iplt           0x08001644        0x0
- .iplt          0x08001644        0x0 ./system/src/stm32f1-stdperiph/misc.o
+.iplt           0x08001960        0x0
+ .iplt          0x08001960        0x0 ./system/src/stm32f1-stdperiph/misc.o
 
-.rel.dyn        0x08001644        0x0
- .rel.iplt      0x08001644        0x0 ./system/src/stm32f1-stdperiph/misc.o
+.rel.dyn        0x08001960        0x0
+ .rel.iplt      0x08001960        0x0 ./system/src/stm32f1-stdperiph/misc.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08001644                . = ALIGN (0x4)
-                0x08001644                __exidx_start = .
+                0x08001960                . = ALIGN (0x4)
+                0x08001960                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08001644                __exidx_end = .
-                0x08001644                . = ALIGN (0x4)
-                0x08001644                _etext = .
-                0x08001644                __etext = .
+                0x08001960                __exidx_end = .
+                0x08001960                . = ALIGN (0x4)
+                0x08001960                _etext = .
+                0x08001960                __etext = .
 
-.data_CCMRAM    0x00000000        0x0 load address 0x08001644
+.data_CCMRAM    0x00000000        0x0 load address 0x08001960
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x00000000                . = ALIGN (0x4)
-                0x08001644                _sidata = LOADADDR (.data)
+                0x08001960                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0xd4 load address 0x08001644
+.data           0x20000000       0xd8 load address 0x08001960
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -2120,104 +2110,118 @@ END GROUP
  .data.UART_GPIO_RX_Map
                 0x20000044       0x24 ./src/ECUAL/USART_Handler/hUART_Config.o
                 0x20000044                UART_GPIO_RX_Map
- .data.Marker   0x20000068        0x1 ./src/Application/main.o
-                0x20000068                Marker
- *fill*         0x20000069        0x3 ff
+ .data.AppEntryPoint
+                0x20000068        0x4 ./src/Application/main.o
+                0x20000068                AppEntryPoint
+ .data.Marker   0x2000006c        0x1 ./src/Application/main.o
+                0x2000006c                Marker
+ .data.FirstTimeFlag
+                0x2000006d        0x1 ./src/Application/main.o
+                0x2000006d                FirstTimeFlag
+ *fill*         0x2000006e        0x2 ff
  .data.impure_data
-                0x2000006c       0x60 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x20000070       0x60 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .data._impure_ptr
-                0x200000cc        0x4 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                0x200000cc                _impure_ptr
+                0x200000d0        0x4 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x200000d0                _impure_ptr
  *(.data_end .data_end.*)
- .data_end      0x200000d0        0x4 ./system/src/newlib/_startup.o
-                0x200000d4                . = ALIGN (0x4)
-                0x200000d4                _edata = .
-                0x200000d4                __data_end__ = .
+ .data_end      0x200000d4        0x4 ./system/src/newlib/_startup.o
+                0x200000d8                . = ALIGN (0x4)
+                0x200000d8                _edata = .
+                0x200000d8                __data_end__ = .
 
-.igot.plt       0x200000d4        0x0 load address 0x08001718
- .igot.plt      0x200000d4        0x0 ./system/src/stm32f1-stdperiph/misc.o
+.igot.plt       0x200000d8        0x0 load address 0x08001a38
+ .igot.plt      0x200000d8        0x0 ./system/src/stm32f1-stdperiph/misc.o
 
 .bss_CCMRAM     0x00000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x200000d4      0x3f8
-                0x200000d4                __bss_start__ = .
-                0x200000d4                _sbss = .
+.bss            0x200000d8      0x4f4
+                0x200000d8                __bss_start__ = .
+                0x200000d8                _sbss = .
  *(.bss_begin .bss_begin.*)
- .bss_begin     0x200000d4        0x4 ./system/src/newlib/_startup.o
+ .bss_begin     0x200000d8        0x4 ./system/src/newlib/_startup.o
  *(.bss .bss.*)
  .bss.current_heap_end.3974
-                0x200000d8        0x4 ./system/src/newlib/_sbrk.o
+                0x200000dc        0x4 ./system/src/newlib/_sbrk.o
  .bss.name.4289
-                0x200000dc        0x1 ./system/src/newlib/_syscalls.o
- *fill*         0x200000dd        0x3 
- .bss.buf.5179  0x200000e0       0x80 ./system/src/diag/Trace.o
+                0x200000e0        0x1 ./system/src/newlib/_syscalls.o
+ *fill*         0x200000e1        0x3 
+ .bss.buf.5179  0x200000e4       0x80 ./system/src/diag/Trace.o
  .bss.AppRxNotify
-                0x20000160        0x4 ./src/MCAL/USART/dUART.o
- .bss.AppTxNotify
                 0x20000164        0x4 ./src/MCAL/USART/dUART.o
- .bss.RxBuffer  0x20000168       0x10 ./src/MCAL/USART/dUART.o
- .bss.TxBuffer  0x20000178       0x10 ./src/MCAL/USART/dUART.o
- .bss.CommandFlag
-                0x20000188        0x1 ./src/Application/main.o
-                0x20000188                CommandFlag
- *fill*         0x20000189        0x3 
+ .bss.AppTxNotify
+                0x20000168        0x4 ./src/MCAL/USART/dUART.o
+ .bss.RxBuffer  0x2000016c       0x10 ./src/MCAL/USART/dUART.o
+ .bss.TxBuffer  0x2000017c       0x10 ./src/MCAL/USART/dUART.o
  .bss.DataCheckSum
                 0x2000018c        0x4 ./src/Application/main.o
                 0x2000018c                DataCheckSum
- .bss.FrameBytes
+ .bss.EraseCheckSum
                 0x20000190        0x1 ./src/Application/main.o
-                0x20000190                FrameBytes
- *fill*         0x20000191        0x3 
- .bss.RXBuffer  0x20000194        0x8 ./src/Application/main.o
-                0x20000194                RXBuffer
- .bss.VerifyIterator
+                0x20000190                EraseCheckSum
+ .bss.SectionNumber
+                0x20000191        0x1 ./src/Application/main.o
+                0x20000191                SectionNumber
+ .bss.DataBlock.6526
+                0x20000192        0x1 ./src/Application/main.o
+ .bss.CommandFlag
+                0x20000193        0x1 ./src/Application/main.o
+                0x20000193                CommandFlag
+ .bss.TrasnmitterBuffer
+                0x20000194        0x8 ./src/Application/main.o
+                0x20000194                TrasnmitterBuffer
+ .bss.FrameBytes
                 0x2000019c        0x1 ./src/Application/main.o
-                0x2000019c                VerifyIterator
+                0x2000019c                FrameBytes
  *fill*         0x2000019d        0x3 
+ .bss.RXBuffer  0x200001a0        0x8 ./src/Application/main.o
+                0x200001a0                RXBuffer
+ .bss.VerifyIterator
+                0x200001a8        0x1 ./src/Application/main.o
+                0x200001a8                VerifyIterator
+ *fill*         0x200001a9        0x3 
  .bss.DataIterator
-                0x200001a0        0x4 ./src/Application/main.o
+                0x200001ac        0x4 ./src/Application/main.o
  .bss.__malloc_sbrk_start
-                0x200001a4        0x4 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x200001a4                __malloc_sbrk_start
+                0x200001b0        0x4 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x200001b0                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x200001a8        0x4 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x200001a8                __malloc_free_list
+                0x200001b4        0x4 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x200001b4                __malloc_free_list
  *(COMMON)
- COMMON         0x200001ac        0x4 ./system/src/newlib/_syscalls.o
-                0x200001ac                errno
- COMMON         0x200001b0      0x316 ./src/Application/main.o
-                0x200001b0                MessageID
-                0x200001b4                DataCommand
-                0x200001b9                x
-                0x200001bc                ResponseCommand
-                0x200001c4                VerifyCommand
-                0x200001cc                EraseCommand
-                0x200001d4                EraseCheckSum
-                0x200001d8                DataBytes
+ COMMON         0x200001b8        0x4 ./system/src/newlib/_syscalls.o
+                0x200001b8                errno
+ COMMON         0x200001bc      0x40c ./src/Application/main.o
+                0x200001bc                MessageID
+                0x200001c0                DataCommand
+                0x200001c5                x
+                0x200001c8                ResponseCommand
+                0x200001d0                VerifyCommand
+                0x200001d8                EraseCommand
+                0x200001e0                DataBytes
  *(.bss_end .bss_end.*)
- *fill*         0x200004c6        0x2 
- .bss_end       0x200004c8        0x4 ./system/src/newlib/_startup.o
-                0x200004cc                . = ALIGN (0x4)
-                0x200004cc                __bss_end__ = .
-                0x200004cc                _ebss = .
+ .bss_end       0x200005c8        0x4 ./system/src/newlib/_startup.o
+                0x200005cc                . = ALIGN (0x4)
+                0x200005cc                __bss_end__ = .
+                0x200005cc                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x200004cc        0x0
-                0x200004cc                _noinit = .
+.noinit         0x200005cc        0x0
+                0x200005cc                _noinit = .
  *(.noinit .noinit.*)
-                0x200004cc                . = ALIGN (0x4)
-                0x200004cc                _end_noinit = .
+                0x200005cc                . = ALIGN (0x4)
+                0x200005cc                _end_noinit = .
                 [!provide]                PROVIDE (end, _end_noinit)
                 [!provide]                PROVIDE (_end, _end_noinit)
                 [!provide]                PROVIDE (__end, _end_noinit)
                 [!provide]                PROVIDE (__end__, _end_noinit)
 
-._check_stack   0x200004cc      0x100
-                0x200005cc                . = (. + _Minimum_Stack_Size)
- *fill*         0x200004cc      0x100 
+._check_stack   0x200005cc      0x100
+                0x200006cc                . = (. + _Minimum_Stack_Size)
+ *fill*         0x200005cc      0x100 
 
 .b1text
  *(.b1text)
@@ -2280,6 +2284,7 @@ END GROUP
  .comment       0x0000006e       0x6f ./src/MCAL/RCC/dRCC.o
  .comment       0x0000006e       0x6f ./src/MCAL/NVIC/DNVIC_program.o
  .comment       0x0000006e       0x6f ./src/MCAL/GPIO/dGPIO.o
+ .comment       0x0000006e       0x6f ./src/MCAL/Flash/dFlash.o
  .comment       0x0000006e       0x6f ./src/ECUAL/USART_Handler/hUART_Config.o
  .comment       0x0000006e       0x6f ./src/ECUAL/USART_Handler/hUSART.o
  .comment       0x0000006e       0x6f ./src/Application/main.o
@@ -2317,39 +2322,41 @@ END GROUP
  .ARM.attributes
                 0x000002ca       0x33 ./src/MCAL/GPIO/dGPIO.o
  .ARM.attributes
-                0x000002fd       0x33 ./src/ECUAL/USART_Handler/hUART_Config.o
+                0x000002fd       0x33 ./src/MCAL/Flash/dFlash.o
  .ARM.attributes
-                0x00000330       0x33 ./src/ECUAL/USART_Handler/hUSART.o
+                0x00000330       0x33 ./src/ECUAL/USART_Handler/hUART_Config.o
  .ARM.attributes
-                0x00000363       0x33 ./src/Application/main.o
+                0x00000363       0x33 ./src/ECUAL/USART_Handler/hUSART.o
  .ARM.attributes
-                0x00000396       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x00000396       0x33 ./src/Application/main.o
  .ARM.attributes
-                0x000003c3       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x000003c9       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x000003f0       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+                0x000003f6       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000041d       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00000423       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
  .ARM.attributes
-                0x0000044a       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000450       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x00000477       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x0000047d       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x000004a4       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x000004aa       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
  .ARM.attributes
-                0x000004d1       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+                0x000004d7       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x000004fe       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+                0x00000504       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x0000052b       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x00000531       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x00000558       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x0000055e       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x00000585       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+                0x0000058b       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x000005b2       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+                0x000005b8       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x000005df       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x000005e5       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x00000612       0x2d k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
 .debug
  *(.debug)
@@ -2363,7 +2370,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x458
+.debug_aranges  0x00000000      0x4a8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ./system/src/newlib/_exit.o
@@ -2396,16 +2403,18 @@ END GROUP
  .debug_aranges
                 0x000003a0       0x38 ./src/MCAL/GPIO/dGPIO.o
  .debug_aranges
-                0x000003d8       0x18 ./src/ECUAL/USART_Handler/hUART_Config.o
+                0x000003d8       0x48 ./src/MCAL/Flash/dFlash.o
  .debug_aranges
-                0x000003f0       0x40 ./src/ECUAL/USART_Handler/hUSART.o
+                0x00000420       0x18 ./src/ECUAL/USART_Handler/hUART_Config.o
  .debug_aranges
-                0x00000430       0x28 ./src/Application/main.o
+                0x00000438       0x40 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_aranges
+                0x00000478       0x30 ./src/Application/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3aba
+.debug_info     0x00000000     0x4186
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xef ./system/src/newlib/_exit.o
  .debug_info    0x000000ef      0x11f ./system/src/newlib/_sbrk.o
@@ -2422,11 +2431,12 @@ END GROUP
  .debug_info    0x00002468      0x3b7 ./src/MCAL/RCC/dRCC.o
  .debug_info    0x0000281f      0x347 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_info    0x00002b66      0x2cd ./src/MCAL/GPIO/dGPIO.o
- .debug_info    0x00002e33      0x22e ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_info    0x00003061      0x4f0 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_info    0x00003551      0x569 ./src/Application/main.o
+ .debug_info    0x00002e33      0x2b1 ./src/MCAL/Flash/dFlash.o
+ .debug_info    0x000030e4      0x22e ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_info    0x00003312      0x4f0 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_info    0x00003802      0x984 ./src/Application/main.o
 
-.debug_abbrev   0x00000000     0x1484
+.debug_abbrev   0x00000000     0x1621
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x8e ./system/src/newlib/_exit.o
  .debug_abbrev  0x0000008e       0xb9 ./system/src/newlib/_sbrk.o
@@ -2443,11 +2453,12 @@ END GROUP
  .debug_abbrev  0x00000e60       0xd8 ./src/MCAL/RCC/dRCC.o
  .debug_abbrev  0x00000f38       0xb1 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_abbrev  0x00000fe9      0x108 ./src/MCAL/GPIO/dGPIO.o
- .debug_abbrev  0x000010f1       0xb3 ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_abbrev  0x000011a4      0x167 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_abbrev  0x0000130b      0x179 ./src/Application/main.o
+ .debug_abbrev  0x000010f1      0x11b ./src/MCAL/Flash/dFlash.o
+ .debug_abbrev  0x0000120c       0xb3 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_abbrev  0x000012bf      0x167 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_abbrev  0x00001426      0x1fb ./src/Application/main.o
 
-.debug_line     0x00000000     0x365d
+.debug_line     0x00000000     0x3835
  *(.debug_line)
  .debug_line    0x00000000      0x325 ./system/src/newlib/_exit.o
  .debug_line    0x00000325      0x2d6 ./system/src/newlib/_sbrk.o
@@ -2464,11 +2475,12 @@ END GROUP
  .debug_line    0x00002840      0x1b5 ./src/MCAL/RCC/dRCC.o
  .debug_line    0x000029f5      0x210 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_line    0x00002c05      0x108 ./src/MCAL/GPIO/dGPIO.o
- .debug_line    0x00002d0d      0x15b ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_line    0x00002e68      0x210 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_line    0x00003078      0x5e5 ./src/Application/main.o
+ .debug_line    0x00002d0d      0x158 ./src/MCAL/Flash/dFlash.o
+ .debug_line    0x00002e65      0x15b ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_line    0x00002fc0      0x210 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_line    0x000031d0      0x665 ./src/Application/main.o
 
-.debug_frame    0x00000000      0xb04
+.debug_frame    0x00000000      0xba8
  *(.debug_frame)
  .debug_frame   0x00000000       0x38 ./system/src/newlib/_exit.o
  .debug_frame   0x00000038       0x28 ./system/src/newlib/_sbrk.o
@@ -2485,62 +2497,65 @@ END GROUP
  .debug_frame   0x00000508       0xc0 ./src/MCAL/RCC/dRCC.o
  .debug_frame   0x000005c8      0x118 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_frame   0x000006e0       0x64 ./src/MCAL/GPIO/dGPIO.o
- .debug_frame   0x00000744       0x94 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_frame   0x000007d8       0x40 ./src/Application/main.o
- .debug_frame   0x00000818       0x20 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00000838       0x48 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
- .debug_frame   0x00000880       0x90 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x00000910       0x60 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x00000970       0x28 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
- .debug_frame   0x00000998       0x28 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x000009c0       0x28 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x000009e8       0x38 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00000a20       0x2c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00000a4c       0x3c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x00000a88       0x2c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00000ab4       0x30 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x00000ae4       0x20 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x00000744       0x90 ./src/MCAL/Flash/dFlash.o
+ .debug_frame   0x000007d4       0x94 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_frame   0x00000868       0x54 ./src/Application/main.o
+ .debug_frame   0x000008bc       0x20 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x000008dc       0x48 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-vsnprintf.o)
+ .debug_frame   0x00000924       0x90 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x000009b4       0x60 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x00000a14       0x28 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memchr-stub.o)
+ .debug_frame   0x00000a3c       0x28 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00000a64       0x28 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x00000a8c       0x38 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00000ac4       0x2c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00000af0       0x3c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x00000b2c       0x2c k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x00000b58       0x30 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x00000b88       0x20 k:/computer arc/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000    0x56f1f
+.debug_str      0x00000000    0x574e5
  *(.debug_str)
- .debug_str     0x00000000     0x6d29 ./system/src/newlib/_exit.o
+ .debug_str     0x00000000     0x6d24 ./system/src/newlib/_exit.o
                                0x6e9b (size before relaxing)
- .debug_str     0x00006d29      0x4de ./system/src/newlib/_sbrk.o
+ .debug_str     0x00006d24      0x4de ./system/src/newlib/_sbrk.o
                                0x6286 (size before relaxing)
- .debug_str     0x00007207      0xbc3 ./system/src/newlib/_startup.o
+ .debug_str     0x00007202      0xbc3 ./system/src/newlib/_startup.o
                                0x5e3b (size before relaxing)
- .debug_str     0x00007dca      0xe18 ./system/src/newlib/_syscalls.o
+ .debug_str     0x00007dc5      0xe18 ./system/src/newlib/_syscalls.o
                                0x70e6 (size before relaxing)
- .debug_str     0x00008be2      0x890 ./system/src/diag/Trace.o
+ .debug_str     0x00008bdd      0x890 ./system/src/diag/Trace.o
                                0x768b (size before relaxing)
- .debug_str     0x00009472    0x4b2af ./system/src/diag/trace_impl.o
+ .debug_str     0x0000946d    0x4b2af ./system/src/diag/trace_impl.o
                               0x51e4d (size before relaxing)
- .debug_str     0x00054721       0xc4 ./system/src/cortexm/_initialize_hardware.o
+ .debug_str     0x0005471c       0xc4 ./system/src/cortexm/_initialize_hardware.o
                               0x4e007 (size before relaxing)
- .debug_str     0x000547e5      0x1a6 ./system/src/cortexm/exception_handlers.o
+ .debug_str     0x000547e0      0x1a6 ./system/src/cortexm/exception_handlers.o
                               0x52c0f (size before relaxing)
- .debug_str     0x0005498b      0x124 ./system/src/cmsis/system_stm32f10x.o
+ .debug_str     0x00054986      0x117 ./system/src/cmsis/system_stm32f10x.o
                               0x4e0b1 (size before relaxing)
- .debug_str     0x00054aaf       0x57 ./system/src/cmsis/vectors_stm32f10x.o
+ .debug_str     0x00054a9d       0x57 ./system/src/cmsis/vectors_stm32f10x.o
                                0x3056 (size before relaxing)
- .debug_str     0x00054b06      0x1b2 ./src/Service/TransportProtocol/TProtocol.o
+ .debug_str     0x00054af4      0x1b2 ./src/Service/TransportProtocol/TProtocol.o
                                0x272e (size before relaxing)
- .debug_str     0x00054cb8      0x54d ./src/MCAL/USART/dUART.o
+ .debug_str     0x00054ca6      0x54d ./src/MCAL/USART/dUART.o
                                0x2ae4 (size before relaxing)
- .debug_str     0x00055205      0xce5 ./src/MCAL/RCC/dRCC.o
+ .debug_str     0x000551f3      0xce5 ./src/MCAL/RCC/dRCC.o
                                0x3273 (size before relaxing)
- .debug_str     0x00055eea      0x7f7 ./src/MCAL/NVIC/DNVIC_program.o
+ .debug_str     0x00055ed8      0x7f7 ./src/MCAL/NVIC/DNVIC_program.o
                                0x37d6 (size before relaxing)
- .debug_str     0x000566e1      0x272 ./src/MCAL/GPIO/dGPIO.o
+ .debug_str     0x000566cf      0x272 ./src/MCAL/GPIO/dGPIO.o
                                0x282c (size before relaxing)
- .debug_str     0x00056953      0x34c ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_str     0x00056941      0x4e8 ./src/MCAL/Flash/dFlash.o
+                               0x2aa6 (size before relaxing)
+ .debug_str     0x00056e29      0x34c ./src/ECUAL/USART_Handler/hUART_Config.o
                                0x308d (size before relaxing)
- .debug_str     0x00056c9f       0xef ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_str     0x00057175       0xef ./src/ECUAL/USART_Handler/hUSART.o
                                0x34ca (size before relaxing)
- .debug_str     0x00056d8e      0x191 ./src/Application/main.o
-                              0x4ef7f (size before relaxing)
+ .debug_str     0x00057264      0x281 ./src/Application/main.o
+                              0x4f188 (size before relaxing)
 
-.debug_loc      0x00000000     0x1708
+.debug_loc      0x00000000     0x195d
  *(.debug_loc)
  .debug_loc     0x00000000       0x82 ./system/src/newlib/_sbrk.o
  .debug_loc     0x00000082      0x265 ./system/src/newlib/_startup.o
@@ -2554,7 +2569,9 @@ END GROUP
  .debug_loc     0x00000ca8      0x527 ./src/MCAL/RCC/dRCC.o
  .debug_loc     0x000011cf      0x1c6 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_loc     0x00001395      0x255 ./src/MCAL/GPIO/dGPIO.o
- .debug_loc     0x000015ea      0x11e ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_loc     0x000015ea      0x11d ./src/MCAL/Flash/dFlash.o
+ .debug_loc     0x00001707      0x11e ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_loc     0x00001825      0x138 ./src/Application/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2572,7 +2589,7 @@ END GROUP
  *(.debug_varnames)
 OUTPUT(BL_project.elf elf32-littlearm)
 
-.debug_ranges   0x00000000      0x378
+.debug_ranges   0x00000000      0x3b8
  .debug_ranges  0x00000000       0x18 ./system/src/newlib/_exit.o
  .debug_ranges  0x00000018       0x10 ./system/src/newlib/_sbrk.o
  .debug_ranges  0x00000028       0x48 ./system/src/newlib/_startup.o
@@ -2588,10 +2605,11 @@ OUTPUT(BL_project.elf elf32-littlearm)
  .debug_ranges  0x00000228       0x60 ./src/MCAL/RCC/dRCC.o
  .debug_ranges  0x00000288       0x80 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_ranges  0x00000308       0x28 ./src/MCAL/GPIO/dGPIO.o
- .debug_ranges  0x00000330       0x30 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_ranges  0x00000360       0x18 ./src/Application/main.o
+ .debug_ranges  0x00000330       0x38 ./src/MCAL/Flash/dFlash.o
+ .debug_ranges  0x00000368       0x30 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_ranges  0x00000398       0x20 ./src/Application/main.o
 
-.debug_macro    0x00000000     0x2eb1
+.debug_macro    0x00000000     0x2f99
  .debug_macro   0x00000000      0x19c ./system/src/newlib/_exit.o
  .debug_macro   0x0000019c       0x9c ./system/src/newlib/_exit.o
  .debug_macro   0x00000238      0x10e ./system/src/newlib/_exit.o
@@ -2648,8 +2666,9 @@ OUTPUT(BL_project.elf elf32-littlearm)
  .debug_macro   0x0000291b      0x208 ./src/MCAL/NVIC/DNVIC_program.o
  .debug_macro   0x00002b23       0x23 ./src/MCAL/GPIO/dGPIO.o
  .debug_macro   0x00002b46       0x7c ./src/MCAL/GPIO/dGPIO.o
- .debug_macro   0x00002bc2       0x7a ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_macro   0x00002c3c       0x28 ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_macro   0x00002c64       0x50 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_macro   0x00002cb4       0x1c ./src/ECUAL/USART_Handler/hUSART.o
- .debug_macro   0x00002cd0      0x1e1 ./src/Application/main.o
+ .debug_macro   0x00002bc2       0xcc ./src/MCAL/Flash/dFlash.o
+ .debug_macro   0x00002c8e       0x7a ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00002d08       0x28 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00002d30       0x50 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00002d80       0x1c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00002d9c      0x1fd ./src/Application/main.o

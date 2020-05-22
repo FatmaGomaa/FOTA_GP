@@ -6,6 +6,7 @@ Micro Controller Data frame Transport Protocol BootLoader documentation:
 - error can't resolve std_types.h (no such file or directory) -> put in folder includes
 - error can't resolve gpio (no such file or directory) -> all the problems are solved by removing the GP/FOTA folder inlusions from (properties -> C/C++ build -> settings -> tool settings -> GNU ARM Cross C Compilers -> includes)
 
+
 **- Sending Sequence: 
 - PC sends an erase command with the sector numbers to be erased
 - RCC enable the UART1 and Port A
@@ -37,7 +38,14 @@ Micro Controller Data frame Transport Protocol BootLoader documentation:
 - check if the DataCheckSum is equal VerifyCommand.CheckSum then set the response in the responseCommand = R_OK
 - in case (R_OK) we Enable PRIMASK to stop the interrupts (make a critical section)
 - Start Writing the Data Bytes received to the Flash Memory at the specified offset for each page size (the offset is incremented each page size flashed)
-- check if all the required sections are filled with data flash the marker to the new application in the flash memory
+- check if the received checksum equal to the calculated checksum, if there is equality, then we flash the marker to the new application in the flash memory
+- clear the DataBlock - VerifyIterator - ...etc /* to be added */ 
 - Disable the PRIMASK to end the critical section
 - check if the DataCheckSum is  not equal VerifyCommand.CheckSum then set the response in the responseCommand = R_NOT_MismatchData
 - Send the ResponseFrame to the TProtocol_SendFrame to fill the TransmitterBuffer and send it through UART to the Sender
+
+
+**-Start app sequence:
+- Set the vector table
+- assign the appentrypoint
+- start application and jump to the start-up code

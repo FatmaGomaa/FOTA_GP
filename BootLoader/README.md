@@ -5,6 +5,7 @@
 - including all the layers to the project without adding the absolute path from properties -> C/C++ build -> settings -> tool settings -> GNU ARM Cross C Compilers -> includes
 - error can't resolve std_types.h (no such file or directory) -> put in folder includes
 - error can't resolve gpio (no such file or directory) -> all the problems are solved by removing the GP/FOTA folder inlusions from (properties -> C/C++ build -> settings -> tool settings -> GNU ARM Cross C Compilers -> includes)
+- error in the checksum of the sended data, that the Pc application was making summation on signed characters (in which it is subtraction), we managed to solve it by changing the buffer of the data to "unsigned char"
 
 ## Sending Sequence: 
 

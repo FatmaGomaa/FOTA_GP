@@ -23,7 +23,7 @@
 	#define DATA_BLOCK_SIZE					1000
 	
 	HANDLE hComm;                          // Handle to the Serial port
-	char  ComPortName[] = "COM3";  // Name of the Serial port(May Change) to be opened,
+	char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
 	BOOL  Status;                          // Status of the various operations 
 	DWORD dwEventMask;                     // Event mask to trigger
 	char  TempChar;                        // Temperory Character
@@ -155,12 +155,12 @@
 										
 									}
 									int j=0;
-									for(i=0;i<20480;i++){
-										
-										printf("%.02x",ProgramDataToSend[ i ]);
-										
-										//printf("\n");
-									}
+									//for(i=0;i<20480;i++){
+									//	
+									//	printf("%.02x",ProgramDataToSend[ i ]);
+									//	
+									//	//printf("\n");
+									//}
 								
 								//openPort();
 								while ( (SentDataBlockIDX< EraseCommand.SectionsCount) ){

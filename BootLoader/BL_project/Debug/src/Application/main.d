@@ -1,17 +1,17 @@
 src/Application/main.o: ../src/Application/main.c \
- K:\GP\repo2\rep\BootLoader\BL_project\src\Libraries/STD_TYPES.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\GPIO/dGPIO.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\RCC/dRCC.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\USART/dUART.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\Flash/dFlash.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\ECUAL\USART_Handler/hUSART.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\NVIC/DNVIC_interface.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\ECUAL\USART_Handler/hUART_Config.h \
- K:\GP\repo2\rep\BootLoader\BL_project\src\Libraries\ARM_Delay/DELAY.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\Libraries/STD_TYPES.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\MCAL\GPIO/dGPIO.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\MCAL\RCC/dRCC.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\MCAL\USART/dUART.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\MCAL\Flash/dFlash.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\ECUAL\USART_Handler/hUSART.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\MCAL\NVIC/DNVIC_interface.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\ECUAL\USART_Handler/hUART_Config.h \
+ G:\FOTA_GP\BootLoader\BL_project\src\Libraries\ARM_Delay/DELAY.h \
  ../system/include/cmsis/cmsis_device.h \
  ../system/include/cmsis/stm32f10x.h ../system/include/cmsis/core_cm3.h \
  ../system/include/cmsis/core_cmInstr.h \
@@ -43,31 +43,31 @@ src/Application/main.o: ../src/Application/main.c \
  ../system/include/stm32f1-stdperiph/stm32f10x_wwdg.h \
  ../system/include/stm32f1-stdperiph/misc.h
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\Libraries/STD_TYPES.h:
+G:\FOTA_GP\BootLoader\BL_project\src\Libraries/STD_TYPES.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\GPIO/dGPIO.h:
+G:\FOTA_GP\BootLoader\BL_project\src\MCAL\GPIO/dGPIO.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\RCC/dRCC.h:
+G:\FOTA_GP\BootLoader\BL_project\src\MCAL\RCC/dRCC.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\USART/dUART.h:
+G:\FOTA_GP\BootLoader\BL_project\src\MCAL\USART/dUART.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\Flash/dFlash.h:
+G:\FOTA_GP\BootLoader\BL_project\src\MCAL\Flash/dFlash.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\ECUAL\USART_Handler/hUSART.h:
+G:\FOTA_GP\BootLoader\BL_project\src\ECUAL\USART_Handler/hUSART.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\MCAL\NVIC/DNVIC_interface.h:
+G:\FOTA_GP\BootLoader\BL_project\src\MCAL\NVIC/DNVIC_interface.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h:
+G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h:
+G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h:
+G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocolMessages_Config.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h:
+G:\FOTA_GP\BootLoader\BL_project\src\Service\TransportProtocol/TProtocol.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\ECUAL\USART_Handler/hUART_Config.h:
+G:\FOTA_GP\BootLoader\BL_project\src\ECUAL\USART_Handler/hUART_Config.h:
 
-K:\GP\repo2\rep\BootLoader\BL_project\src\Libraries\ARM_Delay/DELAY.h:
+G:\FOTA_GP\BootLoader\BL_project\src\Libraries\ARM_Delay/DELAY.h:
 
 ../system/include/cmsis/cmsis_device.h:
 

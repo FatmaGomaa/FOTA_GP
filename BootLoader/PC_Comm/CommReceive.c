@@ -23,31 +23,31 @@
 	#define DATA_BLOCK_SIZE					1000
 	
 	HANDLE hComm;                          // Handle to the Serial port
-	char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
+	unsigned char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
 	BOOL  Status;                          // Status of the various operations 
 	DWORD dwEventMask;                     // Event mask to trigger
-	char  TempChar;                        // Temperory Character
-	char  SerialBuffer[256];               // Buffer Containing Rxed Data
+	unsigned char  TempChar;                        // Temperory Character
+	unsigned char  SerialBuffer[256];               // Buffer Containing Rxed Data
 	DWORD NoBytesRead;                     // Bytes read by ReadFile()
-	int i = 0;
-	char * lpBuffer;		       		   // lpBuffer should be  char or byte array, otherwise write wil fail
+	unsigned int i = 0;
+	unsigned char * lpBuffer;		       		   // lpBuffer should be  char or byte array, otherwise write wil fail
 	DWORD  dNoOFBytestoWrite;              // No of bytes to write into the port
 	DWORD  dNoOfBytesWritten = 0;          // No of bytes written to the port
 	char userChoice=0;
-	char CommandToSend[9]={0};				//total Frame Size + Null Terminator
-	long long z=0,x=0;						//Iterators used for producing delay
-	char PortClosedFlag=0;
+	unsigned char CommandToSend[9]={0};				//total Frame Size + Null Terminator
+	unsigned long long z=0,x=0;						//Iterators used for producing delay
+	unsigned char PortClosedFlag=0;
 	
-	char ProgramData[1024*1024]={0};		// 60 K Program Data Buffer
-	char ProgramDataToSend[30*1024]={0};	//30K only Program Header Sections
-	char ElfFileName[]="Main_APP.elf";
+	unsigned char ProgramData[1024*1024]={0};		// 60 K Program Data Buffer
+	unsigned char ProgramDataToSend[30*1024]={0};	//30K only Program Header Sections
+	unsigned char ElfFileName[]="Main_APP.elf";
 	FILE * ElfFileDescriptor;
-	long size=0;
-	static long SentDataIDX=0;
-	static long SentDataBlockIDX=0;
-	static long CheckSum = 0;
-	char MessageID=0;
-	char lastSavedIDX=0;
+	unsigned long size=0;
+	unsigned static long SentDataIDX=0;
+	unsigned static long SentDataBlockIDX=0;
+	unsigned static long CheckSum = 0;
+	unsigned char MessageID=0;
+	unsigned long lastSavedIDX=0;
 	
 	Elf32_Ehdr * Header = NULL;
 	Elf32_Phdr * ProgramHeader = NULL;
@@ -163,7 +163,7 @@
 									//}
 								
 								//openPort();
-								while ( (SentDataBlockIDX< EraseCommand.SectionsCount) ){
+								while ( (SentDataBlockIDX< EraseCommand.SectionsCount + 1) ){
 									
 									/*send 1000 Byte*/
 									for ( i=0; i < (DATA_BLOCK_SIZE/FRAME_DATA_BYTES) ; i++ ){
@@ -187,18 +187,23 @@
 									receiveCommand();
 									closePort();
 									TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
-									if(ResponseCommand.Response == R_OK){
-										SentDataBlockIDX++;
-										lastSavedIDX += SentDataIDX + 5; //0	1000	2000		30000
-									}
-									
-									}
+									ResponseCommand.Response = R_OK;
+									//if(ResponseCommand.Response = R_OK){
+									SentDataBlockIDX++;
+									lastSavedIDX += SentDataIDX + 5; //0	1000	2000		30000
+									printf("\n\n/*************************************/\n");
+									printf("Last Saved IDX %ld\n",lastSavedIDX);
+									printf("/*************************************/\n\n");
+									//}
+									CheckSum=0;
+									//}
 									/*repeat till end*/
 								}
 								//closePort();
 								
 						break;
 						
+					}
 
 						
 					}
@@ -273,18 +278,7 @@ void sendCommand(char * command){
 		for (z=0;z<100000000;z++){
 			x++;
 		}
-		x=0;
-		for (z=0;z<100000000;z++){
-			x++;
-		}
-		x=0;
-		for (z=0;z<100000000;z++){
-			x++;
-		}
-		x=0;
-		for (z=0;z<100000000;z++){
-			x++;
-		}
+		
 		
 		
 		FlushFileBuffers(hComm);
@@ -380,11 +374,11 @@ void openPort(void){
 				}
 			else //If Successfull display the contents of the DCB Structure
 				{
-					printf("\n\n    Setting DCB Structure Successfull\n");
-					printf("\n       Baudrate = %d", dcbSerialParams.BaudRate);
-					printf("\n       ByteSize = %d", dcbSerialParams.ByteSize);
-					printf("\n       StopBits = %d", dcbSerialParams.StopBits);
-					printf("\n       Parity   = %d", dcbSerialParams.Parity);
+					//printf("\n\n    Setting DCB Structure Successfull\n");
+					//printf("\n       Baudrate = %d", dcbSerialParams.BaudRate);
+					//printf("\n       ByteSize = %d", dcbSerialParams.ByteSize);
+					//printf("\n       StopBits = %d", dcbSerialParams.StopBits);
+					//printf("\n       Parity   = %d", dcbSerialParams.Parity);
 				}
 				
 				SetTimeOut();

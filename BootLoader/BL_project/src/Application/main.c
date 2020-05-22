@@ -189,7 +189,7 @@ void newApp(void){
 				Local_Error=Flash_ProgramWrite(MAINADDRESS+(EraseCommand.SectionOffset) +( PAGESIZE*DataBlock),DataBytes,PAGESIZE);
 				DataIterator=0;
 				DataBlock++;
-				if(DataBlock == EraseCommand.SectionsCount)
+				if(DataBlock == EraseCommand.SectionsCount + 1 )
 				{
 					/*TODO*/
 					/*flash marker*/
@@ -207,6 +207,7 @@ void newApp(void){
 			}
 			else
 			{
+				DataIterator=0;
 				ResponseCommand.Response=R_NOT_MismatchData;
 			}
 			TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);

@@ -23,7 +23,7 @@
 	#define DATA_BLOCK_SIZE					1000
 	
 	HANDLE hComm;                          // Handle to the Serial port
-	char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
+	char  ComPortName[] = "COM4";  // Name of the Serial port(May Change) to be opened,
 	BOOL  Status;                          // Status of the various operations 
 	DWORD dwEventMask;                     // Event mask to trigger
 	char  TempChar;                        // Temperory Character
@@ -40,7 +40,7 @@
 	
 	char ProgramData[1024*1024]={0};		// 60 K Program Data Buffer
 	char ProgramDataToSend[30*1024]={0};	//30K only Program Header Sections
-	char ElfFileName[]="G:\\ITI\\Tourky\\Elf Parser\\PC_Comm\\Main_APP.elf";
+	char ElfFileName[]="Main_APP.elf";
 	FILE * ElfFileDescriptor;
 	long size=0;
 	static long SentDataIDX=0;

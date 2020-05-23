@@ -202,7 +202,7 @@ void newApp(void){
 				Local_Error = Flash_ProgramWrite( MAINADDRESS + (EraseCommand.SectionOffset) + ( MAX_DATA_BLOCK * DataBlock), DataBytes, MAX_DATA_BLOCK);
 				DataIterator = 0;
 				DataBlock++;
-				if(DataBlock == EraseCommand.SectionsCount + 1 )
+				if(DataBlock == EraseCommand.SectionsCount )
 				{
 					/*TODO*/
 					/*flash marker*/

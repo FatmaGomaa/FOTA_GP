@@ -23,7 +23,7 @@
 	#define DATA_BLOCK_SIZE					1000
 	
 	HANDLE hComm;                          // Handle to the Serial port
-	unsigned char  ComPortName[] = "COM4";  // Name of the Serial port(May Change) to be opened,
+	unsigned char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
 	BOOL  Status;                          // Status of the various operations 
 	DWORD dwEventMask;                     // Event mask to trigger
 	unsigned char  TempChar;                        // Temperory Character

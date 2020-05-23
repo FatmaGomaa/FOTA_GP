@@ -29,6 +29,11 @@ static void start_app(uint32_t pc, uint32_t sp)
 #define PAGESIZE        1024
 #define MAXERRORCOUNT   3
 
+
+#define  Marker          *(volatile u32 *)(0x0800F618)
+#define  Marker_Address   (0x0800F618)
+
+
 void newApp(void);
 
 u32 AppEntryPoint=0x08003000;
@@ -46,7 +51,8 @@ u8 MessageID;
 u8 EraseCheckSum=0;
 u32 DataCheckSum=0;
 u8 CommandFlag =0;
-u8 Marker=5;
+
+//u8 Marker=5;
 u8 DataBytes[MAX_DATA_BLOCK];
 static long DataIterator=0;
 long LastSavedDataIterator=0;
@@ -65,6 +71,9 @@ int main(void)
 	UART_Init(&App_UART_Config[0]);
 	UART_setRecveiverCbf (newApp);
 	Flash_Unlock();
+
+	Flash_ErassPage(Marker_Address);
+	Flash_WriteWord(&Marker, 5);
 
 	GPIO_t	LED={
 			.PORT = PORT_C,
@@ -197,7 +206,10 @@ void newApp(void){
 				{
 					/*TODO*/
 					/*flash marker*/
-					Marker = APP1MARKER;
+
+					Flash_ErassPage(Marker_Address);
+					Flash_WriteWord(&Marker, APP1MARKER);
+					//Marker = APP1MARKER;
 					DataBlock = 0;
 					FrameBytes = 0;
 					//DataCheckSum = 0;

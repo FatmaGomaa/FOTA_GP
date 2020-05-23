@@ -151,7 +151,7 @@
 
 									for(i= 0 ; i < (ProgramHeader[1].p_filesz) ; i++ ){
 										
-										ProgramDataToSend[  (ProgramHeader[0].p_memsz - 0x3000 ) + 1 + i  ] = ProgramData[ 0x3000 + ProgramHeader[1].p_offset + i   ];
+										ProgramDataToSend[  (ProgramHeader[0].p_memsz - 0x3000 ) + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + i   ];
 										
 									}
 									int j=0;

@@ -31,7 +31,7 @@ static void start_app(uint32_t pc, uint32_t sp)
 
 void newApp(void);
 
-u32 AppEntryPoint=0x08003004;
+u32 AppEntryPoint=0x08003000;
 DataCommand_t DataCommand;
 EraseCommand_t EraseCommand;
 ResponseCommand_t ResponseCommand;
@@ -46,7 +46,7 @@ u8 MessageID;
 u8 EraseCheckSum=0;
 u32 DataCheckSum=0;
 u8 CommandFlag =0;
-u8 Marker=1;
+u8 Marker=5;
 u8 DataBytes[MAX_DATA_BLOCK];
 static long DataIterator=0;
 long LastSavedDataIterator=0;
@@ -86,12 +86,13 @@ int main(void)
 		case APP1MARKER:
 			/*existing app*/
 			FirstTimeFlag=1;
-			SCB->VTOR = 0x00003000 << 9;
+			//SCB->VTOR = 0x00003000 << 9;
 
 
 			volatile uint32_t *app_code = (uint32_t *)AppEntryPoint;
 			volatile uint32_t app_sp = app_code[0];
 			volatile uint32_t app_start = app_code[1];
+
 			start_app(app_start, app_sp);
 			break;
 		default:

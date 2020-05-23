@@ -23,7 +23,7 @@
 	#define DATA_BLOCK_SIZE					1000
 	
 	HANDLE hComm;                          // Handle to the Serial port
-	unsigned char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
+	unsigned char  ComPortName[] = "COM4";  // Name of the Serial port(May Change) to be opened,
 	BOOL  Status;                          // Status of the various operations 
 	DWORD dwEventMask;                     // Event mask to trigger
 	unsigned char  TempChar;                        // Temperory Character
@@ -142,16 +142,16 @@
 									
 									
 									/*TODO: to add section header parser*/
-									for(i= 0 ; i < (ProgramHeader[0].p_filesz); i++ ){
+									for(i= 0 ; i < ((ProgramHeader[0].p_filesz) - 0x3000 ); i++ ){
 										
-										ProgramDataToSend[i] = ProgramData[ 12288 + ProgramHeader[0].p_offset + i   ];
+										ProgramDataToSend[i] = ProgramData[ 0x3000 + ProgramHeader[0].p_offset + i ];
 										
 									}
 
 
-									for(i= 0 ; i < (ProgramHeader[1].p_filesz); i++ ){
+									for(i= 0 ; i < (ProgramHeader[1].p_filesz) ; i++ ){
 										
-										ProgramDataToSend[  ProgramHeader[0].p_memsz + 1 + i  ] = ProgramData[ 12288 + ProgramHeader[1].p_offset + i   ];
+										ProgramDataToSend[  (ProgramHeader[0].p_memsz - 0x3000 ) + 1 + i  ] = ProgramData[ 0x3000 + ProgramHeader[1].p_offset + i   ];
 										
 									}
 									int j=0;
@@ -329,6 +329,10 @@ void receiveCommand(void){
 		
 					}	
 				z=0;x=0;
+				for (z=0;z<100000000;z++){
+					x++;
+				}
+				x=0;
 				for (z=0;z<100000000;z++){
 					x++;
 				}

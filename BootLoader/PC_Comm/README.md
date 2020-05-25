@@ -87,7 +87,7 @@ Reading from the serial port is accomplished by the ReadFile() function.
 2. Ask windows to wait for the event set by **SetCommMask()** function using **WaitCommEvent()** and notify us when the condition happens.
 3. Call **ReadFile ()** to read the received data from the Serial port.
 
-**SetCommMask** 
+### SetCommMask
 ```
 BOOL SetCommMask(
   HANDLE hFile,
@@ -99,7 +99,7 @@ Specifies a set of events to be monitored for a communications device, it takes 
 Status = SetCommMask(hComm, EV_RXCHAR);
 ```
 
-**WaitCommEvent** 
+### WaitCommEvent
 ```
 BOOL WaitCommEvent(
   HANDLE       hFile,
@@ -118,7 +118,7 @@ Status = WaitCommEvent(hComm, &dwEventMask, NULL);
 
 After **WaitCommEvent()** has returned, call **ReadFile()** function to read the received characters from the Serial Port Buffer
 
-**ReadFile**
+### ReadFile
 ```
 BOOL ReadFile(
   HANDLE       hFile,

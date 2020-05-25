@@ -8,7 +8,8 @@ To find out the COM number corresponding to your serial port:
 1. Open **Device Manager** by right clicking on My Computer icon
 2. select **Manage** → **Device Manager**.
 3. Under Ports(COM & LPT) you can see the parallel and serial ports (COM) detected by your system.
-/*****Port Image Here*****/
+![](/Images/KnowingPortExample.png)
+
 
 ## Opening and Closing a Serial Port
 In Windows we use the CreateFile() function to open a serial port.
@@ -158,7 +159,7 @@ while (NoBytesRead > 0);
 
 
 ## Serial Communication Between PC and STM32 using TTL
-/*add picture*/
+![](/Images/ttlConnection.jpg)
 ## References:
 ```
 https://docs.microsoft.com/en-us/windows/win32/api/

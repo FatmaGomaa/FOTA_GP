@@ -72,8 +72,8 @@ int main(void)
 	UART_setRecveiverCbf (newApp);
 	Flash_Unlock();
 
-	Flash_ErassPage(Marker_Address);
-	Flash_WriteWord(&Marker, 5);
+	//Flash_ErassPage(Marker_Address);
+	//Flash_WriteWord(&Marker, 5);
 
 	GPIO_t	LED={
 			.PORT = PORT_C,
@@ -165,7 +165,8 @@ void newApp(void){
 				}
 				EraseCheckSum = 0;
 				/*TODO : check the MessageID send to the TP , ID is wrong its an EraseFrame ID instead of a ResponseFrame ID*/
-				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, &MessageID);
+				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
+				Delay_ms(5000);
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYES);
 
 			}
@@ -175,7 +176,8 @@ void newApp(void){
 				ResponseCommand.Response=R_NOT_MismatchData;
 
 				/* TODO : take the  TProtcol_sendFrame & UART_SendBuffer from here and from above, and place it after this else*/
-				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,&MessageID);
+				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,ID_ResponseCommand);
+				Delay_ms(2000);
 				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
 			}
 			UART_ReceiveBuffer(RXBuffer , 1);
@@ -202,29 +204,32 @@ void newApp(void){
 				Local_Error = Flash_ProgramWrite( MAINADDRESS + (EraseCommand.SectionOffset) + ( MAX_DATA_BLOCK * DataBlock), DataBytes, MAX_DATA_BLOCK);
 				DataIterator = 0;
 				DataBlock++;
-				if(DataBlock == EraseCommand.SectionsCount )
-				{
-					/*TODO*/
-					/*flash marker*/
 
-					Flash_ErassPage(Marker_Address);
-					Flash_WriteWord(&Marker, APP1MARKER);
-					//Marker = APP1MARKER;
-					DataBlock = 0;
-					FrameBytes = 0;
-					//DataCheckSum = 0;
-					//EraseCheckSum = 0;
-					//startOfReceptionFlag = 0;
-				}
 				NVIC_DisablePRIMASK();
 			}
 			else
 			{
+				DataCheckSum = 0;
 				DataIterator=0;
 				ResponseCommand.Response=R_NOT_MismatchData;
 			}
-			TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, &MessageID);
+			TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
+			Delay_ms(5000);
 			UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYES);
+
+			if(DataBlock == EraseCommand.SectionsCount )
+			{
+				/*TODO: Soft Reset after updating Marker*/
+				/*flash marker*/
+				Flash_ErassPage(Marker_Address);
+				Flash_WriteWord(&Marker, APP1MARKER);
+				//Marker = APP1MARKER;
+				DataBlock = 0;
+				FrameBytes = 0;
+				/*Requesting Software Reset */
+				SCB->AIRCR = ( 1 << 2 );
+			}
+
 			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 		}

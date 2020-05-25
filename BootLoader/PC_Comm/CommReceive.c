@@ -30,6 +30,7 @@
 	unsigned char  SerialBuffer[256];               // Buffer Containing Rxed Data
 	DWORD NoBytesRead;                     // Bytes read by ReadFile()
 	unsigned int i = 0;
+	unsigned int m = 0;
 	unsigned char * lpBuffer;		       		   // lpBuffer should be  char or byte array, otherwise write wil fail
 	DWORD  dNoOFBytestoWrite;              // No of bytes to write into the port
 	DWORD  dNoOfBytesWritten = 0;          // No of bytes written to the port
@@ -65,10 +66,10 @@
 	void main(void)
 		{
 			 uint8_t CommandType =0;
-			 EraseCommand_t EraseCommand;
-			 ResponseCommand_t ResponseCommand;
-			 DataCommand_t DataCommand;
-			 VerifyCommand_t VerifyCommand;
+			 EraseCommand_t EraseCommand={0};
+			 ResponseCommand_t ResponseCommand={0};
+			 DataCommand_t DataCommand={0};
+			 VerifyCommand_t VerifyCommand={0};
 			 
 			//printf("Enter File Name\n");
 			//scanf("%s",ElfFileName);
@@ -82,7 +83,8 @@
 			InitSerialPort();
 			printf("-				Welcome To MCU Port					\n");
 			
-			
+
+
 		while(PortClosedFlag == 0){
 			
 			printf("-				please select one of the following choices					\n");
@@ -96,6 +98,7 @@
 					switch(CommandType){
 						case 1:
 							openPort();
+					
 							printf("Please Enter Sections Count to erase: \n");
 							scanf("%d", &EraseCommand.SectionsCount);
 							printf("Please Enter Sections Offset: \n");
@@ -103,8 +106,16 @@
 							EraseCommand.CheckSum = ( (uint8_t)EraseCommand.SectionsCount  ) + (  (uint8_t)EraseCommand.SectionOffset );
 							TProtcol_sendFrame((void*)&EraseCommand, CommandToSend, ID_EraseCommand );
 							sendCommand(CommandToSend);
+							closePort();
+							
+							openPort();
 							receiveCommand();
 							TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
+							printf("\nThe received Response is %d", MessageID);
+							printf("\nThe received Response is %d\n\n", ResponseCommand.Response);
+							//for(i=1;i<8;i++){
+							//printf("%d", ResponseCommand);
+							//}
 							closePort();
 						break;
 						case 2:
@@ -163,7 +174,7 @@
 									//}
 								
 								//openPort();
-								while ( (SentDataBlockIDX< EraseCommand.SectionsCount + 1) ){
+								while ( (SentDataBlockIDX< EraseCommand.SectionsCount ) ){
 									
 									/*send 1000 Byte*/
 									for ( i=0; i < (DATA_BLOCK_SIZE/FRAME_DATA_BYTES) ; i++ ){
@@ -187,8 +198,8 @@
 									receiveCommand();
 									closePort();
 									TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
-									ResponseCommand.Response = R_OK;
-									//if(ResponseCommand.Response = R_OK){
+									//ResponseCommand.Response = R_OK;
+									if(ResponseCommand.Response == R_OK){
 									SentDataBlockIDX++;
 									lastSavedIDX += SentDataIDX + 5; //0	1000	2000		30000
 									printf("\n\n/*************************************/\n");
@@ -196,7 +207,7 @@
 									printf("/*************************************/\n\n");
 									//}
 									CheckSum=0;
-									//}
+									}
 									/*repeat till end*/
 								}
 								//closePort();
@@ -213,12 +224,12 @@
 				break;
 				case 2:
 					openPort();
-					FlushFileBuffers(hComm);
+					//FlushFileBuffers(hComm);
 					receiveCommand();
 					closePort();
 				break;
 				case 3:
-					FlushFileBuffers(hComm);
+					//FlushFileBuffers(hComm);
 					PortClosedFlag=1;
 					printf("\n +==========================================+\n");
 				break;
@@ -257,7 +268,7 @@ void SetTimeOut(void){
 }
 
 void sendCommand(char * command){
-		FlushFileBuffers(hComm);
+		//FlushFileBuffers(hComm);
 		/*----------------------------- Writing a Character to Serial Port----------------------------------------*/
 		lpBuffer = command;		       // lpBuffer should be  char or byte array, otherwise write wil fail
 		dNoOfBytesWritten = 0;          // No of bytes written to the port
@@ -281,12 +292,14 @@ void sendCommand(char * command){
 		
 		
 		
-		FlushFileBuffers(hComm);
+		//FlushFileBuffers(hComm);
 }
 
 void receiveCommand(void){
 				/*------------------------------------ Setting Receive Mask ----------------------------------------------*/
-			i =0;
+			SerialBuffer[0] = 'A';
+			m=1;
+           /*------------------------------------ Setting WaitComm() Event   ----------------------------------------*/
 			Status = SetCommMask(hComm, EV_RXCHAR); //Configure Windows to Monitor the serial device for Character Reception
 	
 			if (Status == FALSE)
@@ -294,8 +307,6 @@ void receiveCommand(void){
 			else
 				printf("\n\n    Setting CommMask successfull");
 
-			
-           /*------------------------------------ Setting WaitComm() Event   ----------------------------------------*/
 			
 			printf("\n\n    Waiting for Data Reception");
 
@@ -313,18 +324,19 @@ void receiveCommand(void){
 					do
 						{
 							Status = ReadFile(hComm, &TempChar, sizeof(TempChar), &NoBytesRead, NULL);
-							SerialBuffer[i] = TempChar; 
-							i++;
+							SerialBuffer[m] = TempChar; 
+							m++;
+							printf("\nNoBytesRead is : %d and received Data is %c \n", NoBytesRead, TempChar);
 					    }
 					while (NoBytesRead > 0);
-
+					
 					
 
 					/*------------Printing the RXed String to Console----------------------*/
 
 					printf("\n\n    ");
 					int j =0;
-					for (j = 0; j < i-1; j++)		// j < i-1 to remove the dupliated last character
+					for (j = 0; j < m -1; j++)		// j < i-1 to remove the dupliated last character
 						printf("%c", SerialBuffer[j]);
 		
 					}	
@@ -336,7 +348,7 @@ void receiveCommand(void){
 				for (z=0;z<100000000;z++){
 					x++;
 				}
-				FlushFileBuffers(hComm);
+				//FlushFileBuffers(hComm);
 }
 
 void openPort(void){

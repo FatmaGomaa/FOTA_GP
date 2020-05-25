@@ -1,10 +1,13 @@
 # Serial Port Programming using Win32 API
 The software is written using C language and communicates with the Serial Port using Win32 API.
 
-In Windows ,Serial ports are named as COM1,COM2 ,COM3.. etc .COM1 and COM2 usually refer to the hardware serial ports present in the PC while COM numbers in double digits like COM32,COM54,COM24.. etc are given to USB to Serial Converters or PCI serial port extenders.
+In Windows ,Serial ports are named as COM1,COM2 ,COM3.. etc .COM1 and COM2 usually refer to the hardware serial ports present in the PC.
 
 ## Finding out your COM port Number
-To find out the COM number corresponding to your serial port, Open **Device Manager** by right clicking on My Computer icon and selecting **Manage** → **Device Manager**.Under Ports(COM & LPT) you can see the parallel and serial ports (COM) detected by your system.
+To find out the COM number corresponding to your serial port:
+1. Open **Device Manager** by right clicking on My Computer icon
+2. select **Manage** → **Device Manager**.
+3. Under Ports(COM & LPT) you can see the parallel and serial ports (COM) detected by your system.
 /*****Port Image Here*****/
 
 ## Opening and Closing a Serial Port
@@ -75,6 +78,87 @@ Status = WriteFile(hComm,                         // Handle to the Serial port
 
 Writing data to the opened serial port is accomplished by the **WriteFile()** function. **WriteFile()** function can be used to write both into the files and I/O ports.
 
+## Reading from the Serial Port
+Reading from the serial port is accomplished by the ReadFile() function.
+
+**ReadFile()** , setting up an event and let windows notify us when a character is received is the methodology we are going to use.
+1. **Create an Event** for a particular action like character reception.
+2. Ask windows to wait for the event set by **SetCommMask()** function using **WaitCommEvent()** and notify us when the condition happens.
+3. Call **ReadFile ()** to read the received data from the Serial port.
+
+**SetCommMask** 
+```
+BOOL SetCommMask(
+  HANDLE hFile,
+  DWORD  dwEvtMask
+);
+```
+Specifies a set of events to be monitored for a communications device, it takes a handle to the communications device and The events to be enabled.
+```
+Status = SetCommMask(hComm, EV_RXCHAR);
+```
+
+**WaitCommEvent** 
+```
+BOOL WaitCommEvent(
+  HANDLE       hFile,
+  LPDWORD      lpEvtMask,
+  LPOVERLAPPED lpOverlapped
+);
+```
+Waits for an event to occur for a specified communications device. The set of events that are monitored by this function is contained in the event mask associated with the device handle.
+
+It takes A handle to the communications device, A pointer to a variable that receives a mask indicating the type of event that occurred and A pointer to an OVERLAPPED structure.
+```
+DWORD dwEventMask; 
+Status = WaitCommEvent(hComm, &dwEventMask, NULL);  
+```
+**dwEventMask** contains a hex value indicating the event, which has caused WaitCommEvent() to return.
+
+After **WaitCommEvent()** has returned, call **ReadFile()** function to read the received characters from the Serial Port Buffer
+
+**ReadFile**
+```
+BOOL ReadFile(
+  HANDLE       hFile,
+  LPVOID       lpBuffer,
+  DWORD        nNumberOfBytesToRead,
+  LPDWORD      lpNumberOfBytesRead,
+  LPOVERLAPPED lpOverlapped
+);
+```
+takes:
+1. A handle to the device.
+2. A pointer to the buffer that receives the data read from a file or device.
+3. The maximum number of bytes to be read.
+4. A pointer to the variable that receives the number of bytes read when using a synchronous hFile parameter.
+5. A pointer to an OVERLAPPED structure is required if the hFile parameter was opened with FILE_FLAG_OVERLAPPED, otherwise it can be NULL.
+
+
+```
+char TempChar; //Temporary character used for reading
+char SerialBuffer[256];//Buffer for storing Rxed Data
+DWORD NoBytesRead;
+int i = 0;
+
+do
+ {
+   ReadFile( hComm,                         //Handle of the Serial port
+             &TempChar,                     //Temporary character
+             sizeof(TempChar),              //Size of TempChar
+             &NoBytesRead,                  //Number of bytes read
+             NULL);
+
+   SerialBuffer[i] = TempChar;              // Store Tempchar into buffer
+   i++;
+  }
+
+while (NoBytesRead > 0);
+```
+
+
+## Serial Communication Between PC and STM32 using TTL
+/*add picture*/
 ## References:
 ```
 https://www.xanthium.in/Serial-Port-Programming-using-Win32-API

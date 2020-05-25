@@ -227,7 +227,8 @@ void newApp(void){
 				DataBlock = 0;
 				FrameBytes = 0;
 				/*Requesting Software Reset */
-				SCB->AIRCR = ( 1 << 2 );
+
+				SCB->AIRCR = (0x5FA0000 | ( 1 << 2 ));
 			}
 
 			UART_ReceiveBuffer(RXBuffer , 1);

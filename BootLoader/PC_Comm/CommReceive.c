@@ -22,12 +22,13 @@
 
 #define DATA_BLOCK_SIZE					1000
 
-HANDLE hComm;                          // Handle to the Serial port
-unsigned char  ComPortName[] = "COM7";  // Name of the Serial port(May Change) to be opened,
-BOOL  Status;                          // Status of the various operations 
-DWORD dwEventMask;                     // Event mask to trigger
-unsigned char  TempChar;                        // Temperory Character
-unsigned char  SerialBuffer[256];               // Buffer Containing Rxed Data
+
+HANDLE hComm;                                          // Handle to the Serial port
+unsigned char * ComPortName;          // Name of the Serial port(May Change) to be opened,
+BOOL  Status;                                           // Status of the various operations 
+DWORD dwEventMask;                                    // Event mask to trigger
+unsigned char  TempChar;                             // Temperory Character
+unsigned char  SerialBuffer[256];                      // Buffer Containing Rxed Data
 DWORD NoBytesRead;                     // Bytes read by ReadFile()
 unsigned int i = 0;
 unsigned int m = 0;
@@ -41,8 +42,11 @@ unsigned char PortClosedFlag=0;
 
 unsigned char ProgramData[1024*1024]={0};		// 60 K Program Data Buffer
 unsigned char ProgramDataToSend[30*1024]={0};	//30K only Program Header Sections
-unsigned char ElfFileName[]="Main_APP.elf";
+unsigned char * ElfFileName;
+unsigned char * MCU_Type;
 FILE * ElfFileDescriptor;
+FILE * OutPutFileDescriptor;
+unsigned char ProgressFileName[] = "progress.txt";
 unsigned long size=0;
 unsigned static long SentDataIDX=0;
 unsigned static long SentDataBlockIDX=0;
@@ -66,17 +70,23 @@ void receiveCommand(void);
 void closePort(void);
 void openPort(void);
 
-void main(void)
+void main(int argc, char *argv[])
 {
+	
+	/* Extracting McU type, COM Number and elf File Name  from passed input arguments */
+	MCU_Type = argv[1];
+	ComPortName = argv[2];
+	ElfFileName = argv[3];	
+	
 	uint8_t CommandType =0;
 	EraseCommand_t EraseCommand={0};
 	ResponseCommand_t ResponseCommand={0};
 	DataCommand_t DataCommand={0};
 	VerifyCommand_t VerifyCommand={0};
 
-	//printf("Enter File Name\n");
-	//scanf("%s",ElfFileName);
+	
 	ElfFileDescriptor = fopen(ElfFileName, "rb"); // read mode
+	
 
 	long long ProgramIterator=0;
 	for(ProgramIterator=0;ProgramIterator <sizeof(ProgramDataToSend);ProgramIterator++){
@@ -111,6 +121,10 @@ void main(void)
 
 		/*close elf file to open the output file*/
 		fclose(ElfFileDescriptor);
+		
+		OutPutFileDescriptor = fopen(ProgressFileName, "w+"); // read mode
+		
+		
 
 
 		Header = (Elf32_Ehdr *) &ProgramData[0];
@@ -121,7 +135,7 @@ void main(void)
 		Program_Size = ceil( ( (ProgramHeader[0].p_memsz) + (ProgramHeader[1].p_memsz) - ISR_Offset ) / (float)DATA_BLOCK_SIZE );
 
 		
-		/*TODO: to add section header parser*/
+		
 		for(i= 0 ; i < ((ProgramHeader[0].p_filesz) - ISR_Offset ); i++ ){
 
 			ProgramDataToSend[i] = ProgramData[ ISR_Offset + ProgramHeader[0].p_offset + i ];
@@ -131,7 +145,8 @@ void main(void)
 
 		for(i= 0 ; i < (ProgramHeader[1].p_filesz) ; i++ ){
 
-			ProgramDataToSend[  (ProgramHeader[0].p_memsz - ISR_Offset ) + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + i   ];
+			ProgramDataToSend[  (ProgramHeader[0].p_memsz - ISR_Offset ) + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + 
+i   ];
 
 		}
 		
@@ -154,9 +169,10 @@ void main(void)
 	printf("\nThe received Response is %d\n\n", ResponseCommand.Response);
 	closePort();
 		
-		
+	fprintf(OutPutFileDescriptor, "%d\n", Program_Size);	
+	fprintf(OutPutFileDescriptor, "%d\n", SentDataBlockIDX);
 	/************************************ Data Transmission Sequence *******************************************/
-		while ( (SentDataBlockIDX< EraseCommand.SectionsCount ) ){
+		while ( (SentDataBlockIDX < EraseCommand.SectionsCount ) ){
 
 			/*send 1000 Byte*/
 			for ( i=0; i < (DATA_BLOCK_SIZE/FRAME_DATA_BYTES) ; i++ ){
@@ -180,7 +196,7 @@ void main(void)
 			receiveCommand();
 			closePort();
 			TProtocol_ReceiveFrame( SerialBuffer, &ResponseCommand, &MessageID);
-			//ResponseCommand.Response = R_OK;
+			
 			if(ResponseCommand.Response == R_OK){
 				SentDataBlockIDX++;
 				lastSavedIDX += SentDataIDX + 5; //0	1000	2000		30000
@@ -189,14 +205,18 @@ void main(void)
 				printf("/*************************************/\n\n");
 				//}
 				CheckSum=0;
+				rewind(OutPutFileDescriptor);
+				fprintf(OutPutFileDescriptor, "%d\n", Program_Size);	
+				fprintf(OutPutFileDescriptor, "%d\n", SentDataBlockIDX + 1);
 			}
+			
 			/*repeat till end*/
 		}
 
 
 	}
 
-
+	fclose(ProgressFileName);
 
 }//End of Main()
 

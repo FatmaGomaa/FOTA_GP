@@ -72,8 +72,8 @@ int main(void)
 	UART_setRecveiverCbf (newApp);
 	Flash_Unlock();
 
-	//Flash_ErassPage(Marker_Address);
-	//Flash_WriteWord(&Marker, 5);
+	Flash_ErassPage(Marker_Address);
+	Flash_WriteWord(&Marker, 1);
 
 	GPIO_t	LED={
 			.PORT = PORT_C,

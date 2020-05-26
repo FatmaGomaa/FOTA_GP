@@ -169,6 +169,7 @@ i   ];
 	printf("\nThe received Response is %d\n\n", ResponseCommand.Response);
 	closePort();
 		
+	rewind(OutPutFileDescriptor);
 	fprintf(OutPutFileDescriptor, "%d\n", Program_Size);	
 	fprintf(OutPutFileDescriptor, "%d\n", SentDataBlockIDX);
 	/************************************ Data Transmission Sequence *******************************************/
@@ -208,6 +209,10 @@ i   ];
 				rewind(OutPutFileDescriptor);
 				fprintf(OutPutFileDescriptor, "%d\n", Program_Size);	
 				fprintf(OutPutFileDescriptor, "%d\n", SentDataBlockIDX + 1);
+				if(SentDataBlockIDX == 8)
+				{
+					break;
+				}
 			}
 			
 			/*repeat till end*/
@@ -276,8 +281,8 @@ void sendCommand(char * command){
 
 void receiveCommand(void){
 	/*------------------------------------ Setting Receive Mask ----------------------------------------------*/
-	SerialBuffer[0] = 'A';
-	m=1;
+	
+	m=0;
 	/*------------------------------------ Setting WaitComm() Event   ----------------------------------------*/
 	Status = SetCommMask(hComm, EV_RXCHAR); //Configure Windows to Monitor the serial device for Character Reception
 
@@ -304,6 +309,14 @@ void receiveCommand(void){
 		{
 			Status = ReadFile(hComm, &TempChar, sizeof(TempChar), &NoBytesRead, NULL);
 			SerialBuffer[m] = TempChar; 
+			if(m==0 && TempChar == 'A'){
+				/*Do Nothing*/
+			}else if(m==0 && TempChar != 'A'){
+				SerialBuffer[0] = 'A';
+				SerialBuffer[1] = TempChar;
+				/*because we started from 0 and saved 2 elements*/
+				m++;
+			}
 			m++;
 			printf("\nNoBytesRead is : %d and received Data is %c \n", NoBytesRead, TempChar);
 		}

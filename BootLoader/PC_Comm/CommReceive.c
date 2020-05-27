@@ -43,7 +43,7 @@ unsigned char * ElfFileName;                            // Pointer to hold the e
 unsigned char * MCU_Type;                               // Pointer to hold the MCU type passed from the GUI
 FILE * ElfFileDescriptor;                               // Discriptor used to deal with the elf file
 FILE * ProgressFileDescriptor;                          // Discriptor used to deal with the progress file
-unsigned char ProgressFileName[] = "F:\\Tourky\\FOTA_GP\\BootLoader\\GUI\\progress.txt";      // Progress file set as interface between CommReceiver and the GUI progress bar
+unsigned char ProgressFileName[] = "K:\\GP\\rep\\BootLoader\\GUI\\progress.txt";      // Progress file set as interface between CommReceiver and the GUI progress bar
 unsigned long size = 0;                                 // Elf file size
 unsigned static long SentDataIDX = 0;                   // Index of the data in ProgramDataToSend buffer
 unsigned static long SentDataBlockIDX = 0;              // Index to the number of data blocks sent to the BL to be flashed
@@ -168,7 +168,7 @@ void main(int argc, char *argv[])
 	rewind(ProgressFileDescriptor);
 
 	/* Update the Progress file after eraseing */
-	fprintf(ProgressFileDescriptor, "%d\t", Program_Size);	
+	fprintf(ProgressFileDescriptor, "%d ", Program_Size);	
 	fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX);
 	
 	/************************************ Data Transmission Sequence *******************************************/
@@ -212,7 +212,7 @@ void main(int argc, char *argv[])
 				printf("/*************************************/\n\n");
 				rewind(ProgressFileDescriptor);
 				/* Update the Progress file after eraseing */
-				fprintf(ProgressFileDescriptor, "%d\t", Program_Size);	
+				fprintf(ProgressFileDescriptor, "%d ", Program_Size);	
 				/* SentDataBlockIDX + 1 , because SentDataBlockIDX starts with 0 */
 				fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX + 1);
 				

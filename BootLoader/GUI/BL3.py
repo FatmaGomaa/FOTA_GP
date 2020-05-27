@@ -36,7 +36,7 @@ class Progress(QtCore.QThread):
 
     def run(self):
       self.emit(QtCore.SIGNAL('__updateProgressBar(int)'), 0) ## Reset progressbar value
-      file_in = "F:/Tourky/FOTA_GP/BootLoader/GUI/progress.txt"
+      file_in = "K:/GP/rep/BootLoader/GUI/progress.txt"
       loading = 0
       while True:
         with open(file_in) as f:
@@ -70,8 +70,8 @@ class Import(QtCore.QThread):
       self.COMNUM=COMNUM
       self.ELFPath=ELFPath
   def run(self):
-    file_in = "F:/Tourky/FOTA_GP/BootLoader/PC_Comm/CommReceive.c"
-    Dependences= "F:/Tourky/FOTA_GP/BootLoader/PC_Comm/TProtocol.c"
+    file_in = "K:/GP/rep/BootLoader/PC_Comm/CommReceive.c"
+    Dependences= "K:/GP/rep/BootLoader/PC_Comm/TProtocol.c"
     #while(True):
     print ("Hey this is Python Script Running\n")
     print(self.MCU)
@@ -80,10 +80,10 @@ class Import(QtCore.QThread):
     subprocess.call(["gcc",file_in,Dependences]) #For Compiling
     if(self.MCU == 0):
       print("before")
-      subprocess.call("F:/Tourky/FOTA_GP/BootLoader/PC_Comm/a.exe AVR "+" " +self.COMNUM+" " +self.ELFPath)
+      subprocess.call("K:/GP/rep/BootLoader/PC_Comm/a.exe AVR "+" " +self.COMNUM+" " +self.ELFPath)
       print("After")
     elif(self.MCU == 1):
-      subprocess.call("F:/Tourky/FOTA_GP/BootLoader/PC_Comm/a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
+      subprocess.call("K:/GP/rep/BootLoader/PC_Comm/a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
       #self.exit()
               
   
@@ -93,7 +93,7 @@ class Ui_Form(object):
         Form.setObjectName(u"Form")
       Form.resize(444, 279)
       Form.setStyleSheet(u"\n"
-"background-image:url(F:/Tourky/FOTA_GP/BootLoader/GUI/18.jpg);\n"
+"background-image:url(K:/GP/rep/BootLoader/GUI/18.jpg);\n"
 "\n"
 "")
       self.MCU_GroupBox = QGroupBox(Form)

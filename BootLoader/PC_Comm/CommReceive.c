@@ -43,7 +43,7 @@ unsigned char * ElfFileName;                            // Pointer to hold the e
 unsigned char * MCU_Type;                               // Pointer to hold the MCU type passed from the GUI
 FILE * ElfFileDescriptor;                               // Discriptor used to deal with the elf file
 FILE * ProgressFileDescriptor;                          // Discriptor used to deal with the progress file
-unsigned char ProgressFileName[] = "progress.txt";      // Progress file set as interface between CommReceiver and the GUI progress bar
+unsigned char ProgressFileName[] = "F:\\Tourky\\FOTA_GP\\BootLoader\\GUI\\progress.txt";      // Progress file set as interface between CommReceiver and the GUI progress bar
 unsigned long size = 0;                                 // Elf file size
 unsigned static long SentDataIDX = 0;                   // Index of the data in ProgramDataToSend buffer
 unsigned static long SentDataBlockIDX = 0;              // Index to the number of data blocks sent to the BL to be flashed

@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+###########################includes#############################################
 from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
     QRect, QSize, QUrl, Qt ,SIGNAL)
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QFont,
@@ -23,77 +24,102 @@ import time
 import serial.tools.list_ports as port_list
 import re
 import threading
+##################################################################################
 
-
-
+##We use this function to define the QString as String
 def QString():
   str()
   return
 
+##ProgressBar Thread Class
 class Progress(QtCore.QThread):
+    ##The initialization function 
     def __init__(self):
       QtCore.QThread.__init__(self)
-
+      
+    ##The runnable of ProgressBar
     def run(self):
-      self.emit(QtCore.SIGNAL('__updateProgressBar(int)'), 0) ## Reset progressbar value
+      ## Reset progressbar value by zero 
+      self.emit(QtCore.SIGNAL('__updateProgressBar(int)'), 0) 
+      ## To read the modification file of progressBar
       file_in = "./progress.txt"
-      loading = 0
+      #loading = 0
+      ##Waiting for 0.1sec before start updating the progressBar
       time.sleep(0.1)
       while True:
+        ##opening the progress file to update the progressBar
         with open(file_in) as f:
           line = f.readline()
+          ##split the line using space
           Line_Array= line.split()
           #f.close()  
           #for Line_Array[1] in range(int(Line_Array[0])):
+          ##Check if the value not updated so we will update StatusValue and progressBar
           if (int (float(Line_Array[1])) == 0):
             progressValue=0;
             StatusValue="Setup"
             #time.sleep(1)
+          ##In case flashing done  
           elif (Line_Array[1] == Line_Array[0]):
             progressValue=100
             StatusValue="Done"
+            ##will terminate the Thread
             self.exit()
             #time.sleep(1)
+          ## In case flashing the c app  
           else:
             progressValue = (int (float(Line_Array[1])) /int (float(Line_Array[0]))) *100
             #print(int(progressValue))
             StatusValue="in progress"
             #time.sleep(1)
-            
+          ##updating the progressBar  
           self.emit(QtCore.SIGNAL('__updateProgressBar(int)'),progressValue)
+          ##pending the Thread for 2Sec
           time.sleep(2)
               
-  
+##ComReceiver Thread Class  
 class Import(QtCore.QThread):
+  ##The initialization function 
   def __init__(self,MCU,COMNUM,ELFPath):
       QtCore.QThread.__init__(self)
       self.MCU=MCU
       self.COMNUM=COMNUM
       self.ELFPath=ELFPath
+  
+  ##The runnable of ProgressBar
   def run(self):
+    ##Files needed to be executed
     file_in = "../PC_Comm/CommReceive.c"
     Dependences= "../PC_Comm/TProtocol.c"
     #while(True):
     print ("Hey this is Python Script Running\n")
+    ##for checking MCU, COM_number and Elf_path
     print(self.MCU)
     print(self.COMNUM)
     print(self.ELFPath)
-    subprocess.call(["gcc",file_in,Dependences]) #For Compiling
+    ##Compiling C files
+    subprocess.call(["gcc",file_in,Dependences])
+    ##To check MCU Entered
     if(self.MCU == 0):
       print("before")
+      ##To run the executable file with input arguments ("AVR comN ElfPath")
       subprocess.call("../PC_Comm/a.exe AVR "+" " +self.COMNUM+" " +self.ELFPath)
       print("After")
     elif(self.MCU == 1):
+      ##To run the executable file with input arguments ("ARM comN ElfPath")
       subprocess.call("../a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
+    ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()
               
-  
+##Main application  
 class Ui_Form(object):
+    ##Setup GUI Tool
     def setupUi(self, Form):
       if Form.objectName():
         Form.setObjectName(u"Form")
       Form.resize(444, 279)
+      ##background-image
       Form.setStyleSheet(u"\n"
 "background-image:url(./18.jpg);\n"
 "\n"
@@ -164,43 +190,55 @@ class Ui_Form(object):
       self.pushButton.setText(QCoreApplication.translate("Form", u"Search", None))
     # retranslateUi
       
-#to make connection
+      ##Connect buttons
       self.Connect_Button.clicked.connect(self.GenerateFunction)
       self.pushButton.clicked.connect(self.ComFunction)
+      
+      ##object of progress class
       self.progressView = Progress()
       
       QMetaObject.connectSlotsByName(Form)
-#GenerateFunction
+      
+    ##Function call when Connect_Button pressed
     def GenerateFunction(self) :
+      ##checking directory path validation
       if(os.path.isdir(self.FileLocation.text()) == False):
         ErrorBox = QtWidgets.QErrorMessage()
         ErrorBox.showMessage("This Directory doesn't exist")
         ErrorBox.exec_()
       else:
         #cmd ="Hello.c"
+        ##To get MCU 
         Index = self.MCU.currentIndex()
+        ##To get ComN
         COMNum=self.COMEdit.text()
+        ##To get the ELF_File
+        ##TODO:Change elffile_name automatically
         ElfPath = self.FileLocation.text() + "Main_APP.elf"
+        ##starting the ComReceiver Thread
         self.file=Import(Index,COMNum,ElfPath)
         self.file.start()
+        ##checking directory path validation
         if(os.path.isfile(r'./progress.txt') == False):
           self.Status.setText("Error")
           ErrorBox = QtWidgets.QErrorMessage()
           ErrorBox.showMessage("The progress file doesn't exist")
           ErrorBox.exec_()
         else:
+          ##initalization values og progress.txt
           f = open('./progress.txt','w') 
           f.write("0 0")
           f.close()
+          ##starting The progressBar Thread
           QObject.connect (self.progressView , QtCore.SIGNAL("__updateProgressBar(int)"),self.__updateProgressBar)
           self.start()
           
           print("correct")
           
-            
-          
-        
-  #GenerateFunction
+                   
+    ##Function call when Search_Button pressed
+    ##TODO: To get all available coms in list in GUI
+    ##searching the COM port automatically
     def ComFunction(self) :
       ports = list(port_list.comports())
       if ports:
@@ -212,11 +250,12 @@ class Ui_Form(object):
         ErrorBox = QtWidgets.QErrorMessage()
         ErrorBox.showMessage("No COM detected")
         ErrorBox.exec_()
-  #update function
-    
+  
+    ##function called by progressBar Thread to update progressBar and Status
     @QtCore.Slot(int)
     def  __updateProgressBar(self, percent):
       #self.Status.setText(Status)
+      ##initial state
       if percent == 0:
         self.Status.setText("Setup")
       elif percent < 100:
@@ -228,7 +267,9 @@ class Ui_Form(object):
       self.progressView.start()
       #QObject.connect (self.progressView , QtCore.SIGNAL("__updateProgressBar(int)"),self.__updateProgressBar)
       #self.start()
-#to create object of application
+      
+      
+##To create object of application
 app = QApplication(sys.argv)
 #to create the object of wedget
 Widget=QWidget()

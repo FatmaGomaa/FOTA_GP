@@ -21,41 +21,41 @@ void openPort(void);
 
 /************************************** Global variables ******************************************************/
 
-HANDLE hComm;                                           // Handle to the Serial port
-unsigned char * ComPortName;                            // Name of the Serial port passed from GUI
-BOOL  Status;                                           // Status of the various operations 
-DWORD dwEventMask;                                      // Event mask to trigger from type DWORD (unsigned long)
-unsigned char  TempChar;                                // Temperory Character
-unsigned char  SerialBuffer[256];                       // Buffer Containing Rxed Data
-unsigned char * lpBuffer;		       		            // Buffer used for data written on the port  
-DWORD  dNoOFBytestoWrite;                               // No of bytes to write into the port
-DWORD  dNoOfBytesWritten = 0;                           // No of bytes written to the port
-DWORD NoBytesRead;                                      // Bytes read by ReadFile()
-unsigned char CommandToSend[9] = {0};			        // Buffer holding the Frame to be sent or received (Frame Size + Null Terminator)
-unsigned long long z = 0,x = 0;						    // Iterators used for producing delay
-long long i = 0;                                        // Iterators used in looping 
-unsigned int m = 0;                                     // Iterators used in looping
+HANDLE hComm;                                                     // Handle to the Serial port
+unsigned char * ComPortName;                                      // Name of the Serial port passed from GUI
+BOOL  Status;                                                     // Status of the various operations 
+DWORD dwEventMask;                                                // Event mask to trigger from type DWORD (unsigned long)
+unsigned char  TempChar;                                          // Temperory Character
+unsigned char  SerialBuffer[256];                                 // Buffer Containing Rxed Data
+unsigned char * lpBuffer;		       		                      // Buffer used for data written on the port  
+DWORD  dNoOFBytestoWrite;                                         // No of bytes to write into the port
+DWORD  dNoOfBytesWritten = 0;                                     // No of bytes written to the port
+DWORD NoBytesRead;                                                // Bytes read by ReadFile()
+unsigned char CommandToSend[9] = {0};			                  // Buffer holding the Frame to be sent or received (Frame Size + Null Terminator)
+unsigned long long z = 0,x = 0;						              // Iterators used for producing delay
+long long i = 0;                                                  // Iterators used in looping 
+unsigned int m = 0;                                               // Iterators used in looping
 
 
-unsigned char ProgramData[1024*1024] = {0};		        // 60 K Program Data Buffer, will contain the whole elf file
-unsigned char ProgramDataToSend[30*1024] = {0};	        // 30 K only Program Header Sections, will contain the data of the program 
-unsigned char * ElfFileName;                            // Pointer to hold the elf file name passed from the GUI
-unsigned char * MCU_Type;                               // Pointer to hold the MCU type passed from the GUI
-FILE * ElfFileDescriptor;                               // Discriptor used to deal with the elf file
-FILE * ProgressFileDescriptor;                          // Discriptor used to deal with the progress file
-unsigned char ProgressFileName[] = "K:\\GP\\rep\\BootLoader\\GUI\\progress.txt";      // Progress file set as interface between CommReceiver and the GUI progress bar
-unsigned long size = 0;                                 // Elf file size
-unsigned static long SentDataIDX = 0;                   // Index of the data in ProgramDataToSend buffer
-unsigned static long SentDataBlockIDX = 0;              // Index to the number of data blocks sent to the BL to be flashed
-unsigned static long CheckSum = 0;                      // Checksum for Erase frame and for the verify Frame
-unsigned char MessageID = 0;                            // Eash frame will have a different Message ID
-unsigned long lastSavedIDX = 0;                         // Index for last send (saved) data 
-unsigned long ISR_Offset = 0;                           // ISR offset holds base address of the program in the physical memory
-unsigned char Program_Size = 0;                         // Program size in flash in sections (blockes)
-
-Elf32_Ehdr * Header = NULL;                             // Pointer to the elf file header
-Elf32_Phdr * ProgramHeader = NULL;                      // Pointe to the program header in the elf file 
-Elf32_Shdr * SectionHeader = NULL;                      // Pointe to the section header in the elf file 
+unsigned char ProgramData[1024*1024] = {0};		                  // 60 K Program Data Buffer, will contain the whole elf file
+unsigned char ProgramDataToSend[30*1024] = {0};	                  // 30 K only Program Header Sections, will contain the data of the program 
+unsigned char * ElfFileName;                                      // Pointer to hold the elf file name passed from the GUI
+unsigned char * MCU_Type;                                         // Pointer to hold the MCU type passed from the GUI
+FILE * ElfFileDescriptor;                                         // Discriptor used to deal with the elf file
+FILE * ProgressFileDescriptor;                                    // Discriptor used to deal with the progress file
+unsigned char ProgressFileName[] = "..\\GUI\\progress.txt";       // Progress file set as interface between CommReceiver and the GUI progress bar
+unsigned long size = 0;                                           // Elf file size
+unsigned static long SentDataIDX = 0;                             // Index of the data in ProgramDataToSend buffer
+unsigned static long SentDataBlockIDX = 0;                        // Index to the number of data blocks sent to the BL to be flashed
+unsigned static long CheckSum = 0;                                // Checksum for Erase frame and for the verify Frame
+unsigned char MessageID = 0;                                      // Eash frame will have a different Message ID
+unsigned long lastSavedIDX = 0;                                   // Index for last send (saved) data 
+unsigned long ISR_Offset = 0;                                     // ISR offset holds base address of the program in the physical memory
+unsigned char Program_Size = 0;                                   // Program size in flash in sections (blockes)
+														          
+Elf32_Ehdr * Header = NULL;                                       // Pointer to the elf file header
+Elf32_Phdr * ProgramHeader = NULL;                                // Pointe to the program header in the elf file 
+Elf32_Shdr * SectionHeader = NULL;                                // Pointe to the section header in the elf file 
 
 
 void main(int argc, char *argv[])
@@ -103,8 +103,7 @@ void main(int argc, char *argv[])
 		/* Save elf file content in ProgramData buffer */
 		/* fgetc reads single character at a time and moves the file pointer position to the next address */
 		char ch = fgetc(ElfFileDescriptor);
-		while (i != size)
-		{
+		while (i != size){
 			ProgramData[i]=ch;
 			i++;
 			ch = fgetc(ElfFileDescriptor);
@@ -112,9 +111,6 @@ void main(int argc, char *argv[])
 
 		/* Close elf file to open the output file */
 		fclose(ElfFileDescriptor);
-		
-		/* open the progress file with write permission */
-		ProgressFileDescriptor = fopen(ProgressFileName, "w+"); // read mode
 		
 		/* Point to the elf Header, program header, section header in the buffer holding the elf file */
 		Header = (Elf32_Ehdr *) &ProgramData[0];
@@ -128,6 +124,13 @@ void main(int argc, char *argv[])
 		/* The ISR offset is subtracted from total memory sizes, because the first mem size holds the acual mem size pluse the program offset in the physical memory */
 		/* Casting the DATA_BLOCK_SIZE as float so the division remaning is not discarded, so we can get the ceilling of the division operation */
 		Program_Size = ceil( ( (ProgramHeader[0].p_memsz) + (ProgramHeader[1].p_memsz) - ISR_Offset ) / (float)DATA_BLOCK_SIZE );
+		
+		/* open the progress file with write permission */
+		ProgressFileDescriptor = fopen(ProgressFileName, "w+"); // read mode
+	    /* Update the Progress file with new flashing data */
+	    fprintf(ProgressFileDescriptor, "%d ", Program_Size);	
+	    fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX);
+	    fclose(ProgressFileDescriptor);
 
 		
 		/* Writting the program data of the first file size in a buffer to be sent and flashed */
@@ -165,12 +168,6 @@ void main(int argc, char *argv[])
 	printf("\nThe received Response is %d", MessageID);
 	printf("\nThe received Response is %d\n\n", ResponseCommand.Response);
 	closePort();
-	rewind(ProgressFileDescriptor);
-
-	/* Update the Progress file after eraseing */
-	fprintf(ProgressFileDescriptor, "%d ", Program_Size);	
-	fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX);
-	
 	/************************************ Data Transmission Sequence *******************************************/
 		/* loop on ProgramDataToSend with the number of number of the sections to be flashed*/
 		while ( (SentDataBlockIDX < EraseCommand.SectionsCount ) ){
@@ -210,11 +207,12 @@ void main(int argc, char *argv[])
 				printf("\n\n/*************************************/\n");
 				printf("Last Saved IDX %ld\n",lastSavedIDX);
 				printf("/*************************************/\n\n");
-				rewind(ProgressFileDescriptor);
-				/* Update the Progress file after eraseing */
+				
+				/* Update the Progress file after sending 1000 bytes data block */
+				ProgressFileDescriptor = fopen(ProgressFileName, "w+"); // read mode
 				fprintf(ProgressFileDescriptor, "%d ", Program_Size);	
-				/* SentDataBlockIDX + 1 , because SentDataBlockIDX starts with 0 */
-				fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX + 1);
+				fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX );
+				fclose(ProgressFileDescriptor);
 				
 				if(SentDataBlockIDX == 8){
 					break;
@@ -227,9 +225,8 @@ void main(int argc, char *argv[])
 			
 			/*repeat till end*/
 		}
+		
 	}
-
-	fclose(ProgressFileName);
 
 }
 

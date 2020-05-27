@@ -36,8 +36,9 @@ class Progress(QtCore.QThread):
 
     def run(self):
       self.emit(QtCore.SIGNAL('__updateProgressBar(int)'), 0) ## Reset progressbar value
-      file_in = "K:/GP/rep/BootLoader/GUI/progress.txt"
+      file_in = "./progress.txt"
       loading = 0
+      time.sleep(0.1)
       while True:
         with open(file_in) as f:
           line = f.readline()
@@ -46,7 +47,7 @@ class Progress(QtCore.QThread):
           #for Line_Array[1] in range(int(Line_Array[0])):
           if (int (float(Line_Array[1])) == 0):
             progressValue=0;
-            StatusValue="Erasing"
+            StatusValue="Setup"
             #time.sleep(1)
           elif (Line_Array[1] == Line_Array[0]):
             progressValue=100
@@ -70,8 +71,8 @@ class Import(QtCore.QThread):
       self.COMNUM=COMNUM
       self.ELFPath=ELFPath
   def run(self):
-    file_in = "K:/GP/rep/BootLoader/PC_Comm/CommReceive.c"
-    Dependences= "K:/GP/rep/BootLoader/PC_Comm/TProtocol.c"
+    file_in = "../PC_Comm/CommReceive.c"
+    Dependences= "../PC_Comm/TProtocol.c"
     #while(True):
     print ("Hey this is Python Script Running\n")
     print(self.MCU)
@@ -80,10 +81,11 @@ class Import(QtCore.QThread):
     subprocess.call(["gcc",file_in,Dependences]) #For Compiling
     if(self.MCU == 0):
       print("before")
-      subprocess.call("K:/GP/rep/BootLoader/PC_Comm/a.exe AVR "+" " +self.COMNUM+" " +self.ELFPath)
+      subprocess.call("../PC_Comm/a.exe AVR "+" " +self.COMNUM+" " +self.ELFPath)
       print("After")
     elif(self.MCU == 1):
-      subprocess.call("K:/GP/rep/BootLoader/PC_Comm/a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
+      subprocess.call("../a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
+    time.sleep(2)
       #self.exit()
               
   
@@ -93,7 +95,7 @@ class Ui_Form(object):
         Form.setObjectName(u"Form")
       Form.resize(444, 279)
       Form.setStyleSheet(u"\n"
-"background-image:url(K:/GP/rep/BootLoader/GUI/18.jpg);\n"
+"background-image:url(./18.jpg);\n"
 "\n"
 "")
       self.MCU_GroupBox = QGroupBox(Form)
@@ -149,7 +151,7 @@ class Ui_Form(object):
       self.MCU_GroupBox.setTitle(QCoreApplication.translate("Form", u"MCU", None))
       self.MCU.setItemText(0, QCoreApplication.translate("Form", u"AVR", None))
       self.MCU.setItemText(1, QCoreApplication.translate("Form", u"STM", None))
-
+      
       self.Title.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -166,8 +168,7 @@ class Ui_Form(object):
       self.Connect_Button.clicked.connect(self.GenerateFunction)
       self.pushButton.clicked.connect(self.ComFunction)
       self.progressView = Progress()
-      #QObject.connect (self.progressView , QtCore.SIGNAL("__updateProgressBar(int)"),self.__updateProgressBar)
-      #self.start()
+      
       QMetaObject.connectSlotsByName(Form)
 #GenerateFunction
     def GenerateFunction(self) :
@@ -188,10 +189,14 @@ class Ui_Form(object):
           ErrorBox.showMessage("The progress file doesn't exist")
           ErrorBox.exec_()
         else:
-          
-          print("correct")
+          f = open('./progress.txt','w') 
+          f.write("0 0")
+          f.close()
           QObject.connect (self.progressView , QtCore.SIGNAL("__updateProgressBar(int)"),self.__updateProgressBar)
           self.start()
+          
+          print("correct")
+          
             
           
         
@@ -213,7 +218,7 @@ class Ui_Form(object):
     def  __updateProgressBar(self, percent):
       #self.Status.setText(Status)
       if percent == 0:
-        self.Status.setText("Erasing")
+        self.Status.setText("Setup")
       elif percent < 100:
         self.Status.setText("in progress")
       elif percent == 100:

@@ -168,8 +168,8 @@ void main(int argc, char *argv[])
 	rewind(ProgressFileDescriptor);
 
 	/* Update the Progress file after eraseing */
-	fprintf(ProgressFileDescriptor, "%d\n", Program_Size);	
-	fprintf(ProgressFileDescriptor, "%d\n", SentDataBlockIDX);
+	fprintf(ProgressFileDescriptor, "%d\t", Program_Size);	
+	fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX);
 	
 	/************************************ Data Transmission Sequence *******************************************/
 		/* loop on ProgramDataToSend with the number of number of the sections to be flashed*/
@@ -212,9 +212,9 @@ void main(int argc, char *argv[])
 				printf("/*************************************/\n\n");
 				rewind(ProgressFileDescriptor);
 				/* Update the Progress file after eraseing */
-				fprintf(ProgressFileDescriptor, "%d\n", Program_Size);	
+				fprintf(ProgressFileDescriptor, "%d\t", Program_Size);	
 				/* SentDataBlockIDX + 1 , because SentDataBlockIDX starts with 0 */
-				fprintf(ProgressFileDescriptor, "%d\n", SentDataBlockIDX + 1);
+				fprintf(ProgressFileDescriptor, "%d", SentDataBlockIDX + 1);
 				
 				if(SentDataBlockIDX == 8){
 					break;

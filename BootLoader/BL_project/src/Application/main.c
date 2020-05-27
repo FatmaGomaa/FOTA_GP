@@ -72,7 +72,7 @@ int main(void)
 	UART_setRecveiverCbf (newApp);
 	Flash_Unlock();
 
-	//Flash_ErassPage(Marker_Address);
+//Flash_ErassPage(Marker_Address);
 	//Flash_WriteWord(&Marker, 1);
 
 	GPIO_t	LED={
@@ -166,7 +166,7 @@ void newApp(void){
 				EraseCheckSum = 0;
 				/*TODO : check the MessageID send to the TP , ID is wrong its an EraseFrame ID instead of a ResponseFrame ID*/
 				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
-				Delay_ms(5000);
+				Delay_ms(10000);
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYES);
 
 			}
@@ -177,7 +177,7 @@ void newApp(void){
 
 				/* TODO : take the  TProtcol_sendFrame & UART_SendBuffer from here and from above, and place it after this else*/
 				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,ID_ResponseCommand);
-				Delay_ms(2000);
+				Delay_ms(10000);
 				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYES);
 			}
 			UART_ReceiveBuffer(RXBuffer , 1);
@@ -214,7 +214,7 @@ void newApp(void){
 				ResponseCommand.Response=R_NOT_MismatchData;
 			}
 			TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
-			Delay_ms(5000);
+			Delay_ms(10000);
 			UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYES);
 
 			if(DataBlock == EraseCommand.SectionsCount )

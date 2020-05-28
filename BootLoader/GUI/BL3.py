@@ -86,7 +86,7 @@ class Import(QtCore.QThread):
       self.COMNUM=COMNUM
       self.ELFPath=ELFPath
   
-  ##The runnable of ProgressBar
+  ##The runnable of ComReceiver c file
   def run(self):
     ##Files needed to be executed
     file_in = "../PC_Comm/CommReceive.c"

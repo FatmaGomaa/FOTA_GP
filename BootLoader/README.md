@@ -1,6 +1,6 @@
 # Micro Controller Data frame Transport Protocol BootLoader documentation:
 
-
+![](/Images/BL_FlowChart.jpg)
 - adding the application marker at the last index in flash in the memory file
 - including all the layers to the project without adding the absolute path from properties -> C/C++ build -> settings -> tool settings -> GNU ARM Cross C Compilers -> includes
 - error can't resolve std_types.h (no such file or directory) -> put in folder includes

@@ -13,7 +13,7 @@
 /*this Macro includes  Data Bytes*/
 #define FRAME_DATA_BYTES						5
 /*Whole Protocol number of bytes*/
-#define PROTOCOL_DATA_BYES						8
+#define PROTOCOL_DATA_BYTES						8
 
 typedef struct{
 	u8 Start;

@@ -107,7 +107,7 @@ class Import(QtCore.QThread):
       print("After")
     elif(self.MCU == 1):
       ##To run the executable file with input arguments ("ARM comN ElfPath")
-      subprocess.call("../a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
+      subprocess.call("../PC_Comm/a.exe STM "+" " +self.COMNUM+" " +self.ELFPath)
     ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()

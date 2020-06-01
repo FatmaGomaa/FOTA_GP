@@ -25,8 +25,8 @@
 // Set these to run example.
 #define FIREBASE_HOST "fota-905e1.firebaseio.com"
 #define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
-#define WIFI_SSID "Eba6al-SD"
-#define WIFI_PASSWORD "Orochi12"
+#define WIFI_SSID "OrangeDSL-Gomaa"
+#define WIFI_PASSWORD "MeMes159753"
 
 unsigned char RxBuffer[8];
 unsigned char TxBuffer[8];
@@ -57,6 +57,9 @@ void setup() {
   Firebase.setInt("MSBFrame", 0x0A020A02);
   Firebase.setInt("LSBFrame", 0x09040904);
   Firebase.setString("habda", "414507000030074d");
+  
+  uart.setup(0, 9600, 8, uart.PARITY_NONE, uart.STOPBITS_1, 1);
+
 }
 
 
@@ -66,6 +69,7 @@ void loop()
   uint64_t u64_rxbuffer;
   String string_buffer;
   uint32_t u32_rxbufferMSB, u32_rxbufferLSB,*ptr;
+  uint64_t u64_rxbufferMSB, u64_rxbufferLSB;
   
   if (Firebase.getBool("FlashNewApp") == true)
   {
@@ -73,13 +77,13 @@ void loop()
 
     string_buffer = Firebase.getString("habda");
    
-    u32_rxbufferLSB = strtoul(string_buffer.substring(0,8).c_str(),NULL,16);
-    u32_rxbufferMSB = strtoul(string_buffer.substring(8,17).c_str(),NULL,16) ;
-    u64_rxbuffer = ((uint64_t)(u32_rxbufferMSB << 32))|((uint64_t)u32_rxbufferLSB);
+    u64_rxbufferLSB = strtoul(string_buffer.substring(0,8).c_str(),NULL,16);
+    u64_rxbufferMSB = strtoul(string_buffer.substring(8,17).c_str(),NULL,16) ;
+    u64_rxbuffer = ((uint64_t)(u64_rxbufferMSB << 32))|((uint64_t)u64_rxbufferLSB);
     
 
-    ptr = (uint32_t*)&u64_rxbuffer;
-
+    //ptr = (uint32_t*)&u64_rxbuffer;
+    uart.write(0,u64_rxbuffer );
     
     delay(100);
     ResponseRQT = Firebase.getBool("ResponseRQT");
@@ -90,9 +94,9 @@ void loop()
 
       delay(100);
       Serial.println(string_buffer);
-      Serial.println(u32_rxbufferLSB);
-      Serial.println(u32_rxbufferMSB);
-      Serial.printf("%ld %ld\n",ptr[1],ptr[0]);
+      //Serial.println(u32_rxbufferLSB);
+      //Serial.println(u32_rxbufferMSB);
+      //Serial.printf("%X%08X\n",ptr[0],ptr[1]);
       SendRQT = false;
       Firebase.setBool("Send", SendRQT);
       delay(100);

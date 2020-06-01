@@ -243,7 +243,7 @@ void newApp(void)
 				Delay_ms(10000);
 
 				/*Send the ID of the response command*/
-				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYTES)
+				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYTES);
 			}
 
 			/* Receive one byte from the PC */

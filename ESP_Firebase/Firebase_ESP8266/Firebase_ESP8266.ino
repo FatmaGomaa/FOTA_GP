@@ -1,40 +1,32 @@
+//1. Include Firebase ESP8266 library (this library)
+#include "FirebaseESP8266.h"
 
-//
-// Copyright 2015 Google Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-//
-
-// FirebaseDemo_ESP8266 is a sample that demo the different functions
-// of the FirebaseArduino API.
-
+//2. Include ESP8266WiFi.h and must be included after FirebaseESP8266.h
 #include <ESP8266WiFi.h>
-#include <ArduinoJson.h>
-#include <FirebaseArduino.h>
+
+
+//3. Declare the Firebase Data object in the global scope
+FirebaseData firebaseData;
 
 // Set these to run example.
 #define FIREBASE_HOST "fota-905e1.firebaseio.com"
 #define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
-#define WIFI_SSID "OrangeDSL-Gomaa"
-#define WIFI_PASSWORD "MeMes159753"
+#define WIFI_SSID "LINKDSL-Dawoud"
+#define WIFI_PASSWORD "ilhpfeae3143949"
+#define DELAY_TIME    100
 
+/* Definitions */
+String TX_string_buffer , TX_Need_Resp_Buffer , RX_string_buffer;
+
+ 
 unsigned char RxBuffer[8];
 unsigned char TxBuffer[8];
-
+char counter =0;
 bool SendRQT, ResponseRQT;
 
 void setup() {
   Serial.begin(115200);
+//  node.setcpufreq(node.CPU160MHZ);
 
   // connect to wifi.
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -46,141 +38,143 @@ void setup() {
   Serial.println();
   Serial.print("connected: ");
   Serial.println(WiFi.localIP());
-
+  
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
 
-  /* TODO: to be removed, these variable controlled by PC */
-  Firebase.setBool("FlashNewApp", false );
-
-  Firebase.setBool("Send", true );
-  Firebase.setBool("ResponseRQT", true );
-  Firebase.setInt("MSBFrame", 0x0A020A02);
-  Firebase.setInt("LSBFrame", 0x09040904);
-  Firebase.setString("habda", "414507000030074d");
-  
-  uart.setup(0, 9600, 8, uart.PARITY_NONE, uart.STOPBITS_1, 1);
-
+    /* TODO: to be removed, these variable controlled by PC */
+  Firebase.setBool(firebaseData, "FlashNewApp", false );
+  Firebase.setBool(firebaseData, "Send", true );
+  Firebase.setBool(firebaseData, "ResponseRQT", false );
+  Firebase.setString(firebaseData, "Frame", "414507000030074d");
 }
-
-
-
 void loop()
-{
-  uint64_t u64_rxbuffer;
-  String string_buffer;
-  uint32_t u32_rxbufferMSB, u32_rxbufferLSB,*ptr;
-  uint64_t u64_rxbufferMSB, u64_rxbufferLSB;
-  
-  if (Firebase.getBool("FlashNewApp") == true)
+{ 
+ 
+  bool FlashNewApp_Flag;
+  Firebase.getBool(firebaseData, "FlashNewApp");
+  FlashNewApp_Flag = firebaseData.boolData();
+ /* Check if a new program has been uploaded */
+  if (FlashNewApp_Flag == true)
   {
-    SendRQT = Firebase.getBool("Send");
+    /* Get the Current Status of the Send and ResponseRQT */
+    Firebase.getBool(firebaseData, "Send"); 
+    SendRQT = firebaseData.boolData();
+    Firebase.getBool(firebaseData, "ResponseRQT");
+    ResponseRQT = firebaseData.boolData();
 
-    string_buffer = Firebase.getString("habda");
-   
-    u64_rxbufferLSB = strtoul(string_buffer.substring(0,8).c_str(),NULL,16);
-    u64_rxbufferMSB = strtoul(string_buffer.substring(8,17).c_str(),NULL,16) ;
-    u64_rxbuffer = ((uint64_t)(u64_rxbufferMSB << 32))|((uint64_t)u64_rxbufferLSB);
-    
-
-    //ptr = (uint32_t*)&u64_rxbuffer;
-    uart.write(0,u64_rxbuffer );
-    
-    delay(100);
-    ResponseRQT = Firebase.getBool("ResponseRQT");
-
-    delay(100);
+    /* If it is Send and Receive Operation */
     if (SendRQT == true && ResponseRQT == true)
     {
+    /* Get the Current  */
+    Firebase.getString(firebaseData, "Frame");
+    TX_Need_Resp_Buffer = firebaseData.stringData();
 
-      delay(100);
-      Serial.println(string_buffer);
-      //Serial.println(u32_rxbufferLSB);
-      //Serial.println(u32_rxbufferMSB);
-      //Serial.printf("%X%08X\n",ptr[0],ptr[1]);
+    /* Divide the Frame into 8 bytes for UART to be send */
+    /*  TxBuffer[0] = strtoul(TX_string_buffer.substring(0,2).c_str()  ,NULL,16);
+      TxBuffer[1] = strtoul(TX_string_buffer.substring(2,4).c_str()  ,NULL,16);
+      TxBuffer[2] = strtoul(TX_string_buffer.substring(4,6).c_str()  ,NULL,16);
+      TxBuffer[3] = strtoul(TX_string_buffer.substring(6,8).c_str()  ,NULL,16);
+      TxBuffer[4] = strtoul(TX_string_buffer.substring(8,10).c_str() ,NULL,16);
+      TxBuffer[5] = strtoul(TX_string_buffer.substring(10,12).c_str(),NULL,16);
+      TxBuffer[6] = strtoul(TX_string_buffer.substring(12,14).c_str(),NULL,16);
+      TxBuffer[7] = strtoul(TX_string_buffer.substring(14,16).c_str(),NULL,16);
+    */
+      /*TODO: Send Data over UART to STM */
+     /* for(int index=0;index<8;index++)
+      {
+        //uart.write(0,TxBuffer[index]);    
+         Serial.printf("%02x",TxBuffer[index]);         
+      }*/
+
+      /* For testing */
+      Serial.print(TX_Need_Resp_Buffer);
+      Serial.print("\n");
+         
+      /* TODO: Receive Data from STM  in RXBuffer*/
+      /*for(int index=0;index<8;index++)
+      {
+       RxBuffer[i] = uart.on();        
+      }*/
+    
+    /*TODO: Concatenate the RxBuffer into string to Send it to FireBase */
+    /*RX_string_buffer  = String(RxBuffer[7],HEX);
+    RX_string_buffer += String(RxBuffer[6],HEX);
+    RX_string_buffer += String(RxBuffer[5],HEX);
+    RX_string_buffer += String(RxBuffer[4],HEX);
+    RX_string_buffer += String(RxBuffer[3],HEX);
+    RX_string_buffer += String(RxBuffer[2],HEX);
+    RX_string_buffer += String(RxBuffer[1],HEX);
+    RX_string_buffer += String(RxBuffer[0],HEX);
+    RX_string_buffer += "\0";*/
+      
+    /* Put the Response and Set the Send to false in firebase*/
       SendRQT = false;
-      Firebase.setBool("Send", SendRQT);
-      delay(100);
+      Firebase.setString(firebaseData, "Frame", "0000000000000000");
+      Firebase.setBool(firebaseData, "Send", SendRQT);
+
       }
+    
+    
+    /* If it is Send Operation Only */
+      else if(SendRQT == true && ResponseRQT == false)
+      {
+    /* Get the Current Frame */
+    TX_string_buffer =" ";
+    Firebase.getString(firebaseData, "Frame");
+    TX_string_buffer = firebaseData.stringData() + '\0'; 
 
-    }
+      /* Divide the Frame into 8 bytes for UART to be send */
+      /*  TxBuffer[0] = strtoul(TX_string_buffer.substring(0,2).c_str()  ,NULL,16);
+        TxBuffer[1] = strtoul(TX_string_buffer.substring(2,4).c_str()  ,NULL,16);
+        TxBuffer[2] = strtoul(TX_string_buffer.substring(4,6).c_str()  ,NULL,16);
+        TxBuffer[3] = strtoul(TX_string_buffer.substring(6,8).c_str()  ,NULL,16);
+        TxBuffer[4] = strtoul(TX_string_buffer.substring(8,10).c_str() ,NULL,16);
+        TxBuffer[5] = strtoul(TX_string_buffer.substring(10,12).c_str(),NULL,16);
+        TxBuffer[6] = strtoul(TX_string_buffer.substring(12,14).c_str(),NULL,16);
+        TxBuffer[7] = strtoul(TX_string_buffer.substring(14,16).c_str(),NULL,16);
+      */
+        /* Send Data over UART to STM */
+       /* for(int index=0;index<8;index++)
+        {
+          //uart.write(0,TxBuffer[index]);  
+          Serial.printf("%02x",TxBuffer[index]);        
+        }*/
+
+        /* For testing */
+        long * ptr;
+        ptr =(long *) &TX_string_buffer;
+        Serial.print("Data length");
+        Serial.print("\n");
+        Serial.print(TX_string_buffer.length());
+        Serial.print("\n");
+        Serial.print(TX_string_buffer);
+        counter++;
+        Serial.print("\n");
+        Serial.print(counter);
+        
+        /*Serial.print(TX_string_buffer);
+        Serial.print("\n");*/
+         
+    /*Set the Send flag on firebase to false */
+        SendRQT = false;
+        Firebase.setBool(firebaseData, "Send", SendRQT);
+     }
+
+  }
+
+  
+
+
+   
+ /* String a;
+  int b;
+  Firebase.setString(firebaseData, "habda", "414507000030074d"); 
+  Firebase.getString(firebaseData, "habda");
+  a = firebaseData.stringData();
+  Serial.println(a);  
+  Firebase.setInt(firebaseData, "habda2", 11); 
+  Firebase.getInt(firebaseData, "habda2"); 
+  b = firebaseData.intData();
+  Serial.println(b);*/ 
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-    int n = 0;
-  // set value
-  Firebase.setFloat("number", 42.0);
-  // handle error
-  if (Firebase.failed()) {
-     Serial.print("setting /number failed:");
-     Serial.println(Firebase.error());
-     return;
-  }
-  delay(1000);
-  Serial.print("number: ");
-  Serial.println(Firebase.getFloat("number"));
-  delay(1000);
-
-
-  // update value
-
-  // handle error
-  if (Firebase.failed()) {
-     Serial.print("setting /number failed:");
-     Serial.println(Firebase.error());
-     return;
-  }
-  delay(1000);
-
-  // get value
-  Serial.print("number: ");
-  Serial.println(Firebase.getFloat("number"));
-  delay(1000);
-
-  // remove value
-  Firebase.remove("number");
-  delay(1000);
-
-  // set string value
-  Firebase.setString("message", "hello world");
-  // handle error
-  if (Firebase.failed()) {
-     Serial.print("setting /message failed:");
-     Serial.println(Firebase.error());
-     return;
-  }
-  delay(1000);
-
-  // set bool value
-  Firebase.setBool("truth", false);
-  // handle error
-  if (Firebase.failed()) {
-     Serial.print("setting /truth failed:");
-     Serial.println(Firebase.error());
-     return;
-  }
-  delay(1000);
-
-  // append a new value to /logs
-  String name = Firebase.pushInt("logs", n++);
-  // handle error
-  if (Firebase.failed()) {
-     Serial.print("pushing /logs failed:");
-     Serial.println(Firebase.error());
-     return;
-  }
-  Serial.print("pushed: /logs/");
-  Serial.println(name);
-  delay(1000);
-*/

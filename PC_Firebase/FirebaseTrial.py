@@ -15,7 +15,7 @@ R_OK=0
 R_NOT_SectionOffestViolation=1
 R_NOT_SectionsOutOfScope=2
 R_NOT_MismatchData=3
-
+#FrameNames=["Data1" ,"Data2", "Data3","Data4","Data5","Data6","Data7","Data8","Data9","Data10" ];
 IDX=0               ##holds instant index in file
 LastSavedIDX=0      ##hold last valid index in file
 SentDataBlocks=0    ##Number of valid sent sections
@@ -76,24 +76,26 @@ if Response == hex(R_OK) :
     IDX += 1 
     while hex(SentDataBlocks) < SectionsCount :
         #send 200 Data Frame
-        for i in range(20) :
+        for i in range(200) :
             #print(IDX)
             Line = lines[IDX].split("\n")
             DataToSend += Line[0]
             print(Line[0])
             IDX += 1 
-        print("20 Bytes")
+        print("200 frames")
+        #db.child("Data Frames").child(FrameNames[DataBlocks]).set(DataToSend)
         db.child("Frame").set(DataToSend)
-        db.child("Send").set(True)
         DataBlocks += 1
         #Raise ResponseRQT if it's Verification Command
-        while True:
-          result = db.child("Send").get()
-          if (result.val() == False ):
-            break
-        if DataBlocks == 10:
+        if DataBlocks == 1:
           DataBlocks=0
           #Verification Command
+          db.child("Send").set(True)
+          #Verification Command
+          while True:
+            result = db.child("Send").get()
+            if (result.val() == False ):
+              break
           Line = lines[IDX].split("\n")
           db.child("Frame").set(Line[0])
           db.child("ResponseRQT").set(True)

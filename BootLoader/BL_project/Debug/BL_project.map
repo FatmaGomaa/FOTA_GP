@@ -2525,7 +2525,7 @@ END GROUP
  .debug_frame   0x00000b80       0x30 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
  .debug_frame   0x00000bb0       0x20 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000    0x57572
+.debug_str      0x00000000    0x575e1
  *(.debug_str)
  .debug_str     0x00000000     0x6d1f ./system/src/newlib/_exit.o
                                0x6e96 (size before relaxing)
@@ -2561,11 +2561,11 @@ END GROUP
                                0x2aa1 (size before relaxing)
  .debug_str     0x00056e25       0x53 ./src/Libraries/ARM_Delay/DELAY.o
                                0x25e8 (size before relaxing)
- .debug_str     0x00056e78      0x36f ./src/ECUAL/USART_Handler/hUART_Config.o
-                               0x30ab (size before relaxing)
- .debug_str     0x000571e7       0xef ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_str     0x00056e78      0x3de ./src/ECUAL/USART_Handler/hUART_Config.o
+                               0x311a (size before relaxing)
+ .debug_str     0x00057256       0xef ./src/ECUAL/USART_Handler/hUSART.o
                                0x34c5 (size before relaxing)
- .debug_str     0x000572d6      0x29c ./src/Application/main.o
+ .debug_str     0x00057345      0x29c ./src/Application/main.o
                               0x4f3c6 (size before relaxing)
 
 .debug_loc      0x00000000     0x19c1
@@ -2624,7 +2624,7 @@ OUTPUT(BL_project.elf elf32-littlearm)
  .debug_ranges  0x00000378       0x30 ./src/ECUAL/USART_Handler/hUSART.o
  .debug_ranges  0x000003a8       0x20 ./src/Application/main.o
 
-.debug_macro    0x00000000     0x2fdb
+.debug_macro    0x00000000     0x2fed
  .debug_macro   0x00000000      0x19c ./system/src/newlib/_exit.o
  .debug_macro   0x0000019c       0x9c ./system/src/newlib/_exit.o
  .debug_macro   0x00000238      0x10e ./system/src/newlib/_exit.o
@@ -2683,8 +2683,8 @@ OUTPUT(BL_project.elf elf32-littlearm)
  .debug_macro   0x00002b46       0x7c ./src/MCAL/GPIO/dGPIO.o
  .debug_macro   0x00002bc2       0xcc ./src/MCAL/Flash/dFlash.o
  .debug_macro   0x00002c8e       0x30 ./src/Libraries/ARM_Delay/DELAY.o
- .debug_macro   0x00002cbe       0x80 ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_macro   0x00002d3e       0x28 ./src/ECUAL/USART_Handler/hUART_Config.o
- .debug_macro   0x00002d66       0x50 ./src/ECUAL/USART_Handler/hUSART.o
- .debug_macro   0x00002db6       0x1c ./src/ECUAL/USART_Handler/hUSART.o
- .debug_macro   0x00002dd2      0x209 ./src/Application/main.o
+ .debug_macro   0x00002cbe       0x92 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00002d50       0x28 ./src/ECUAL/USART_Handler/hUART_Config.o
+ .debug_macro   0x00002d78       0x50 ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00002dc8       0x1c ./src/ECUAL/USART_Handler/hUSART.o
+ .debug_macro   0x00002de4      0x209 ./src/Application/main.o

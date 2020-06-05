@@ -57,7 +57,7 @@ void setup() {
 
   /* Serial Setup */
   Serial2.begin(9600);
-  Serial.begin(9600);
+  Serial.begin(500000);
 
   
   /* connecting to wifi Sequence */

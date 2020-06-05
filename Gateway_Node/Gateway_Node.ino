@@ -18,8 +18,8 @@
 #define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
 
 /* Network - Parameters for Local Network. */
-#define WIFI_SSID "OrangeDSL-Gomaa"
-#define WIFI_PASSWORD "MeMes159753"
+#define WIFI_SSID "dody"
+#define WIFI_PASSWORD "K@otb8844"
 
 /* Data Frame Size */
 #define DATA_FRAMES_COUNT           200

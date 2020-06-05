@@ -129,6 +129,13 @@ void main(int argc, char *argv[])
 
 		}
 		
+		for(i= 0 ; i < (ProgramHeader[1].p_filesz) ; i++ ){
+
+			/* The ProgramDataToSend's index has +1 because the first mem size holds the last physical address of the first LOAD */
+			ProgramDataToSend[  (ProgramHeader[0].p_memsz - ISR_Offset ) + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + i   ];
+
+		}
+		
 		/************************************ Erasing Sequence *******************************************/
 	    /* Sending Erase Command */
 	    EraseCommand.SectionsCount = Program_Size;

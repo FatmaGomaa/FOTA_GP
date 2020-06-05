@@ -20,7 +20,7 @@ IDX=0               ##holds instant index in file
 LastSavedIDX=0      ##hold last valid index in file
 SentDataBlocks=0    ##Number of valid sent sections
 SectionsCount=0     ##Total Number of Sections to send
-DataToSend=" "
+DataToSend=""
 DataBlocks=0
 f=open("tst.txt","r+")
 lines = f.readlines()
@@ -100,6 +100,7 @@ if Response == hex(R_OK) :
           db.child("Frame").set(Line[0])
           db.child("ResponseRQT").set(True)
           db.child("Send").set(True)
+          IDX += 1
           while True:
             result = db.child("Send").get()
             if (result.val() == False ):

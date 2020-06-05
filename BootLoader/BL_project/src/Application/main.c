@@ -82,6 +82,9 @@ int main(void)
 	/* Unlock The Flash */
 	Flash_Unlock();
 
+	//Flash_ErassPage(Marker_Address);
+	//Flash_WriteWord(&Marker, 1);
+
 	/* Debugging Code */
 	GPIO_t	LED={
 			.PORT = PORT_C,
@@ -187,6 +190,7 @@ void newApp(void)
 				while(SectionCount < EraseCommand.SectionsCount && ErrorCounter < MAXERRORCOUNT)
 				{
 					Local_Error = Flash_ErassPage( MAINADDRESS + (EraseCommand.SectionOffset) + ( PAGESIZE * SectionCount) );
+					//Local_Error = OK;
 					if(Local_Error == OK)
 					{
 						SectionCount++;
@@ -220,7 +224,7 @@ void newApp(void)
 				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
 				
 				/* Wait 10000 ms to Sync with the PC */
-				Delay_ms(10000);
+				//Delay_ms(10000);
 
 				/*Send the ID of the response command*/
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
@@ -240,7 +244,7 @@ void newApp(void)
 				TProtcol_sendFrame(&ResponseCommand,TrasnmitterBuffer,ID_ResponseCommand);
 				
 				/* Wait 10000 ms to Sync with the PC */
-				Delay_ms(10000);
+				//Delay_ms(10000);
 
 				/*Send the ID of the response command*/
 				UART_SendBuffer(TrasnmitterBuffer,PROTOCOL_DATA_BYTES);
@@ -313,7 +317,7 @@ void newApp(void)
 			TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
 			
 			/* Wait 10000 ms to Sync with the PC */
-			Delay_ms(10000);
+			//Delay_ms(10000);
 
 			/*Send the ID of the response command*/
 			UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);

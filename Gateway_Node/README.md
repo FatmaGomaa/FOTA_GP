@@ -96,10 +96,9 @@ String TX_string_buffer = "00000…………”
 Then we received each 2 digits from the cloud in the buffer and we send it to STM via UART
 
 ## References
-```
+
 1. https://www.javatpoint.com/iot-project-google-firebase-nodemcu
 2. https://arduino-esp8266.readthedocs.io/en/latest/exception_causes.html
 3. https://github.com/me-no-dev/EspExceptionDecoder
 4. https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html#watchdog
 5. https://github.com/mobizt/Firebase-ESP8266/blob/master/README.md
-```

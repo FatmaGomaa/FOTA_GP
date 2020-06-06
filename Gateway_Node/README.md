@@ -90,10 +90,14 @@ And we also added those lines of code to avoid any watchdog timer issues
 
 ### 4- Corrupted Data 
 
-As our project sequence is that the Pc send 8 bytes to the cloud in hex format and we should receive from it 8 bytes, we discovered after receiving it, the data size is 16 bytes not 8 bytes and that’s because each byte is equal 2 digit in hex format so we must do something to send those 16 bytes as 8 bytes to the target we use (STM32F10)
+In our design, we have two kind of frames:
+1. Non Data frame : it contains 8 bytes of data that includes the needed information about the Elf file.
+2. Data frame : it contains 1600 bytes of data from the hex file.
+
+As our project sequence is that the Pc send 8 bytes (Non Data frame) to the cloud in hex format as string and we should receive 8 bytes from it, we discovered after receiving it, that the data size is 16 bytes not 8 bytes, that’s because each byte of Data is represented as 2 string digits in hex format so we needed an algorithm to convert back the 16 bytes (digits) string to the original 8 bytes Data, then send those 8 Data bytes to the targeted MCU.
 ![](/Gateway_Node/Images/8.jpg)
 
-We used buffer to receive the data from the cloud and we initialized this buffer by 3200 zero’s for two reasons first one the initialization it self to avoid any data corruption, Second one this number because the  pc send 200 frame each one of them is 8 bytes so the total number is 1600 byte and we receive those 1600 byte multiplied by 2 because of each byte is equal 2 digits in hex format so the numbe is 3200
+To receive the data frame we received it as a string of 3200 hex string digit (the pc sends 200 frames each one of them is 8 bytes so the total number is 1600 byte and we receive those 1600 bytes multiplied by 2 because of each byte is represented as 2 digits in hex format as string so the numbe is 3200 ), we created (TX_string_buffer) and allocated it with 3200 char (3.2k bytes) becouse if it's not initialized with the size corresponding to our data, it will be initialized with the default size and it will corrapt our data
 
 ```
 String TX_string_buffer = "00000…………”

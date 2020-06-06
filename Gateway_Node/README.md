@@ -18,12 +18,8 @@ This document describes the steps we followed and the errors we faced to connect
 
 <table>
   <tr>
-  <p align="center">
-    <td align="center"><img src="/Gateway_Node/Images/3.jpg" width=300 height=380></td>
-	</p>
-	<p align="center">
-    <td align="center"><img src="/Gateway_Node/Images/4.jpg" width=300 height=380></td>
-	</p>
+    <td valign="center"><img src="/Gateway_Node/Images/3.jpg" width=300 height=380></td>
+    <td valign="center"><img src="/Gateway_Node/Images/4.jpg" width=300 height=380></td>
   </tr>
  </table>
  

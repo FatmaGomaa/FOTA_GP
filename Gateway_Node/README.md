@@ -16,7 +16,11 @@ This document describes the steps we followed and the errors we faced to connect
 
 3. If Firebase Arduino library is successfully added, it shows in Include Library, Now, Login the Google Firebase using your Google account. Create a Firebase project by clicking Add project.
 
-4. A program on arduino IDE to connect NodeMCU and Google Click, File > Examples > FirebaseArduino > FirebaseDemo_ESP8266 Click on Project Overview > Project Settings > Service Account > Database secrets to view firebase auth secrets, add this secret to your Arduino program's FIREBASE_AUTH.
+4. Click, Project Overview setting where you will find your project's detail. Now, click on Service accounts option to view database secrets.
+   
+   A program on arduino IDE to connect NodeMCU and Google Click, File > Examples > FirebaseArduino > FirebaseDemo_ESP8266
+  
+   Click on Project Overview > Project Settings > Service Account > Database secrets to view firebase auth secrets, add this secret to your Arduino program's FIREBASE_AUTH.
    
    Go to database section at left-menu and search for Realtime Database, where you find the Firebase host URL. Copy this URL without "https://" and "/" the at end and paste it at FIREBASE_HOST in the program.
    
@@ -55,7 +59,7 @@ Then we replaced our code with the new way using this object, for Example:
 
 ### 3- Exception(29)
 
-After reading it from the exception table and trying many solutions like using ArduinoJson library we found that it’s because when we used firebase database library as solution for problem (3.2), this library has buffer for each object and we should use those line of code to change the size of the buffer corresponding to our data to avoid data corruption  
+After reading it from the exception table and tried many unuseful solutions like using ArduinoJson library we found that when we used firebase database library as solution for problem (3.2), this library has buffer for each object and we should use those lines of code to change the size of the buffer corresponding to our data to avoid data corruption  
  
 
 ```
@@ -68,7 +72,7 @@ After reading it from the exception table and trying many solutions like using A
        firebaseData.setResponseSize(4000); //minimum size is 400 bytes
 ```
 
-And we also added those line of code to avoid any watchdog timer issues 
+And we also added those lines of code to avoid any watchdog timer issues 
  
 ```
    Add in setup()
@@ -81,7 +85,7 @@ And we also added those line of code to avoid any watchdog timer issues
 
 ### 4- Corrupted Data 
 
-As our project sequence is the Pc send 8 bytes to the cloud in hex format and we should receive from it 8 bytes, we discovered after receiving it, the data size is 16 bytes not 8 bytes and that’s because each byte is equal 2 digit in hex format so we must do something to send those 16 bytes as 8 bytes to the target we use (STM32F10)
+As our project sequence is that the Pc send 8 bytes to the cloud in hex format and we should receive from it 8 bytes, we discovered after receiving it, the data size is 16 bytes not 8 bytes and that’s because each byte is equal 2 digit in hex format so we must do something to send those 16 bytes as 8 bytes to the target we use (STM32F10)
 ![](/Gateway_Node/Images/6.jpg)
 
 We used buffer to receive the data from the cloud and we initialized this buffer by 3200 zero’s for two reasons first one the initialization it self to avoid any data corruption, Second one this number because the  pc send 200 frame each one of them is 8 bytes so the total number is 1600 byte and we receive those 1600 byte multiplied by 2 because of each byte is equal 2 digits in hex format so the numbe is 3200
@@ -89,7 +93,7 @@ We used buffer to receive the data from the cloud and we initialized this buffer
 ```
 String TX_string_buffer = "00000…………”
 ```
-Then we receive each 2 digits from the cloud in buffer and we send it to STM via UART
+Then we receive each 2 digits from the cloud in the buffer and we send it to STM via UART
 
 ## References
 ```

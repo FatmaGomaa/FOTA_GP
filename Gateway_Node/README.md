@@ -100,7 +100,7 @@ String TX_string_buffer = "00000…………”
 ```
 Then we had a problem of sending the frames as an array from the PC as firebase Arduino library for esp didn't support receiving an array So we turned to receiving it as string as the size of string in the firebase Arduino library is big and the firebase can also receive and send a large sequence of string
 Another problem is that when we receive the string frames on arduino we want to convert the frames first from string to hex values and to parse the hex values to be added into its place in the Txbuffer[8], so we used the functions strtoul to convert the string and the function substring to parse the string into sizes of 1 byte to be added to the buffer, but the problem was that the function strtoul was taking input parameter as a pointer to constant character
-so we had to use an Arduino function c_str() to convert the string to pointer to constant character then the function substring to parse the string into characters in size of 1 byte then convert them using strtoul to be added to the Txbuffer[index], then we send this Data over UART to STM
+so we had to use an Arduino function c_str() to convert the string to pointer to constant character then the function substring to parse the string into characters in size of 1 byte then convert them using strtoul to be added to the Txbuffer[index] and finally we send this Data over UART to STM
 
 ```
  Firebase.getString(firebaseData, "Frame");

@@ -15,17 +15,11 @@ This document describes the steps we followed and the errors we faced to connect
 </p>
 
 3. If Firebase Arduino library is successfully added, it shows in Include Library, Now, Login the Google Firebase using your Google account. Create a Firebase project by clicking Add project.
-
-
-<table>
-  <tr>
-  <p align="middle">
-    <td><img src="/Gateway_Node/Images/3.jpg" width=300 height=380></td>
-    <td><img src="/Gateway_Node/Images/4.jpg" width=300 height=380></td>
-	</p>
-  </tr>
- </table>
-
+ 
+ <p align="center">
+  <img img src="/Gateway_Node/Images/3.jpg" width=300 height=380 />
+  <img img src="/Gateway_Node/Images/4.jpg" width=300 height=380 /> 
+</p>
  
 4. Click, Project Overview setting where you will find your project's detail. Now, click on Service accounts option to view database secrets.
    

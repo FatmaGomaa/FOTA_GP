@@ -93,7 +93,7 @@ We used buffer to receive the data from the cloud and we initialized this buffer
 ```
 String TX_string_buffer = "00000…………”
 ```
-Then we receive each 2 digits from the cloud in the buffer and we send it to STM via UART
+Then we received each 2 digits from the cloud in the buffer and we send it to STM via UART
 
 ## References
 ```

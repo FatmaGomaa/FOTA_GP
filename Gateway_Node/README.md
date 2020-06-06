@@ -16,8 +16,13 @@ This document describes the steps we followed and the errors we faced to connect
 
 3. If Firebase Arduino library is successfully added, it shows in Include Library, Now, Login the Google Firebase using your Google account. Create a Firebase project by clicking Add project.
 
-![](/Gateway_Node/Images/3.jpg) ![](/Gateway_Node/Images/4.jpg)
-
+<table>
+  <tr>
+    <td><img src="/Gateway_Node/Images/3.jpg" width=270 height=480></td>
+    <td><img src="/Gateway_Node/Images/4.jpg" width=270 height=480></td>
+  </tr>
+ </table>
+ 
 4. Click, Project Overview setting where you will find your project's detail. Now, click on Service accounts option to view database secrets.
    
    A program on arduino IDE to connect NodeMCU and Google Click, File > Examples > FirebaseArduino > FirebaseDemo_ESP8266

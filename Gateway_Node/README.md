@@ -4,7 +4,7 @@ This document describes the steps we followed and the errors we faced to connect
 
 ## Steps for connecting NodeMcu with Google Firebase
 
-1. Download the Firebase Arduino library from https://github.com/FirebaseExtended/firebase-arduino
+1. If you don't have ESP8266 library in your Arduino IDE use this link https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/ to install it, then Download the Firebase Arduino library from https://github.com/FirebaseExtended/firebase-arduino
 
 ![](/Gateway_Node/Images/1.jpg)
 
@@ -16,6 +16,8 @@ This document describes the steps we followed and the errors we faced to connect
 
 3. If Firebase Arduino library is successfully added, it shows in Include Library, Now, Login the Google Firebase using your Google account. Create a Firebase project by clicking Add project.
 
+![](/Gateway_Node/Images/3.jpg) ![](/Gateway_Node/Images/4.jpg)
+
 4. Click, Project Overview setting where you will find your project's detail. Now, click on Service accounts option to view database secrets.
    
    A program on arduino IDE to connect NodeMCU and Google Click, File > Examples > FirebaseArduino > FirebaseDemo_ESP8266
@@ -26,7 +28,7 @@ This document describes the steps we followed and the errors we faced to connect
    
    Add Realtime database in your project, click Project Overview setting > Realtime Database.
 
-![](/Gateway_Node/Images/3.jpg)
+![](/Gateway_Node/Images/5.jpg)
 
 5. Add your WIFI name and password in WIFI_SSID & WIFI_PASSWORD respectively,then write the code sequence and build it.
 
@@ -39,7 +41,7 @@ You should install ArduinoJson version 5.13.5 not the latest version.
 
 ### 2- Exception(9) and (28) 
 
-![](/Gateway_Node/Images/4.jpg)
+![](/Gateway_Node/Images/6.jpg)
 
 We Started with looking up exception code in the Exception Causes(EXCCAUSE) table to understand what kind of issue it is. We have no clues what it’s about and where it happens, so we used Arduino ESP8266/ESP32 Exception Stack Trace Decoder to find out in which line of application it is triggered.
 After a lot of search and trying many solutions we discovered that the problem was because of some issues in the library we use at (2.1) step (1) so we used Firebase real-time database Arduino library for ESP8266 it’s Google's v 2.9.0, we used it with using the first library 
@@ -55,7 +57,7 @@ Steps for using it :
    ```
 Then we replaced our code with the new way using this object, for Example:
 
-![](/Gateway_Node/Images/5.jpg)
+![](/Gateway_Node/Images/7.jpg)
 
 ### 3- Exception(29)
 
@@ -86,7 +88,7 @@ And we also added those lines of code to avoid any watchdog timer issues
 ### 4- Corrupted Data 
 
 As our project sequence is that the Pc send 8 bytes to the cloud in hex format and we should receive from it 8 bytes, we discovered after receiving it, the data size is 16 bytes not 8 bytes and that’s because each byte is equal 2 digit in hex format so we must do something to send those 16 bytes as 8 bytes to the target we use (STM32F10)
-![](/Gateway_Node/Images/6.jpg)
+![](/Gateway_Node/Images/8.jpg)
 
 We used buffer to receive the data from the cloud and we initialized this buffer by 3200 zero’s for two reasons first one the initialization it self to avoid any data corruption, Second one this number because the  pc send 200 frame each one of them is 8 bytes so the total number is 1600 byte and we receive those 1600 byte multiplied by 2 because of each byte is equal 2 digits in hex format so the numbe is 3200
 
@@ -97,8 +99,9 @@ Then we received each 2 digits from the cloud in the buffer and we send it to ST
 
 ## References
 
-1. https://www.javatpoint.com/iot-project-google-firebase-nodemcu
-2. https://arduino-esp8266.readthedocs.io/en/latest/exception_causes.html
-3. https://github.com/me-no-dev/EspExceptionDecoder
-4. https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html#watchdog
-5. https://github.com/mobizt/Firebase-ESP8266/blob/master/README.md
+1. https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/
+2. https://www.javatpoint.com/iot-project-google-firebase-nodemcu
+3. https://arduino-esp8266.readthedocs.io/en/latest/exception_causes.html
+4. https://github.com/me-no-dev/EspExceptionDecoder
+5. https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html#watchdog
+6. https://github.com/mobizt/Firebase-ESP8266/blob/master/README.md

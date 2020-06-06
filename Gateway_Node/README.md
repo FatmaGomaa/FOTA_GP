@@ -64,7 +64,7 @@ Then we replaced our code with the new way using this object, for Example:
 
 ### 3- Exception(29)
 
-After reading it from the exception table and tried many unuseful solutions like using ArduinoJson library we found that when we used firebase database library as solution for problem (3.2), this library has buffer for each object and we should use those lines of code to change the size of the buffer corresponding to our data to avoid data corruption  
+After reading it from the exception table and tring many unuseful solutions like using ArduinoJson library we found that when we used firebase database library as solution for problem (3.2), this library has buffer for each object and we should use those lines of code to change the size of the buffer corresponding to our data to avoid data corruption  
  
 
 ```
@@ -98,8 +98,24 @@ We used buffer to receive the data from the cloud and we initialized this buffer
 ```
 String TX_string_buffer = "00000…………”
 ```
-Then we received each 2 digits from the cloud in the buffer and we send it to STM via UART
+Then we had a problem of sending the frames as an array from the PC as firebase Arduino library for esp didn't support receiving an array So we turned to receiving it as string as the size of string in the firebase Arduino library is big and the firebase can also receive and send a large sequence of string
+Another problem is that when we receive the string frames on arduino we want to convert the frames first from string to hex values and to parse the hex values to be added into its place in the Txbuffer[8], so we used the functions strtoul to convert the string and the function substring to parse the string into sizes of 1 byte to be added to the buffer, but the problem was that the function strtoul was taking input parameter as a pointer to constant character
+so we had to use an Arduino function c_str() to convert the string to pointer to constant character then the function substring to parse the string into characters in size of 1 byte then convert them using strtoul to be added to the Txbuffer[index] then we send this Data over UART to STM
 
+```
+ Firebase.getString(firebaseData, "Frame");
+ TX_Need_Resp_Buffer = firebaseData.stringData();
+ TxBuffer[0] = strtoul(TX_Need_Resp_Buffer.substring(0,2).c_str()  ,NULL,16);
+     .             
+     .	 
+ TxBuffer[7] = strtoul(TX_Need_Resp_Buffer.substring(14,16).c_str(),NULL,16);
+ 
+ for(int index=0;index<8;index++)
+    {
+              Serial.write(TxBuffer[index]);
+    }
+```
+ 
 ## References
 
 1. https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/

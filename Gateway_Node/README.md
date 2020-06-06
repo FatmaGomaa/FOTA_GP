@@ -1,6 +1,6 @@
 # Purpose 
 
-This document describes the steps we followed and the problems we faced to connect NodeMcu with Google Firebase
+This document describes the steps we followed and the errors we faced to connect NodeMcu with Google Firebase
 
 ## Steps for connecting NodeMcu with Google Firebase
 
@@ -10,7 +10,9 @@ This document describes the steps we followed and the problems we faced to conne
 
 2. Add the Firebase Arduino library to Arduino IDE, click Sketch -> Include Library -> Add .ZIP Library.... and select downloaded library.
 
-![](/Images/2.jpg)
+<p align="center">
+  <img src="/Images/2.jpg">
+</p>
 
 3. If Firebase Arduino library is successfully added, it shows in Include Library, Now, Login the Google Firebase using your Google account. Create a Firebase project by clicking Add project.
 
@@ -24,7 +26,7 @@ This document describes the steps we followed and the problems we faced to conne
 
 5. Add your WIFI name and password in WIFI_SSID & WIFI_PASSWORD respectively,then write the code sequence and build it.
 
-## The problems and it's solution
+## The Errors Causes and Solutions 
 
 ### 1- ArduinoJson library not exist 
 

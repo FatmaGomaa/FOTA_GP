@@ -37,11 +37,11 @@ Pyside2 is newer than PyQt and supports Python **v3.8.1** so:
 
 ![](media/af7236bb6ee803b4ffe23b4d21e201a7.png)
 
-1.  Then choose Widget and press create button and this form will open
+2.  Then choose Widget and press create button and this form will open
 
 ![](media/e94639d2c9e8b09b4c34ad3aa9962963.png)
 
-1.  Now we can make your design of GUI by choosing the components from This list
+3.  Now we can make your design of GUI by choosing the components from This list
 
 ![](media/57e240cd30a529508889e54695f84cb6.png)
 

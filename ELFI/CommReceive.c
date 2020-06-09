@@ -76,6 +76,7 @@ void main(int argc, char *argv[])
 	ResponseCommand_t ResponseCommand = {0};
 	DataCommand_t DataCommand = {0};
 	VerifyCommand_t VerifyCommand = {0};
+	MarkerCommand_t MarkerCommand = {0};
     
 	/* Initialize the buffer that will hold the program with 0xFF, so if (mem_size - file_size > 0) the extra bytes will be 0xFF */
 	long long ProgramIterator = 0;
@@ -140,6 +141,15 @@ void main(int argc, char *argv[])
 			ProgramDataToSend[  (ProgramHeader[0].p_memsz - ISR_Offset ) + 1 + i  ] = ProgramData[  ProgramHeader[1].p_offset + i   ];
 
 		}
+		
+		/************************************ Marker Sequence *******************************************/
+        MarkerCommand.marker = 6;
+	    TProtcol_sendFrame((void*)&MarkerCommand, CommandToSend, ID_MarkerCommand );
+		for(txtindex=0;txtindex<8;txtindex++)
+		{
+			fprintf(tstFileDescritor,"%.02x",CommandToSend[txtindex]);
+		}
+		fprintf(tstFileDescritor ,"\n");	
 		
 		/************************************ Erasing Sequence *******************************************/
 	    /* Sending Erase Command */

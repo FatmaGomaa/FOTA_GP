@@ -10,10 +10,12 @@
 
 
 #define DIO_SIGNAL_PORT      	PORTA
-#define DIO_SIGNAL_PIN       	PIN1
+#define DIO_SIGNAL_PIN       	P_NUM1
 
 int main()
 {
+	u8 FlashNewAppDIO = 0;
+
 	RCC_SelectSystemClk(RCC_SYS_CLK_HSE);
 	RCC_APB2_SetPeripheralClk(RCC_APB2_CLK_PORTA , RCC_STAT_ON);
 
@@ -26,9 +28,11 @@ int main()
 		GPIO_writePinValue(PORTA , P_NUM0 , LOW);
 		Delay_ms(500);
 
-		if(GPIO_GetPinValue(DIO_SIGNAL_PORT,DIO_SIGNAL_PIN) == 1)
+		 GPIO_ReadPinValue(DIO_SIGNAL_PORT,DIO_SIGNAL_PIN,&FlashNewAppDIO);
+		if( FlashNewAppDIO == 1)
 		{
 			/*Requesting Software Reset */
+
 				SCB->AIRCR = (0x5FA0000 | ( 1 << 2 ));
 		}
 

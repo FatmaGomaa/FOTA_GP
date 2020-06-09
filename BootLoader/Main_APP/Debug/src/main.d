@@ -1,8 +1,8 @@
 src/main.o: ../src/main.c \
- D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\LIB/STD_TYPES.h \
- D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\LIB/DELAY.h \
- D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\RCC/RCC_interface.h \
- D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\GPIO/GPIO_interface.h \
+ G:\FOTA_GP\BootLoader\Main_APP\src\LIB/STD_TYPES.h \
+ G:\FOTA_GP\BootLoader\Main_APP\src\LIB/DELAY.h \
+ G:\FOTA_GP\BootLoader\Main_APP\src\RCC/RCC_interface.h \
+ G:\FOTA_GP\BootLoader\Main_APP\src\GPIO/GPIO_interface.h \
  ../system/include/cmsis/cmsis_device.h \
  ../system/include/cmsis/stm32f10x.h ../system/include/cmsis/core_cm3.h \
  ../system/include/cmsis/core_cmInstr.h \
@@ -34,13 +34,13 @@ src/main.o: ../src/main.c \
  ../system/include/stm32f1-stdperiph/stm32f10x_wwdg.h \
  ../system/include/stm32f1-stdperiph/misc.h
 
-D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\LIB/STD_TYPES.h:
+G:\FOTA_GP\BootLoader\Main_APP\src\LIB/STD_TYPES.h:
 
-D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\LIB/DELAY.h:
+G:\FOTA_GP\BootLoader\Main_APP\src\LIB/DELAY.h:
 
-D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\RCC/RCC_interface.h:
+G:\FOTA_GP\BootLoader\Main_APP\src\RCC/RCC_interface.h:
 
-D:\iti\Tourkey\ARM_WorkSpace\FOTA_GP\BootLoader\Main_APP\src\GPIO/GPIO_interface.h:
+G:\FOTA_GP\BootLoader\Main_APP\src\GPIO/GPIO_interface.h:
 
 ../system/include/cmsis/cmsis_device.h:
 

@@ -23,13 +23,15 @@ SectionsCount=0     ##Total Number of Sections to send
 DataToSend=""
 DataBlocks=0
 f=open("tst.txt","r+")
+f.seek(0)
 lines = f.readlines()
 f.close()
 
 print("iam in 2")
 
-SectionsCount = hex( int( lines[0][SectionsCountStartIDX : SectionsCountEndIDX] , 16) )
-#print(SectionsCount)
+SectionsCount = hex( int( lines[1][SectionsCountStartIDX : SectionsCountEndIDX] , 16) )
+print("SectionsCount: ")
+print(SectionsCount)
 
 config = {
    "apiKey": "AIzaSyCLVYhUGxHVeIfLW8DkWPZy7kBu4f1-79o",
@@ -51,6 +53,21 @@ while True:
     if (result.val() == False ):
         break 
 db.child("FlashNewApp").set(True)
+
+#Sending Marker Command
+Line = lines[IDX].split("\n")
+db.child("Marker").set(Line[0])
+db.child("MarkerRQT").set(True)
+
+
+#wait until MarkerRQT to be false
+while True:
+    result = db.child("MarkerRQT").get()
+    if (result.val() == False ):
+        break
+
+IDX = IDX + 1
+print(IDX)
 
 #Sending Erase Command
 Line = lines[IDX].split("\n")
@@ -74,6 +91,7 @@ if Response == hex(R_OK) :
     f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) )
     f.close()
     IDX += 1 
+    print(IDX)
     while hex(SentDataBlocks) < SectionsCount :
         #send 200 Data Frame
         for i in range(200) :
@@ -113,6 +131,7 @@ if Response == hex(R_OK) :
   
           if( Response == hex(R_OK) ):
               SentDataBlocks +=1
+              print(IDX)
               LastSavedIDX += IDX
               print("iam in 4")
               f=open("./progress.txt","w")

@@ -28,10 +28,11 @@
 #define MAXERRORCOUNT  	    3
 
 
-#define Marker          	*(volatile u32 *)(0x0800F618)
-#define Marker_Address   	(0x0800F618)
+#define Marker          			*(volatile u32 *)(0x0800F618)
+#define Marker_Address   			(0x0800F618)
 
-
+#define	APP1MARKER					*(volatile u32 *)(0x0800F61C)
+#define APP1MARKER_Address   		(0x0800F61C)
 
 #define DIO_SIGNAL_PORT      PORT_A
 #define DIO_SIGNAL_PIN       PIN_1
@@ -71,7 +72,7 @@ static long DataIterator = 0;
 long LastSavedDataIterator = 0;
 u8 FrameBytes = 0;
 u8 FirstTimeFlag = 1;
-u8 APP1MARKER = 5 ;
+//u8 APP1MARKER = LOW ;
 u8 softResetFlag = 0 ;
 u8 GPIO_FirstEntryFlag=0;
 u8 markerReq[] ={'s','e','n','d'};
@@ -99,8 +100,8 @@ int main(void)
 	/* Unlock The Flash */
 	Flash_Unlock();
 
-	Flash_ErassPage(Marker_Address);
-	Flash_WriteWord(&Marker, 1);
+	//Flash_ErassPage(Marker_Address);
+	//Flash_WriteWord(&Marker, 1);
 
 	/* Debugging Code */
 	GPIO_t	LED={
@@ -122,15 +123,44 @@ int main(void)
 
 	GPIO_Config(&NodeMcu_DIO);
 
+
+	/* Possible Scenarios:
+	 * 			ResetType		DIO						App Existence
+	 *	1-			0(SW)	      0						0
+	 *	2-			0	          0						1
+	 *	3-			0	          1						0
+	 *	4-			0	          1						1
+	 *
+	 *	5-          1(HR)         0						0
+	 *	6-          1             0						1
+	 *	7-          1             1						0
+	 *	8-			1             1						1
+	 *
+	 *Scenarios Description:
+	 *	1- Not possible as Application doesn't exist to make the soft reset.
+	 *	2- Jumps to App directly.
+	 *	3- Not possible as Application doesn't exist to make the soft reset.
+	 *	4- Request Marker and start Flashing Sequence.
+	 *
+	 *	5- Nothing at all.
+	 *	6- Jumps to App directly.
+	 *	7- Request Marker and start Flashing Sequence.
+	 *	8- Jumps to App then returns due to soft reset because of external interrupt and start Flashing Sequence.
+	 *
+	 * */
+
+
 	/* set markerCheck (RAM) by Marker(ROM) value in case of the Hard reset (Power reset) */
 	if(RCC_GetSFTRSTF() == LOW)
 	{
 		markerCheck = Marker ;
+
 	}
 	/*blocking flag*/
 	else if (GPIO_u8getPinValue(NodeMcu_DIO.PORT,NodeMcu_DIO.PIN) == 1)
 	{
 		softResetFlag = 1;
+		GPIO_FirstEntryFlag = 1 ;
 		UART_SendBuffer(&markerReq,sizeof(markerReq));
 		UART_ReceiveBuffer(RXBuffer, 1);
 	}
@@ -140,7 +170,7 @@ int main(void)
 	{
 		if(softResetFlag == 0)
 		{
-			if(markerCheck == APP1MARKER)
+			if(APP1MARKER == HIGH)
 			{
 
 				/* Set the first time flag */
@@ -160,11 +190,13 @@ int main(void)
 
 				/*If the first time flag was set, clear the first time flag,
 			recive one byte via UART to check the start of frame SF*/
-				 if( FirstTimeFlag == 1 )
+				/* if( FirstTimeFlag == 1 )
 				{
 					FirstTimeFlag = 0;
 					UART_ReceiveBuffer(RXBuffer, 1);
-				}else if ( (GPIO_u8getPinValue(NodeMcu_DIO.PORT,NodeMcu_DIO.PIN) == 1) && (GPIO_FirstEntryFlag ==0 ) )
+				}else */
+
+				if ( (GPIO_u8getPinValue(NodeMcu_DIO.PORT,NodeMcu_DIO.PIN) == 1) && (GPIO_FirstEntryFlag ==0 ) )
 				{
 					softResetFlag = 1;
 					GPIO_FirstEntryFlag =1;
@@ -173,16 +205,21 @@ int main(void)
 				}
 				//break;
 			}
+		}else {
+
+			timeOutCounter ++ ;
+			if(timeOutCounter == TIMEOUT_10ms)
+			{
+				softResetFlag = 0;
+				timeOutCounter=0;
+				ResponseCommand.Response = R_NOT_TIMEOUT;
+				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
+				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
+			}
+
 		}
 
-		timeOutCounter ++ ;
-		if(timeOutCounter == TIMEOUT_10ms)
-		{
-			softResetFlag = 0;
-			ResponseCommand.Response = R_NOT_TIMEOUT;
-			TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
-			UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
-		}
+
 
 		/* Check the value of the Marker */
 		/*switch(markerCheck)
@@ -251,6 +288,7 @@ void newApp(void)
 	u8 ErrorCounter = 0;
 	static u8 DataBlock = 0;
 	STD_ERROR Local_Error = OK;
+	u32 Local_Temp=0;
 
 	/*If start of frame recived, recive the rest bytes of the frame, set the command flag*/
 	if (RXBuffer[0] == STARTOFFRAME && CommandFlag == 0)
@@ -422,10 +460,13 @@ void newApp(void)
 			{
 
 				/* Flash Marker */
-				APP1MARKER = markerCheck;
-				Flash_ErassPage(Marker_Address);
-				Flash_WriteWord(&Marker, APP1MARKER);
 
+				//APP1MARKER = markerCheck;
+				Flash_ErassPage(Marker_Address);
+				Flash_WriteWord(&Marker, markerCheck);
+				Flash_WriteWord(&APP1MARKER, HIGH);
+
+				//APP1MARKER = HIGH;
 
 				/*Clear the data block and the frame bytes variable*/
 				DataBlock = 0;
@@ -453,8 +494,17 @@ void newApp(void)
 				ResponseCommand.Response = R_OK;
 				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
+
+				Local_Temp = Marker;
+				Flash_ErassPage(Marker_Address);
+				Flash_WriteWord(&Marker, Local_Temp);
+				Flash_WriteWord(&APP1MARKER, LOW);
 			}
 			softResetFlag = 0;
+			timeOutCounter=0;
+
+			//APP1MARKER = LOW;
+
 			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 

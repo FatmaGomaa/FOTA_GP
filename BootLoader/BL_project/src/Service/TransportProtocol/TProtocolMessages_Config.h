@@ -16,7 +16,8 @@ typedef enum{
 	ID_EraseCommand	 		= 0x45,
 	ID_ResponseCommand   	= 0x52,
 	ID_DataCommand			= 0x44,
-	ID_VerifyCommand		= 0x46
+	ID_VerifyCommand		= 0x46,
+	ID_MarkerCommand        = 0x54
 }Message_ID;
 
 /*TODO: to add R_NOT types*/
@@ -25,7 +26,9 @@ typedef enum{
 	R_NOT_SectionOffestViolation,
 	R_NOT_SectionsOutOfScope,
 	R_NOT_MismatchData,
-	R_NOT_EraseFailure
+	R_NOT_EraseFailure,
+	R_NOT_SAMEAPPLICATION,
+	R_NOT_TIMEOUT
 }Response_t;
 
 typedef struct{
@@ -47,5 +50,10 @@ typedef struct{
 	u32 CheckSum;
 	u8  Reserved;
 }VerifyCommand_t;
+
+typedef struct{
+	u32 marker;
+	u8  Reserved;
+}MarkerCommand_t;
 
 #endif /* SERVICE_TRANSPORTPROTOCOL_TPROTOCOLMESSAGES_CONFIG_H_ */

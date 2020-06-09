@@ -129,5 +129,6 @@ STD_ERROR RCC_GetPLLXTPRE(u32 *copy_u8SystemClock);
 STD_ERROR RCC_GetHPRE(u32 *copy_u8SystemClock);
 STD_ERROR RCC_GetPPRE1(u32 *copy_u8SystemClock);
 STD_ERROR RCC_GetPPRE2(u32 *copy_u8SystemClock);
+u8 RCC_GetSFTRSTF(void);
 
 #endif /* DRCC_H_ */

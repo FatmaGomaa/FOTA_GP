@@ -2,6 +2,15 @@
 #include "DELAY.h"
 #include "RCC_interface.h"
 #include "GPIO_interface.h"
+#include "cmsis_device.h"
+
+
+#define  Marker          	*(volatile u32 *)(0x20000000)
+#define  Flag            	*(volatile u32 *)(0x20000004)
+
+
+#define DIO_SIGNAL_PORT      	PORTA
+#define DIO_SIGNAL_PIN       	PIN0
 
 int main()
 {
@@ -12,11 +21,16 @@ int main()
 
 	while(1)
 	{
-
 		GPIO_writePinValue(PORTA , P_NUM0 , HIGH);
 		Delay_ms(500);
 		GPIO_writePinValue(PORTA , P_NUM0 , LOW);
 		Delay_ms(500);
+
+		if(GPIO_GetPinValue(DIO_SIGNAL_PORT,DIO_SIGNAL_PIN) == 1)
+		{
+			/*Requesting Software Reset */
+				SCB->AIRCR = (0x5FA0000 | ( 1 << 2 ));
+		}
 
 	}
 }

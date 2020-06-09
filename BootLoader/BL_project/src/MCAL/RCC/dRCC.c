@@ -55,6 +55,8 @@
 #define RCC_CFGR_PLL_MUL_CLEAR_MASK			0xFFC3FFFF
 #define RCC_CFGR_PLL_MCO_MASK				0x07000000
 #define RCC_CFGR_PLL_MCO_CLEAR_MASK			0xF8FFFFFF
+#define RCC_CSR_SFTRSTF_MASK                0x10000000
+#define RCC_CSR_RMVF_MASK                   0x01000000
 
 /*RCC_stdErrorControlClock enables or disables one of the three clocks based on the user input, which is one of the following:
  * First argument: is an object of the CLOCK_TYPE enum with one of the following values:  [HSI_ON,HSE_ON,PLL_ON]
@@ -274,5 +276,16 @@ STD_ERROR RCC_ControlPerihperal(u8 copy_u8Bus, u32 copy_u32Peripheral, u8 status
 
 	return Local_ErrorStatus;
 
+}
+/* Check on soft reset */
+u8 RCC_GetSFTRSTF(void)
+{
+
+	if( RCC_CSR &= RCC_CSR_SFTRSTF_MASK)
+	{
+		RCC_CSR |=  RCC_CSR_RMVF_MASK;
+		return HIGH;
+	}
+	return LOW;
 }
 

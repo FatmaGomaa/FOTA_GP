@@ -34,7 +34,7 @@
 
 
 #define DIO_SIGNAL_PORT      PORT_A
-#define DIO_SIGNAL_PIN       PIN_0
+#define DIO_SIGNAL_PIN       PIN_1
 
 #define TIMEOUT_10ms         7200000
 
@@ -73,8 +73,8 @@ u8 FrameBytes = 0;
 u8 FirstTimeFlag = 1;
 u8 APP1MARKER = 5 ;
 u8 softResetFlag = 0 ;
-
-u8 markerReq[] = "send";
+u8 GPIO_FirstEntryFlag=0;
+u8 markerReq[] ={'s','e','n','d'};
 u8 timeOutCounter = 0;
 
 uint32_t markerCheck __attribute__ ((section(".marker"),used)) ;
@@ -142,9 +142,6 @@ int main(void)
 		{
 			if(markerCheck == APP1MARKER)
 			{
-				ResponseCommand.Response = R_NOT_SAMEAPPLICATION;
-				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
-				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
 
 				/* Set the first time flag */
 				FirstTimeFlag = 1;
@@ -156,22 +153,25 @@ int main(void)
 				volatile uint32_t app_sp = app_code[0];
 				volatile uint32_t app_start = app_code[1];
 				start_app(app_start, app_sp);
-				break;
+				//break;
 			}
 			else
 			{
-				ResponseCommand.Response = R_OK;
-				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
-				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
 
 				/*If the first time flag was set, clear the first time flag,
 			recive one byte via UART to check the start of frame SF*/
-				if( FirstTimeFlag == 1 )
+				 if( FirstTimeFlag == 1 )
 				{
 					FirstTimeFlag = 0;
 					UART_ReceiveBuffer(RXBuffer, 1);
+				}else if ( (GPIO_u8getPinValue(NodeMcu_DIO.PORT,NodeMcu_DIO.PIN) == 1) && (GPIO_FirstEntryFlag ==0 ) )
+				{
+					softResetFlag = 1;
+					GPIO_FirstEntryFlag =1;
+					UART_SendBuffer(&markerReq,sizeof(markerReq));
+					UART_ReceiveBuffer(RXBuffer, 1);
 				}
-				break;
+				//break;
 			}
 		}
 
@@ -455,6 +455,7 @@ void newApp(void)
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
 			}
 			softResetFlag = 0;
+			UART_ReceiveBuffer(RXBuffer , 1);
 			break;
 
 		}

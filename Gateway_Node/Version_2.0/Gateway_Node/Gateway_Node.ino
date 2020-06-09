@@ -18,8 +18,8 @@
 #define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
 
 /* Network - Parameters for Local Network. */
-#define WIFI_SSID "##"
-#define WIFI_PASSWORD "#esraa26@"
+#define WIFI_SSID "OrangeDSL-Gomaa"
+#define WIFI_PASSWORD "MeMes159753"
 
 /* Data Frame Size */
 #define DATA_FRAMES_COUNT           200
@@ -139,12 +139,12 @@ void loop()
       if (Serial.available() > 0)
       {
         // read the incoming byte:
-        Serial.readBytes(stmMarkerStatus,8);
+        Serial.readBytes(stmMarkerStatus,4);
       }
 
-      if( stmMarkerStatus[0] == 'A' && stmMarkerStatus[1] == 0x54 )
-      {
-        if ( stmMarkerStatus[2] == 's' &&  stmMarkerStatus[3] == 'e' && stmMarkerStatus[4] == 'n' && stmMarkerStatus[5] == 'd'  )
+     /* if( stmMarkerStatus[0] == 'A' && stmMarkerStatus[1] == 0x54 )
+      {*/
+        if ( stmMarkerStatus[0] == 's' &&  stmMarkerStatus[1] == 'e' && stmMarkerStatus[2] == 'n' && stmMarkerStatus[3] == 'd'  )
         {
           /* Get the Current Frame value */
           Firebase.getString(firebaseData, "Marker");
@@ -167,25 +167,34 @@ void loop()
             Serial.write(TxBuffer[index]);
           }
 
+          for(int l=0;l<8;l++){
+          stmMarkerStatus[l]=0;
+          }
+
           /* TODO: Receive Data from STM  in RXBuffer*/
           while( !Serial.available() ); /* not enter this cond till it recive something on the channel */
           if (Serial.available() > 0)
           {
             // read the incoming byte:
             Serial.readBytes(stmMarkerStatus,8);
+            //delay(500);
           }
-          if( stmMarkerStatus[0] == 'A' && stmMarkerStatus[1] == 0x52 && stmMarkerStatus[2] == 0x00)
+          
+          if( stmMarkerStatus[0] == 'A' && stmMarkerStatus[1] == 'R' && stmMarkerStatus[2] == 0 )
           { 
+              digitalWrite(DIOPin, 0);     
             /*this the resp to GUI that Marker is send correctly */
               Firebase.setBool(firebaseData, "MarkerRQT", false );
-              digitalWrite(DIOPin, 0);         
+    
           }
           else
           {
+            digitalWrite(DIOPin, 0);  
             /*the marker has been send wrong */
              Firebase.setString(firebaseData, "Marker", "000000000000000");
              Firebase.setBool(firebaseData, "MarkerRQT", false );
-             digitalWrite(DIOPin, 0);            
+
+         
           }
         }
           else 
@@ -193,7 +202,7 @@ void loop()
             /* Failed */
           }
 
-        }
+        //}
 
 
 

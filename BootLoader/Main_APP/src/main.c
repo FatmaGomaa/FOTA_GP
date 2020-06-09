@@ -10,7 +10,7 @@
 
 
 #define DIO_SIGNAL_PORT      	PORTA
-#define DIO_SIGNAL_PIN       	PIN0
+#define DIO_SIGNAL_PIN       	PIN1
 
 int main()
 {

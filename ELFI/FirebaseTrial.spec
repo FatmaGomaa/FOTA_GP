@@ -3,12 +3,12 @@
 block_cipher = None
 
 
-a = Analysis(['gui_fota.py'],
+a = Analysis(['FirebaseTrial.py'],
              pathex=['G:\\FOTA_GP\\ELFI'],
              binaries=[],
              datas=[],
              hiddenimports=[],
-             hookspath=[],
+             hookspath=['G:\\FOTA_GP\\ELFI'],
              runtime_hooks=[],
              excludes=[],
              win_no_prefer_redirects=False,
@@ -23,11 +23,11 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='gui_fota',
+          name='FirebaseTrial',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False , icon='Pic\\elfi.ico')
+          console=False )

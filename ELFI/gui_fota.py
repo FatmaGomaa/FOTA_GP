@@ -86,22 +86,14 @@ class Import(QtCore.QThread):
   ##The runnable of ComReceiver c file
   def run(self):
     ##Files needed to be executed
-    file_in = "./CommReceive.c"
-    Dependences= "./TProtocol.c"
-    print ("Hey this is Python Script Running\n")
-    ##for checking MCU, COM_number and Elf_path
-    print(self.MCU)
-    print(self.ELFPath)
-    ##Compiling C files
-    subprocess.call(["gcc",file_in,Dependences])
-    
+
     print("before")
     ##To run the executable file with input arguments ("AVR comN ElfPath")
     subprocess.call("./a.exe" + " " + self.ELFPath)
     print("After")
     
     print("python script")  
-    call(["python", "FirebaseTrial.py"])
+    call(["FirebaseTrial.exe"])
     ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()

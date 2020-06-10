@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['gui_fota.py'],
+a = Analysis(['hello.py'],
              pathex=['G:\\FOTA_GP\\ELFI'],
              binaries=[],
              datas=[],
@@ -23,11 +23,11 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='gui_fota',
+          name='hello',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False , icon='Pic\\elfi.ico')
+          console=True )

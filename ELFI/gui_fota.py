@@ -98,7 +98,8 @@ class Import(QtCore.QThread):
     print("After")
     
     print("python script")  
-    call(["FirebaseTrial.py"])
+    #call(["FirebaseTrial.exe"])
+    call(["python", "FirebaseTrial.py"])
     ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()

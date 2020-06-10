@@ -24,6 +24,7 @@ SentDataBlocks=0    ##Number of valid sent sections
 SectionsCount=0     ##Total Number of Sections to send
 DataToSend=""
 DataBlocks=0
+timeOutCounter=0
 f=open("tst.txt","r+")
 f.seek(0)
 lines = f.readlines()
@@ -62,12 +63,6 @@ db.child("Marker").set(Line[0])
 db.child("MarkerRQT").set(True)
 
 
-#Sending Marker Command
-Line = lines[IDX].split("\n")
-db.child("Marker").set(Line[0])
-db.child("MarkerRQT").set(True)
-
-
 #wait until MarkerRQT to be false
 while True:
     result = db.child("MarkerRQT").get()
@@ -76,7 +71,9 @@ while True:
     timeOutCounter +=1
     if (timeOutCounter == 100):
       f=open("progress.txt","r+")
-      f.seek(0,2)
+      #f.seek(0,2)
+      f.seek(0)
+      f.write('0 0')
       f.write('\n')
       f.write("No_Target_Connected")
       f.close()
@@ -84,14 +81,16 @@ while True:
       
 result = db.child("Marker").get()      
 if ( result.val() == "Same_Marker" ):
+  print("Same_Marker")
   f=open("progress.txt","r+")
-  f.seek(0,2)
-  f.write('\n')
-  f.write("Same_Marker")
+  lines=f.readlines()
+  lines[1]="Same_Marker"
+  f.seek(0)
+  for i in range(2):
+    f.write(lines[i])
+  #f.write('\n')
+  #f.write("Same_Marker")
   f.close()
-
-while True:
-    Dummy_condition=1
  
 IDX = IDX + 1
 print(IDX)

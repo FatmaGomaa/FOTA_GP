@@ -52,13 +52,18 @@ class Progress(QtCore.QThread):
       while True:
         ##opening the progress file to update the progressBar
         with open(file_in) as f:
-          line = f.readline()
+          lines = f.readlines()
           ##split the line using space
-          Line_Array= line.split()
+          Line_Array= lines[0].split()
 
           ##Check if the value not updated so we will update StatusValue and progressBar
           if (int (float(Line_Array[1])) == 0):
-            progressValue=0;
+            if(lines[1] == "No_Target_Connected"):
+              progressValue = 200
+            elif(lines[1] == "Same_Marker"):
+              progressValue = 300
+            else:
+               progressValue = 0
             
           ##In case flashing done  
           elif (Line_Array[1] == Line_Array[0]):
@@ -93,7 +98,7 @@ class Import(QtCore.QThread):
     print("After")
     
     print("python script")  
-    call(["FirebaseTrial.exe"])
+    call(["FirebaseTrial.py"])
     ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()
@@ -263,6 +268,8 @@ class Ui_ELFI(object):
         ##initalization values og progress.txt
         f = open('./progress.txt','w') 
         f.write("0 0")
+        f.write("\n")
+        f.write("0")
         f.close()
         ##starting The progressBar Thread
         QObject.connect (self.progressView , QtCore.SIGNAL("__updateProgressBar(int)"),self.__updateProgressBar)
@@ -285,7 +292,11 @@ class Ui_ELFI(object):
         self.ProgressMessage.setText("in progress")
       elif percent == 100:
         self.ProgressMessage.setText("Done")
-      self.progressBar.setValue(percent)
+      elif percent == 200:
+        self.ProgressMessage.setText("No target connected")
+      elif percent == 300:
+        self.ProgressMessage.setText("Application already flashed")        
+      self.progressBar.setValue(percent)      
     def start(self):
       self.progressView.start()
 

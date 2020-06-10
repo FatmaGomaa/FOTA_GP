@@ -191,7 +191,7 @@ void loop()
           {
             digitalWrite(DIOPin, 0);  
             /*the marker has been send wrong */
-             Firebase.setString(firebaseData, "Marker", "000000000000000");
+             Firebase.setString(firebaseData, "Marker", "Same_Marker");
              Firebase.setBool(firebaseData, "MarkerRQT", false );
 
          

@@ -62,12 +62,37 @@ db.child("Marker").set(Line[0])
 db.child("MarkerRQT").set(True)
 
 
+#Sending Marker Command
+Line = lines[IDX].split("\n")
+db.child("Marker").set(Line[0])
+db.child("MarkerRQT").set(True)
+
+
 #wait until MarkerRQT to be false
 while True:
     result = db.child("MarkerRQT").get()
     if (result.val() == False ):
         break
+    timeOutCounter +=1
+    if (timeOutCounter == 100):
+      f=open("progress.txt","r+")
+      f.seek(0,2)
+      f.write('\n')
+      f.write("No_Target_Connected")
+      f.close()
+      timeOutCounter=0
+      
+result = db.child("Marker").get()      
+if ( result.val() == "Same_Marker" ):
+  f=open("progress.txt","r+")
+  f.seek(0,2)
+  f.write('\n')
+  f.write("Same_Marker")
+  f.close()
 
+while True:
+    Dummy_condition=1
+ 
 IDX = IDX + 1
 print(IDX)
 

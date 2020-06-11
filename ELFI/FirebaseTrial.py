@@ -50,12 +50,15 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
+db.child("NodeMCUs").set('No_NodeMCUs_connected')
+
 #Notification with New App
 while True:
     result = db.child("FlashNewApp").get()
     if (result.val() == False ):
         break 
 db.child("FlashNewApp").set(True)
+
 
 #Sending Marker Command
 Line = lines[IDX].split("\n")
@@ -83,11 +86,11 @@ result = db.child("Marker").get()
 if ( result.val() == "Same_Marker" ):
   print("Same_Marker")
   f=open("progress.txt","r+")
-  lines=f.readlines()
-  lines[1]="Same_Marker"
+  progress_content =f.readlines()
+  progress_content[1]="Same_Marker"
   f.seek(0)
   for i in range(2):
-    f.write(lines[i])
+    f.write(progress_content[i])
   #f.write('\n')
   #f.write("Same_Marker")
   f.close()
@@ -95,7 +98,9 @@ if ( result.val() == "Same_Marker" ):
 while True: 
   if ((timeOutCounter != 100) and ( result.val() != "Same_Marker" )):
     break
-  
+    
+print("break the while")
+
 IDX = IDX + 1
 print(IDX)
 
@@ -117,10 +122,25 @@ Response        = hex( int( ResponseCommand[ResponseStartIDX : ResponseEndIDX] ,
 db.child("ResponseRQT").set(False)
 
 if Response == hex(R_OK) :
-    f=open("./progress.txt","w")
+
+    f=open("./progress.txt","r+")
     f.seek(0)
-    f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) )
+    f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) ) 
+    f.seek(0)
+    progress_content=f.readlines()
+    progress_content[1]='Erase_Done'
+    f.seek(0)
+    for i in range(2):
+      f.write(progress_content[i])
     f.close()
+  
+   #f=open("./progress.txt","w")
+   #f.seek(0)
+   #f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) )
+   #f.write('\n')
+   #f.write(0)
+   #f.close()
+    
     IDX += 1 
     print(IDX)
     while hex(SentDataBlocks) < SectionsCount :
@@ -165,9 +185,19 @@ if Response == hex(R_OK) :
               print(IDX)
               LastSavedIDX += IDX
               print("iam in 4")
-              f=open("./progress.txt","w")
-              f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) )
-              f.close()
+              f=open("./progress.txt","r+")
+              f.seek(0)
+              f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) ) 
+              f.seek(0)
+              progress_content=f.readlines()
+              progress_content[1]='Block_hasBeen_sent'
+              f.seek(0)
+              for i in range(2):
+                f.write(progress_content[i])
+              f.close()              
+              #f=open("./progress.txt","w")
+              #f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) )
+              #f.close()
           else:
               IDX = LastSavedIDX
         DataToSend=""

@@ -91,7 +91,11 @@ if ( result.val() == "Same_Marker" ):
   #f.write('\n')
   #f.write("Same_Marker")
   f.close()
- 
+
+while True: 
+  if ((timeOutCounter != 100) and ( result.val() != "Same_Marker" )):
+    break
+  
 IDX = IDX + 1
 print(IDX)
 
@@ -114,6 +118,7 @@ db.child("ResponseRQT").set(False)
 
 if Response == hex(R_OK) :
     f=open("./progress.txt","w")
+    f.seek(0)
     f.write(str(int(SectionsCount,16)) +" "+ str(SentDataBlocks) )
     f.close()
     IDX += 1 

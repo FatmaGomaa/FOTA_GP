@@ -78,9 +78,9 @@ Before building our project we includes all folders that we need like (Applicati
  <p >
  <kbd> <img img src="/Images/1.jpg"  /> </kbd>
  <kbd> <img img src="/Images/2.jpg"  /> </kbd>
-	<kbd> <img img src="/Images/3.jpg" /> </kbd>
-  <kbd> <img img src="/Images/4.jpg" /> </kbd>
-	<kbd> <img img src="/Images/5.jpg"  /> </kbd>
- <kbd> <img img src="/Images/6.jpg" ] /> </kbd>
+ <kbd> <img img src="/Images/3.jpg"  /> </kbd>
+ <kbd> <img img src="/Images/4.jpg"  /> </kbd>
+ <kbd> <img img src="/Images/5.jpg"  /> </kbd>
+ <kbd> <img img src="/Images/6.jpg"  /> </kbd>
 </p>
 	

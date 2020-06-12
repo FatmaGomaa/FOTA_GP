@@ -7,7 +7,9 @@
 
 /* Include ESP8266WiFi.h and must be included after FirebaseESP8266.h */
 #include <ESP8266WiFi.h>
-
+#include <DNSServer.h>
+#include <ESP8266WebServer.h>
+#include <WiFiManager.h>  
 #include "HardwareSerial.h"
 
 /*========================================================================================================================================*/
@@ -17,9 +19,11 @@
 #define FIREBASE_HOST "fota-905e1.firebaseio.com"
 #define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
 
-/* Network - Parameters for Local Network. */
+/* Network - Parameters for Local Network. 
 #define WIFI_SSID "OrangeDSL-Gomaa"
-#define WIFI_PASSWORD "MeMes159753"
+#define WIFI_PASSWORD "MeMes159753" */
+
+#define CHIP_NAME       "Mostafa"   //write the name you want for the Chip here
 
 /* Data Frame Size */
 #define DATA_FRAMES_COUNT           200
@@ -64,18 +68,12 @@ void setup() {
 
 
   /* connecting to wifi Sequence */
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("connecting");
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(500);
-  }
-  Serial.println();
-  Serial.print("connected: ");
-  WiFi.localIP();
-  Serial.println(WiFi.localIP());
-
-
+  //WiFiManager
+  //Local intialization. Once its business is done, there is no need to keep it around
+  WiFiManager wifiManager;
+  //reset saved settings
+  wifiManager.resetSettings();
+  wifiManager.autoConnect("NodeMCU_Network");
 
   /* Setup the Firebase */
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
@@ -91,8 +89,9 @@ void setup() {
   Firebase.setBool(firebaseData, "Send", true );
   Firebase.setBool(firebaseData, "ResponseRQT", false );
   Firebase.setString(firebaseData, "Frame", "");
-  Firebase.setString(firebaseData, "Marker", "415431323334354d");
+  Firebase.setString(firebaseData, "Marker", "Mostafa");
   Firebase.setBool(firebaseData, "MarkerRQT", false );
+  Firebase.setString(firebaseData, "NodeMCUs", CHIP_NAME+"-"+String(ESP.getChipId()));
 
 
   pinMode(DIOPin, OUTPUT);

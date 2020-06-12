@@ -23,7 +23,7 @@
 #define WIFI_SSID "OrangeDSL-Gomaa"
 #define WIFI_PASSWORD "MeMes159753" */
 
-#define CHIP_NAME       "Mostafa"   //write the name you want for the Chip here
+#define CHIP_NAME       "Esraa"   //write the name you want for the Chip here
 
 /* Data Frame Size */
 #define DATA_FRAMES_COUNT           200
@@ -72,8 +72,9 @@ void setup() {
   //Local intialization. Once its business is done, there is no need to keep it around
   WiFiManager wifiManager;
   //reset saved settings
-  wifiManager.resetSettings();
+ // wifiManager.resetSettings();
   wifiManager.autoConnect("NodeMCU_Network");
+  Serial.print("Yaay");
 
   /* Setup the Firebase */
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
@@ -85,13 +86,36 @@ void setup() {
   firebaseData.setResponseSize(4000); //minimum size is 400 bytes
 
   /* TODO: to be removed, these variable controlled by PC  """"""""""""""""""TO BE REMOVED""""""""""""""""""  */
-  Firebase.setBool(firebaseData, "FlashNewApp", false );
+  /*Firebase.setBool(firebaseData, "FlashNewApp", false );
   Firebase.setBool(firebaseData, "Send", true );
   Firebase.setBool(firebaseData, "ResponseRQT", false );
   Firebase.setString(firebaseData, "Frame", "");
   Firebase.setString(firebaseData, "Marker", "Mostafa");
-  Firebase.setBool(firebaseData, "MarkerRQT", false );
-  Firebase.setString(firebaseData, "NodeMCUs", CHIP_NAME+"-"+String(ESP.getChipId()));
+  Firebase.setBool(firebaseData, "MarkerRQT", false );*/
+    
+ bool Semphaore;
+ while(1)
+ {
+  Firebase.getBool(firebaseData, "NodeMCUSemaphore"); 
+  Semphaore = firebaseData.boolData();
+  if ( Semphaore == false )
+    break; 
+ } 
+String chipId;
+String Node = "0000000000000000000";
+String Node2 = "000000000000000000";
+Firebase.setBool(firebaseData, "NodeMCUSemaphore", true );
+chipId = String(CHIP_NAME) + "-" + String(ESP.getChipId());
+
+Firebase.getString(firebaseData, "NodeMCUSs"); 
+Node = firebaseData.stringData();
+
+Node2 = Node + " " + chipId;
+Firebase.setString(firebaseData, "NodeMCUs", Node2);
+Firebase.setBool(firebaseData, "NodeMCUSemaphore", false );
+
+ 
+/* Firebase.setString(firebaseData, "NodeMCUs", CHIP_NAME+"-"+String(ESP.getChipId())); */
 
 
   pinMode(DIOPin, OUTPUT);

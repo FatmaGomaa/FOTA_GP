@@ -50,7 +50,12 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-db.child("NodeMCUs").set('No_NodeMCUs_connected')
+#db.child("NodeMCUs").set('No_NodeMCUs_connected')
+
+result = db.child("NodeMCUs").get()
+if (result.val() ==  "No_Target_Connected"):
+  db.child("NodeMCUSemaphore").set(False)
+
 
 #Notification with New App
 while True:

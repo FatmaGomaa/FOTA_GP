@@ -28,11 +28,11 @@
 #define MAXERRORCOUNT  	    3
 
 
-#define Marker          			*(volatile u32 *)(0x0800F618)
-#define Marker_Address   			(0x0800F618)
+#define FlashedAppVersion          			   *(volatile u32 *)(0x0800F618)
+#define FlashedAppVersion_Address   			(0x0800F618)
 
-#define	APP1MARKER					*(volatile u32 *)(0x0800F61C)
-#define APP1MARKER_Address   		(0x0800F61C)
+#define	Marker					               *(volatile u32 *)(0x0800F61C)
+#define Marker_Address   		                (0x0800F61C)
 
 #define DIO_SIGNAL_PORT      PORT_A
 #define DIO_SIGNAL_PIN       PIN_1
@@ -78,7 +78,7 @@ u8 GPIO_FirstEntryFlag=0;
 u8 markerReq[] ={'s','e','n','d'};
 u8 timeOutCounter = 0;
 
-uint32_t markerCheck __attribute__ ((section(".marker"),used)) ;
+uint32_t RequestedAppVersion __attribute__ ((section(".marker"),used)) ;
 uint32_t flagCheck __attribute__ ((section(".flag"),used)) ;
 
 
@@ -153,7 +153,7 @@ int main(void)
 	/* set markerCheck (RAM) by Marker(ROM) value in case of the Hard reset (Power reset) */
 	if(RCC_GetSFTRSTF() == LOW)
 	{
-		markerCheck = Marker ;
+		RequestedAppVersion = FlashedAppVersion ;
 
 	}
 	/*blocking flag*/
@@ -170,7 +170,7 @@ int main(void)
 	{
 		if(softResetFlag == 0)
 		{
-			if(APP1MARKER == HIGH)
+			if(Marker == HIGH)
 			{
 
 				/* Set the first time flag */
@@ -462,9 +462,9 @@ void newApp(void)
 				/* Flash Marker */
 
 				//APP1MARKER = markerCheck;
-				Flash_ErassPage(Marker_Address);
-				Flash_WriteWord(&Marker, markerCheck);
-				Flash_WriteWord(&APP1MARKER, HIGH);
+				Flash_ErassPage(FlashedAppVersion_Address);
+				Flash_WriteWord(&FlashedAppVersion, RequestedAppVersion);
+				Flash_WriteWord(&Marker, HIGH);
 
 				//APP1MARKER = HIGH;
 
@@ -482,7 +482,7 @@ void newApp(void)
 
 		case ID_MarkerCommand:
 			TProtocol_ReceiveFrame( RXBuffer, &MarkerCommand, &MessageID);
-			if(MarkerCommand.marker == Marker)
+			if(MarkerCommand.marker == FlashedAppVersion)
 			{
 				ResponseCommand.Response = R_NOT_SAMEAPPLICATION;
 				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
@@ -490,15 +490,15 @@ void newApp(void)
 			}
 			else
 			{
-				markerCheck = MarkerCommand.marker;
+				RequestedAppVersion = MarkerCommand.marker;
 				ResponseCommand.Response = R_OK;
 				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
 
-				Local_Temp = Marker;
-				Flash_ErassPage(Marker_Address);
-				Flash_WriteWord(&Marker, Local_Temp);
-				Flash_WriteWord(&APP1MARKER, LOW);
+				Local_Temp = FlashedAppVersion;
+				Flash_ErassPage(FlashedAppVersion_Address);
+				Flash_WriteWord(&FlashedAppVersion, Local_Temp);
+				Flash_WriteWord(&Marker, LOW);
 			}
 			softResetFlag = 0;
 			timeOutCounter=0;

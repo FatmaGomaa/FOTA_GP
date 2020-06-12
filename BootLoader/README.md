@@ -72,22 +72,27 @@ Before building our project we includes all folders that we need like (Applicati
 <p >
  <kbd> <img img src="/Images/1.jpg"  /> </kbd>
 </p>
+
 2. Click on settings
 <p >
  <kbd> <img img src="/Images/2.jpg"  /> </kbd>
 </p>
+
 3. Choose GNU ARM cross C compiler 
 <p >
  <kbd> <img img src="/Images/3.jpg"  /> </kbd>
 </p>
+
 4. Click on includes 
 <p >
  <kbd> <img img src="/Images/4.jpg"  /> </kbd>
 </p>
+
 5. click on ADD icon
 <p >
  <kbd> <img img src="/Images/5.jpg"  /> </kbd>
 </p>
+
 6. Select Folders we want to include by clicking on WorkSpace 
 <p >
  <kbd> <img img src="/Images/6.jpg"  /> </kbd>

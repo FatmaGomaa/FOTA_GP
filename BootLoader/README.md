@@ -77,21 +77,21 @@ Before building our project we includes all folders that we need like (Applicati
 
 <table>
  <p align="center">
- <kbd> <img img src="/Images/1.jpg"  /> </kbd>
- <kbd> <img img src="/Images/2.jpg"  /> </kbd>
+ <kbd> <img img src="/Images/1.jpg" width="350"  /> </kbd>
+ <kbd> <img img src="/Images/2.jpg" width="350" /> </kbd>
 </p>
 </table>
 	
 <table>
 <p align="center">
-  <kbd> <img img src="/Images/3.jpg"   /> </kbd>
-  <kbd> <img img src="/Images/4.jpg"  /> </kbd>
+  <kbd> <img img src="/Images/3.jpg"  width="350" /> </kbd>
+  <kbd> <img img src="/Images/4.jpg" width="350" /> </kbd>
 </p>
 </table>
 
 <table>
 <p align="center">
-  <kbd> <img img src="/Images/5.jpg" /> </kbd>
- <kbd> <img img src="/Images/6.jpg" /> </kbd>
+  <kbd> <img img src="/Images/5.jpg" width="350" /> </kbd>
+ <kbd> <img img src="/Images/6.jpg" width="350" /> </kbd>
 </p>
 </table>

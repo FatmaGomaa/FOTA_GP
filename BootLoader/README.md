@@ -76,14 +76,16 @@ Before building our project we includes all folders that we need like (Applicati
 6. Select Folders we want to include by clicking on WorkSpace 
 
  <p align="center">
-  <img img src="/Images/1.jpg" width=300 height=380 title="1"/>
-  <img img src="/Images/2.jpg" width=300 height=380 title="2"/> 
-  <img img src="/Images/3.jpg" width=300 height=380 title="3" /> 
+  <img img src="/Images/1.jpg" width=500 height=380 title="1"/>
+  <img img src="/Images/2.jpg" width=500 height=380 title="2"/> 
 </p>
 
 <p align="center">
-  <img img src="/Images/4.jpg" width=300 height=380 title="4"/>
-  <img img src="/Images/5.jpg" width=300 height=380 title="5"/> 
-  <img img src="/Images/6.jpg" width=300 height=380 title="6"/> 
+  <img img src="/Images/4.jpg" width=500 height=380 title="3"/>
+  <img img src="/Images/5.jpg" width=500 height=380 title="4"/> 
 </p>
 
+<p align="center">
+  <img img src="/Images/1.jpg" width=500 height=380 title="5"/>
+  <img img src="/Images/2.jpg" width=500 height=380 title="6"/> 
+</p>

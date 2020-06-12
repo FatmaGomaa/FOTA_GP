@@ -2,9 +2,9 @@
 
 This document describes the sequence of the Bootloader Application and the Flashing commands (Hint Before building the project At the End to Document)
 
-## Sequence of Bootloader Application: 
+## Sequence of Bootloader Application
 
-![](/Images/BL_FlowChart_2.jpg)
+<kbd>![](/Images/BL_FlowChart_2.jpg )</kbd>
 
 
 ## Sequence of Flashing Commands 
@@ -75,17 +75,23 @@ Before building our project we includes all folders that we need like (Applicati
 5. click on ADD icon
 6. Select Folders we want to include by clicking on WorkSpace 
 
+<table>
  <p align="center">
-  <img img src="/Images/1.jpg" width=450 height=500 />
-  <img img src="/Images/2.jpg" width=450 height=500 /> 
+ <kbd> <img img src="/Images/1.jpg"  /> </kbd>
+ <kbd> <img img src="/Images/2.jpg"  /> </kbd>
 </p>
-
+</table>
+	
+<table>
 <p align="center">
-  <img img src="/Images/3.jpg" width=450 height=500  />
-  <img img src="/Images/4.jpg" width=450 height=500 /> 
+  <kbd> <img img src="/Images/3.jpg"   /> </kbd>
+  <kbd> <img img src="/Images/4.jpg"  /> </kbd>
 </p>
+</table>
 
+<table>
 <p align="center">
-  <img img src="/Images/5.jpg" width=450 height=500 />
-  <img img src="/Images/6.jpg" width=450 height=500 /> 
+  <kbd> <img img src="/Images/5.jpg" /> </kbd>
+ <kbd> <img img src="/Images/6.jpg" /> </kbd>
 </p>
+</table>

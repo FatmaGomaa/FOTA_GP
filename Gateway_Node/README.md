@@ -46,18 +46,18 @@ This document describes the steps we followed and the errors we faced to connect
 
 ## Project Firebase Structure. 
 <p align="center">
-  <img src="/Gateway_Node/Images/FirebaseChannels.png">
+  <img src="/Gateway_Node/Images/FirebaseChannels.PNG">
 </p>
 
-**FlashNewApp**         : Indicates that a New Flashing Sequence is about to start.
-**Frame**               : Holds the Current Frame which is one of Four options **Data Command** or **Erase Command** or **Verification Command** or **Response Command**
-**Marker**              : Holds the Marker Frame and then the Marker Frame Response
-**MarkerRQT**           : Inicates is updated when New Flashing Sequence is about to start.
-**NodeMCUSemaphore**    : NodeMCUs checks that there is no other Node is writing in NodeMCUs channel right now.
-**NodeMCUs**            : Resgitered NodeMCUs that available for flashing. 
-**ResponseRQT**         : Flag to indicate that the uploaded command would wait for Response like **Erase Command** or **Verification Command**
-**SelectedGateway**     : Updates when **GUI** selectes specific target to Flash.
-**Send**                : **PC Application** sets it True when Uploading Command, **NodeMCU** sets it False after reading the Command, Major use is **Synchronization**.
+* **FlashNewApp**         : Indicates that a New Flashing Sequence is about to start.
+* **Frame**               : Holds the Current Frame which is one of Four options **Data Command** or **Erase Command** or **Verification Command** or **Response Command**
+* **Marker**              : Holds the Marker Frame and then the Marker Frame Response
+* **MarkerRQT**           : Inicates is updated when New Flashing Sequence is about to start.
+* **NodeMCUSemaphore**    : NodeMCUs checks that there is no other Node is writing in NodeMCUs channel right now.
+* **NodeMCUs**            : Resgitered NodeMCUs that available for flashing. 
+* **ResponseRQT**         : Flag to indicate that the uploaded command would wait for Response like **Erase Command** or **Verification Command**
+* **SelectedGateway**     : Updates when **GUI** selectes specific target to Flash.
+* **Send**                : **PC Application** sets it True when Uploading Command, **NodeMCU** sets it False after reading the Command, Major use is **Synchronization**.
 
 ## Code FlowChart and Logic Explanation.
 <p align="center">

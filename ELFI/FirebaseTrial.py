@@ -64,6 +64,13 @@ while True:
         break 
 db.child("FlashNewApp").set(True)
 
+f=open("SelectedTarget.txt","r+")
+f.seek(0)
+SelectedTarget = f.readline()
+f.close()
+Target = SelectedTarget.split("\n")
+db.child("SelectedGateway").set(Target[0])
+
 
 #Sending Marker Command
 Line = lines[IDX].split("\n")

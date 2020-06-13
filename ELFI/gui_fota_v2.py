@@ -215,6 +215,8 @@ class Ui_ELFI(object):
         font3 = QFont()
         font3.setPointSize(12)
         self.FileLocation_name.setFont(font3)
+        
+
         #self.fireleft = QLabel(ELFI)
         #self.fireleft.setObjectName(u"fireleft")
         #self.fireleft.setGeometry(QRect(130, 30, 81, 81))
@@ -241,7 +243,10 @@ class Ui_ELFI(object):
         self.refresh.setGeometry(QRect(377, 160, 75, 23))
         self.refresh.setStyleSheet(" QPushButton {color: white; background-color: rgb(13, 156, 141 , 0.5 ) ; border-style: outset;  border-color: black;  border-radius: 10px;  font: bold 14px;  min-width: 5em;  padding: 2px;} ")
 
-
+         ##starting the FetchNodeMCUs Thread
+        self.fileNodeMCU=Import_NodeMCUs()
+        self.fileNodeMCU.start()
+        
         self.retranslateUi(ELFI)
 
         QMetaObject.connectSlotsByName(ELFI)
@@ -294,15 +299,25 @@ class Ui_ELFI(object):
       else:
         ##To get MCU 
         Index = self.HW_Family.currentIndex()
-
+        
+        Target = self.HW_Family.currentText()
+        
+        f = open('./SelectedTarget.txt','w') 
+        f.write(Target)
+        f.close()
+        
         ##To get the ELF_File
         ElfPath = filename[0]
         ##starting the ComReceiver Thread
         self.file=Import(Index,ElfPath)
         self.file.start()
+        
+        
         ##starting the FetchNodeMCUs Thread
-        self.fileNodeMCU=Import_NodeMCUs()
-        self.fileNodeMCU.start()
+        ##self.fileNodeMCU=Import_NodeMCUs()
+        ##self.fileNodeMCU.start()
+        
+        
         ##initalization values og progress.txt
         f = open('./progress.txt','w') 
         f.write("0 0")

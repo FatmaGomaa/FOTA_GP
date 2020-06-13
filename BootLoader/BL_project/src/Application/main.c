@@ -100,8 +100,9 @@ int main(void)
 	/* Unlock The Flash */
 	Flash_Unlock();
 
-	//Flash_ErassPage(Marker_Address);
-	//Flash_WriteWord(&Marker, 1);
+	/*Flash_ErassPage(Marker_Address);
+	Flash_WriteWord(&Marker, HIGH);
+	Flash_WriteWord(&FlashedAppVersion, 9);*/
 
 	/* Debugging Code */
 	GPIO_t	LED={

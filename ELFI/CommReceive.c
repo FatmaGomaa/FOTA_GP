@@ -143,7 +143,7 @@ void main(int argc, char *argv[])
 		}
 		
 		/************************************ Marker Sequence *******************************************/
-        MarkerCommand.marker = 6;
+        MarkerCommand.marker = 5;
 	    TProtcol_sendFrame((void*)&MarkerCommand, CommandToSend, ID_MarkerCommand );
 		for(txtindex=0;txtindex<8;txtindex++)
 		{

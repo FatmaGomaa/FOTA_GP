@@ -1706,7 +1706,7 @@ END GROUP
 .marker         0x20000000        0x4
  *(.marker .marker.*)
  .marker        0x20000000        0x4 ./src/Application/main.o
-                0x20000000                markerCheck
+                0x20000000                RequestedAppVersion
  *(.marker*)
 
 .flag           0x20000004        0x4
@@ -2555,7 +2555,7 @@ END GROUP
  .debug_frame   0x00000b94       0x30 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-mlock.o)
  .debug_frame   0x00000bc4       0x20 g:/iti/tourky/arm_training/arm tools iti/arm gcc/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000    0x5775e
+.debug_str      0x00000000    0x57774
  *(.debug_str)
  .debug_str     0x00000000     0x6d1f ./system/src/newlib/_exit.o
                                0x6e96 (size before relaxing)
@@ -2595,8 +2595,8 @@ END GROUP
                                0x311a (size before relaxing)
  .debug_str     0x000572a2       0xef ./src/ECUAL/USART_Handler/hUSART.o
                                0x34c5 (size before relaxing)
- .debug_str     0x00057391      0x3cd ./src/Application/main.o
-                              0x4f527 (size before relaxing)
+ .debug_str     0x00057391      0x3e3 ./src/Application/main.o
+                              0x4f53d (size before relaxing)
 
 .debug_loc      0x00000000     0x19ec
  *(.debug_loc)

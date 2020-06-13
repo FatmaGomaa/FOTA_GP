@@ -7,10 +7,10 @@
 
 /* Include ESP8266WiFi.h and must be included after FirebaseESP8266.h */
 #include <ESP8266WiFi.h>
-#include <DNSServer.h>
-#include <ESP8266WebServer.h>
-#include <WiFiManager.h>  
-#include "HardwareSerial.h"
+//#include <DNSServer.h>
+//#include <ESP8266WebServer.h>
+//#include <WiFiManager.h>  
+//#include "HardwareSerial.h"
 
 /*========================================================================================================================================*/
 /*                                                                     Macros                                                             */
@@ -19,11 +19,11 @@
 #define FIREBASE_HOST "fota-905e1.firebaseio.com"
 #define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
 
-/* Network - Parameters for Local Network. 
+// Network - Parameters for Local Network. 
 #define WIFI_SSID "OrangeDSL-Gomaa"
-#define WIFI_PASSWORD "MeMes159753" */
+#define WIFI_PASSWORD "MeMes159753"
 
-#define CHIP_NAME       "Esraa"   //write the name you want for the Chip here
+#define CHIP_NAME       "Fatima"   //write the name you want for the Chip here
 
 /* Data Frame Size */
 #define DATA_FRAMES_COUNT           200
@@ -48,6 +48,9 @@ unsigned char TxBuffer[8] , RxBuffer[8], stmMarkerStatus[8];
 unsigned char DataTxBuffer_Option2[ 200*8 ];
 /* TODO: Testing Paramete """"""""""""""""""TO BE REMOVED"""""""""""""""""" */
 String myString, incomingResponse;
+String chipId;
+String Node = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+String Node2 = "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
 HardwareSerial Serial2(2);
 
@@ -63,18 +66,32 @@ void setup() {
 
 
   /* Serial Setup */
-  Serial2.begin(9600);
+  Serial1.begin(115200);
   Serial.begin(500000);
 
+/**************************************Came from Heaven to rescue********************************************/
 
+  // connect to wifi.
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  //Serial.print("connecting");
+  while (WiFi.status() != WL_CONNECTED) {
+ //   Serial.print(".");
+    delay(500);
+  }
+  //Serial.println();
+ // Serial.print("connected: ");
+  WiFi.localIP();
+
+/***********************************************************************************************************/
+  
   /* connecting to wifi Sequence */
   //WiFiManager
   //Local intialization. Once its business is done, there is no need to keep it around
-  WiFiManager wifiManager;
+  //WiFiManager wifiManager;
   //reset saved settings
- // wifiManager.resetSettings();
-  wifiManager.autoConnect("NodeMCU_Network");
-  Serial.print("Yaay");
+  //wifiManager.resetSettings();
+  //wifiManager.autoConnect("NodeMCU_Network");
+  //Serial.print("Yaay");
 
   /* Setup the Firebase */
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
@@ -86,7 +103,7 @@ void setup() {
   firebaseData.setResponseSize(4000); //minimum size is 400 bytes
 
   /* TODO: to be removed, these variable controlled by PC  """"""""""""""""""TO BE REMOVED""""""""""""""""""  */
-  /*Firebase.setBool(firebaseData, "FlashNewApp", false );
+  /*Firebase.setBool(firebaseData, "FlashNewApp", true );
   Firebase.setBool(firebaseData, "Send", true );
   Firebase.setBool(firebaseData, "ResponseRQT", false );
   Firebase.setString(firebaseData, "Frame", "");
@@ -101,16 +118,14 @@ void setup() {
   if ( Semphaore == false )
     break; 
  } 
-String chipId;
-String Node = "0000000000000000000";
-String Node2 = "000000000000000000";
+
 Firebase.setBool(firebaseData, "NodeMCUSemaphore", true );
 chipId = String(CHIP_NAME) + "-" + String(ESP.getChipId());
 
-Firebase.getString(firebaseData, "NodeMCUSs"); 
+Firebase.getString(firebaseData, "NodeMCUs"); 
 Node = firebaseData.stringData();
 
-Node2 = Node + " " + chipId;
+Node2 = Node + chipId + " ";
 Firebase.setString(firebaseData, "NodeMCUs", Node2);
 Firebase.setBool(firebaseData, "NodeMCUSemaphore", false );
 
@@ -138,9 +153,11 @@ void loop()
   Firebase.getBool(firebaseData, "FlashNewApp");
   FlashNewApp_Flag = firebaseData.boolData();
 
+  Firebase.getString(firebaseData, "SelectedGateway"); 
+  Node = firebaseData.stringData();
 
   /* Check if a new program has been uploaded */
-  if (FlashNewApp_Flag == true)
+  if (FlashNewApp_Flag == true && chipId == Node )
   {
 
 

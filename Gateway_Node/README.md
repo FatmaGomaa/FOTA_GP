@@ -11,6 +11,45 @@ This document describes the steps we followed and the errors we faced to connect
 
 ## Introduction to NodeMCU.
 
+<p align="center">
+  <img src="/Gateway_Node/Images/intro0.jpg">
+</p>
+
+The development board equips the ESP-12E module containing ESP8266 chip having **Tensilica Xtensa® 32-bit LX106 RISC microprocessor** which operates at 80 to 160 MHz adjustable clock frequency.
+
+<p align="center">
+  <img src="/Gateway_Node/Images/intro1.jpg">
+</p>
+
+There’s also **128 KB RAM and 4MB of Flash memory** (for program and data storage) just enough to cope with the large strings that make up web pages, JSON/XML data, and everything we throw at IoT devices nowadays.
+
+The ESP8266 Integrates **802.11b/g/n HT40 Wi-Fi transceiver**, so it can not only connect to a WiFi network and interact with the Internet, but it can also set up a network of its own, allowing other devices to connect directly to it. This makes the ESP8266 NodeMCU even more versatile.
+
+As the operating voltage range of ESP8266 is **3V to 3.6V**, the board comes with a LDO voltage regulator to keep the voltage steady at 3.3V. It can reliably supply up to 600mA.
+
+<p align="center">
+  <img src="/Gateway_Node/Images/intro2.jpg">
+</p>
+
+The ESP8266 NodeMCU has total **17 GPIO** pins broken out to the pin headers on both sides of the development board. These pins can be assigned to all sorts of peripheral duties, including:
+
+* **ADC channel** – A 10-bit ADC channel.
+* **UART interface** – UART interface is used to load code serially.
+* **PWM outputs** – PWM pins for dimming LEDs or controlling motors.
+* **SPI, I2C & I2S interface** – SPI and I2C interface to hook up all sorts of sensors and peripherals.
+* **I2S interface** – I2S interface if you want to add sound to your project.
+
+<p align="center">
+  <img src="/Gateway_Node/Images/intro3.jpg">
+</p>
+
+The ESP8266 NodeMCU features two buttons. One marked as **RST** located on the top left corner is the Reset button, used of course to reset the ESP8266 chip. The other **FLASH** button on the bottom left corner is the download button used while upgrading firmware.
+The board also has a **LED** indicator which is user programmable and is connected to the D0 pin of the board.
+
+<p align="center">
+  <img src="/Gateway_Node/Images/intro4.jpg">
+</p>
+
 ## Steps for connecting NodeMcu with Google Firebase
 
 1. If you don't have ESP8266 library in your Arduino IDE use this link https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/ to install it, then Download the Firebase Arduino library from https://github.com/FirebaseExtended/firebase-arduino
@@ -178,3 +217,4 @@ so we had to use an Arduino function c_str() to convert the string to pointer to
 4. https://github.com/me-no-dev/EspExceptionDecoder
 5. https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html#watchdog
 6. https://github.com/mobizt/Firebase-ESP8266/blob/master/README.md
+7. https://lastminuteengineers.com/esp8266-nodemcu-arduino-tutorial/

@@ -142,7 +142,7 @@ Steps for using it :
    In Library Manager Window, search "firebase" in the search form then select "Firebase ESP8266 Client". Click "Install" button.
 2. We added this line to our code and we started to use it in each Firebase API’s       
    
-   ```
+   ```ino
    // Declare the Firebase Data object in the global scope 
       FirebaseData firebaseData; 
    ```
@@ -155,19 +155,19 @@ Then we replaced our code with the new way using this object, for Example:
 After reading it from the exception table and tring many unuseful solutions like using ArduinoJson library we found that when we used firebase database library as solution for problem (3.2), this library has buffer for each object and we should use those lines of code to change the size of the buffer corresponding to our data to avoid data corruption  
  
 
-```
+```ino
 /* Optional, set the size of BearSSL WiFi to receive and transmit buffers */ 
        firebaseData.setBSSLBufferSize(4000, 4000); //minimum size is 4096 bytes, maximum size is 16384 bytes
 ```
 
-```
+```ino
 /* Optional, set the size of HTTP response buffer */
        firebaseData.setResponseSize(4000); //minimum size is 400 bytes
 ```
 
 And we also added those lines of code to avoid any watchdog timer issues 
  
-```
+```ino
    Add in setup()
    ESP.wdtDisable(); 
    ESP.wdtEnable(WDTO_8S);
@@ -187,14 +187,14 @@ As our project sequence is that the Pc send 8 bytes (Non Data frame) to the clou
 
 To receive the data frame we received it as a string of 3200 hex string digit (the pc sends 200 frames each one of them is 8 bytes so the total number is 1600 byte and we receive those 1600 bytes multiplied by 2 because of each byte is represented as 2 digits in hex format as string so the numbe is 3200 ), we created (TX_string_buffer) and allocated it with 3200 char (3.2k bytes) becouse if it's not initialized with the size corresponding to our data, it will be initialized with the default size and it will corrapt our data
 
-```
+```ino
 String TX_string_buffer = "00000…………”
 ```
 Then we had a problem of sending the frames as an array from the PC as firebase Arduino library for esp didn't support receiving an array So we turned to receiving it as string as the size of string in the firebase Arduino library is big and the firebase can also receive and send a large sequence of string
 Another problem is that when we receive the string frames on arduino we want to convert the frames first from string to hex values and to parse the hex values to be added into its place in the Txbuffer[8], so we used the functions strtoul to convert the string and the function substring to parse the string into sizes of 1 byte to be added to the buffer, but the problem was that the function strtoul was taking input parameter as a pointer to constant character
 so we had to use an Arduino function c_str() to convert the string to pointer to constant character then the function substring to parse the string into characters in size of 1 byte then convert them using strtoul to be added to the Txbuffer[index] and finally we send this Data over UART to STM
 
-```
+```ino 
  Firebase.getString(firebaseData, "Frame");
  TX_Need_Resp_Buffer = firebaseData.stringData();
  

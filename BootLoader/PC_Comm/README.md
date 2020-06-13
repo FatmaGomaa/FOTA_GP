@@ -17,7 +17,7 @@ In Windows we use the CreateFile() function to open a serial port.
 
 After opening a serial port using the CreateFile() function you should close it with **CloseHandle()** function, otherwise port will become unavailable to other programs.
 
-```
+```c
 HANDLE hComm;
 
   hComm = CreateFile(“\\\\.\\COM24”,                   //port name remove "\\\\.\\" if it's less the COM 10
@@ -50,7 +50,7 @@ To Configure the DCB structure we use,
 **SetCommState()** function which configures the serial port with the new values in DCB structure provided by us.
 
 First you declare a new structure of type DCB and initializes it.
-```
+```c
 DCB dcbSerialParams = { 0 }; // Initializing DCB
 .
 .
@@ -63,7 +63,7 @@ dcbSerialParams.Parity   = NOPARITY;          // Setting Parity = None
 ```
 
 ## Writing Data to Serial Port
-```
+```c
 
 char lpBuffer[] = "Hello from Win32";
 DWORD dNoOFBytestoWrite;                          // No of bytes to write into the port
@@ -88,19 +88,19 @@ Reading from the serial port is accomplished by the ReadFile() function.
 3. Call **ReadFile ()** to read the received data from the Serial port.
 
 ### SetCommMask
-```
+```c
 BOOL SetCommMask(
   HANDLE hFile,
   DWORD  dwEvtMask
 );
 ```
 Specifies a set of events to be monitored for a communications device, it takes a handle to the communications device and The events to be enabled.
-```
+```c
 Status = SetCommMask(hComm, EV_RXCHAR);
 ```
 
 ### WaitCommEvent
-```
+```c
 BOOL WaitCommEvent(
   HANDLE       hFile,
   LPDWORD      lpEvtMask,
@@ -110,7 +110,7 @@ BOOL WaitCommEvent(
 Waits for an event to occur for a specified communications device. The set of events that are monitored by this function is contained in the event mask associated with the device handle.
 
 It takes A handle to the communications device, A pointer to a variable that receives a mask indicating the type of event that occurred and A pointer to an OVERLAPPED structure.
-```
+```c
 DWORD dwEventMask; 
 Status = WaitCommEvent(hComm, &dwEventMask, NULL);  
 ```
@@ -119,7 +119,7 @@ Status = WaitCommEvent(hComm, &dwEventMask, NULL);
 After **WaitCommEvent()** has returned, call **ReadFile()** function to read the received characters from the Serial Port Buffer
 
 ### ReadFile
-```
+```c
 BOOL ReadFile(
   HANDLE       hFile,
   LPVOID       lpBuffer,
@@ -136,7 +136,7 @@ takes:
 5. A pointer to an OVERLAPPED structure is required if the hFile parameter was opened with FILE_FLAG_OVERLAPPED, otherwise it can be NULL.
 
 
-```
+```c
 char TempChar; //Temporary character used for reading
 char SerialBuffer[256];//Buffer for storing Rxed Data
 DWORD NoBytesRead;

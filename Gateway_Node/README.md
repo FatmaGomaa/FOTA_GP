@@ -12,13 +12,13 @@ This document describes the steps we followed and the errors we faced to connect
 ## Introduction to NodeMCU.
 
 <p align="center">
-  <img src="/Gateway_Node/Images/intro0.jpg">
+  <img src="/Gateway_Node/Images/intro0.png">
 </p>
 
 The development board equips the ESP-12E module containing ESP8266 chip having **Tensilica Xtensa® 32-bit LX106 RISC microprocessor** which operates at 80 to 160 MHz adjustable clock frequency.
 
 <p align="center">
-  <img src="/Gateway_Node/Images/intro1.jpg">
+  <img src="/Gateway_Node/Images/intro1.PNG">
 </p>
 
 There’s also **128 KB RAM and 4MB of Flash memory** (for program and data storage) just enough to cope with the large strings that make up web pages, JSON/XML data, and everything we throw at IoT devices nowadays.
@@ -28,7 +28,7 @@ The ESP8266 Integrates **802.11b/g/n HT40 Wi-Fi transceiver**, so it can not onl
 As the operating voltage range of ESP8266 is **3V to 3.6V**, the board comes with a LDO voltage regulator to keep the voltage steady at 3.3V. It can reliably supply up to 600mA.
 
 <p align="center">
-  <img src="/Gateway_Node/Images/intro2.jpg">
+  <img src="/Gateway_Node/Images/intro2.PNG">
 </p>
 
 The ESP8266 NodeMCU has total **17 GPIO** pins broken out to the pin headers on both sides of the development board. These pins can be assigned to all sorts of peripheral duties, including:
@@ -40,14 +40,14 @@ The ESP8266 NodeMCU has total **17 GPIO** pins broken out to the pin headers on 
 * **I2S interface** – I2S interface if you want to add sound to your project.
 
 <p align="center">
-  <img src="/Gateway_Node/Images/intro3.jpg">
+  <img src="/Gateway_Node/Images/intro3.PNG">
 </p>
 
 The ESP8266 NodeMCU features two buttons. One marked as **RST** located on the top left corner is the Reset button, used of course to reset the ESP8266 chip. The other **FLASH** button on the bottom left corner is the download button used while upgrading firmware.
 The board also has a **LED** indicator which is user programmable and is connected to the D0 pin of the board.
 
 <p align="center">
-  <img src="/Gateway_Node/Images/intro4.jpg">
+  <img src="/Gateway_Node/Images/intro4.PNG">
 </p>
 
 ## Steps for connecting NodeMcu with Google Firebase

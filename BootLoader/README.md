@@ -23,7 +23,7 @@ This document describes the sequence of the Bootloader Application and the Flash
 7. Check if local_error is ok set the response in the responseCommand = R_OK;
 8. Check if local_error is not_ok set the response in the responseCommand = R_NOT_EraseFailure;
 9. Fill the transmitterBuffer in the TProtocol_SendFrame with the responseCommand and send it through UART to the Sender with the responseFrame
-10. if the Checksum of the EraseFrame is not equal to the EraseCommand.Checksum then set the response in responseCommand = R_NOT_MismatchData 
+10. If the Checksum of the EraseFrame is not equal to the EraseCommand.Checksum then set the response in responseCommand = R_NOT_MismatchData 
 11. Send the ResponseFrame to the TProtocol_SendFrame to fill the TransmitterBuffer and send it through UART to the Sender
 
 ### ID_DataCommand
@@ -40,7 +40,7 @@ This document describes the sequence of the Bootloader Application and the Flash
    - Enable PRIMASK to stop the interrupts (make a critical section)
    - Start Writing the Data Bytes received to the Flash Memory at the specified offset for each page size (the offset is incremented each page size flashed)
    - Disable the PRIMASK to end the critical section
-3. check if the DataCheckSum is  not equal VerifyCommand.CheckSum 
+3. Check if the DataCheckSum is  not equal VerifyCommand.CheckSum 
    - Set the response in the responseCommand = R_NOT_MismatchData
 4. Send the ResponseFrame to the TProtocol_SendFrame to fill the TransmitterBuffer and send it through UART to the Sender
 5. Check if all the required sections are filled with data Erase the FlashedAppVersion, flash the RequestedAppVersion(RAM) to the FlashedAppVersion (ROM) and set Marker to High
@@ -59,7 +59,7 @@ This document describes the sequence of the Bootloader Application and the Flash
      1. Copy the value in FlashedAppVersion to LocalTemp
      2. Erase page of the FlashedAppVersion 
      3. Return Value from local temp to FlashedAppVersion
-     4. Set Marker By LOW
+     4. Set the Marker = LOW
 
 
 ## Hint
@@ -69,31 +69,31 @@ Before building our project we includes all folders that we need like (Applicati
 ### Steps
 
 1. Right click on project and choose properties
-<p >
- <kbd> <img img src="/Images/1.jpg"  /> </kbd>
+<p align="center">
+ <kbd> <img img src="/Images/1.jpg" width=450 height=400 /> </kbd>
 </p>
 
 2. Click on settings
-<p >
- <kbd> <img img src="/Images/2.jpg"  /> </kbd>
-</p>
+<p align="center">
+ <kbd> <img img src="/Images/2.jpg" width=450 height=400 /> </kbd>
+</palign="center">
 
 3. Choose GNU ARM cross C compiler 
-<p >
- <kbd> <img img src="/Images/3.jpg"  /> </kbd>
-</p>
+<p align="center">
+ <kbd> <img img src="/Images/3.jpg" width=450 height=400 /> </kbd>
+</p align="center">
 
 4. Click on includes 
-<p >
- <kbd> <img img src="/Images/4.jpg"  /> </kbd>
+<p align="center">
+ <kbd> <img img src="/Images/4.jpg" width=450 height=400 /> </kbd>
 </p>
 
 5. click on ADD icon
-<p >
- <kbd> <img img src="/Images/5.jpg"  /> </kbd>
+<p align="center">
+ <kbd> <img img src="/Images/5.jpg" width=450 height=400 /> </kbd>
 </p>
 
 6. Select Folders we want to include by clicking on WorkSpace 
-<p >
- <kbd> <img img src="/Images/6.jpg"  /> </kbd>
+<p align="center" >
+ <kbd> <img img src="/Images/6.jpg" width=450 height=400 /> </kbd>
 </p>

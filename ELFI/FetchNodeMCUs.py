@@ -2,14 +2,14 @@ import pyrebase
 import time
 
 config = {
-  "apiKey": "AIzaSyC9FyOjWEj58gdhC12SJ8G3jjn3Xd5qfrM",
-  "authDomain": "fota-6b4d9.firebaseapp.com",
-  "databaseURL": "https://fota-6b4d9.firebaseio.com",
-  "projectId": "fota-6b4d9",
-  "storageBucket": "fota-6b4d9.appspot.com",
-  "messagingSenderId": "834511519114",
-  "appId": "1:834511519114:web:0a7c6d6471f204de77dc73",
-  "measurementId": "G-G7F80R2SWN"
+  "apiKey": "AIzaSyCLVYhUGxHVeIfLW8DkWPZy7kBu4f1-79o",
+  "authDomain": "fota-905e1.firebaseapp.com",
+  "databaseURL": "https://fota-905e1.firebaseio.com",
+  "projectId": "fota-905e1",
+  "storageBucket": "fota-905e1.appspot.com",
+  "messagingSenderId": "746270454506",
+  "appId": "1:746270454506:web:32183900e0176d27b31d93",
+  "measurementId": "G-ZE9JE4FGRP"
     }
     
 #FireBase Initialization     

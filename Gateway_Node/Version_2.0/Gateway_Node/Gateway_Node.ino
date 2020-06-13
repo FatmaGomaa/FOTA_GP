@@ -16,8 +16,8 @@
 /*                                                                     Macros                                                             */
 /*========================================================================================================================================*/
 /* Network - Parameters for Firebase. */
-#define FIREBASE_HOST "fota-6b4d9.firebaseio.com"
-#define FIREBASE_AUTH "8yi16CcDLO0LTkvgO3ppAIQyOCKDDV2l6yglTgey"
+#define FIREBASE_HOST "fota-905e1.firebaseio.com"
+#define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
 
 // Network - Parameters for Local Network. 
 //#define WIFI_SSID "OrangeDSL-Gomaa"

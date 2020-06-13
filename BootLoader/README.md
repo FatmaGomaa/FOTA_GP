@@ -59,7 +59,7 @@ This document describes the sequence of the Bootloader Application and the Flash
      1. Copy the value in FlashedAppVersion to LocalTemp
      2. Erase page of the FlashedAppVersion 
      3. Return Value from local temp to FlashedAppVersion
-     4. Set Marker By LOW
+     4. Set the Marker = LOW
 
 
 ## Hint

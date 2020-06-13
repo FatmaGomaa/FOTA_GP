@@ -2,6 +2,15 @@
 
 This document describes the steps we followed and the errors we faced to connect NodeMcu with Google Firebase
 
+## Table of Contents
+* [Introduction to NodeMCU](#introduction-to-nodemcu)
+* [Steps for connecting NodeMcu with Google Firebase](#steps-for-connecting-nodemcu-with-google-firebase)
+* [Project Firebase Structure](#project-firebase-structure)
+* [Code FlowChart](#code-flowchart)
+* [Errors Causes and Solutions](#the-errors-causes-and-solutions)
+
+## Introduction to NodeMCU.
+
 ## Steps for connecting NodeMcu with Google Firebase
 
 1. If you don't have ESP8266 library in your Arduino IDE use this link https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/ to install it, then Download the Firebase Arduino library from https://github.com/FirebaseExtended/firebase-arduino
@@ -34,6 +43,9 @@ This document describes the steps we followed and the errors we faced to connect
 ![](/Gateway_Node/Images/5.jpg)
 
 5. Add your WIFI name and password in WIFI_SSID & WIFI_PASSWORD respectively,then write the code sequence and build it.
+
+## Project Firebase Structure. 
+## Code FlowChart.
 
 
 ## The Errors Causes and Solutions 

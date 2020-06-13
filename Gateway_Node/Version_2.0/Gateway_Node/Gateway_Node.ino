@@ -7,21 +7,21 @@
 
 /* Include ESP8266WiFi.h and must be included after FirebaseESP8266.h */
 #include <ESP8266WiFi.h>
-//#include <DNSServer.h>
-//#include <ESP8266WebServer.h>
-//#include <WiFiManager.h>  
+#include <DNSServer.h>
+#include <ESP8266WebServer.h>
+#include <WiFiManager.h>  
 //#include "HardwareSerial.h"
 
 /*========================================================================================================================================*/
 /*                                                                     Macros                                                             */
 /*========================================================================================================================================*/
 /* Network - Parameters for Firebase. */
-#define FIREBASE_HOST "fota-905e1.firebaseio.com"
-#define FIREBASE_AUTH "Bpdn4xtRL1NG1vP1r2mgb85QpTxbVeWsEYgzpnky"
+#define FIREBASE_HOST "fota-6b4d9.firebaseio.com"
+#define FIREBASE_AUTH "8yi16CcDLO0LTkvgO3ppAIQyOCKDDV2l6yglTgey"
 
 // Network - Parameters for Local Network. 
-#define WIFI_SSID "OrangeDSL-Gomaa"
-#define WIFI_PASSWORD "MeMes159753"
+//#define WIFI_SSID "OrangeDSL-Gomaa"
+//#define WIFI_PASSWORD "MeMes159753"
 
 #define CHIP_NAME       "Fatima"   //write the name you want for the Chip here
 
@@ -45,21 +45,26 @@ unsigned char TxBuffer[8] , RxBuffer[8], stmMarkerStatus[8];
 
 /* Local Parsed Data to be Send in Data Frames  """""""Options - need to be decided""""""" */
 //unsigned char DataTxBuffer_Option1[200][8] ;
-unsigned char DataTxBuffer_Option2[ 200*8 ];
+unsigned char DataTxBuffer_Option2;
 /* TODO: Testing Paramete """"""""""""""""""TO BE REMOVED"""""""""""""""""" */
 String myString, incomingResponse;
 String chipId;
 String Node = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-String Node2 = "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+//String Node2 = "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
-HardwareSerial Serial2(2);
+//HardwareSerial Serial2(2);
 
 int DIOPin = 4 ;
-
+WiFiManager wifiManager;
 /*========================================================================================================================================*/
 /*                                                                     Setup                                                              */
 /*========================================================================================================================================*/
 void setup() {
+  //ESP.eraseConfig();     
+  //ESP.reset();
+  //WiFi.softAPdisconnect(true);     
+  //WiFi.disconnect(true);
+  
   /* Re-setup the WatchDog - Timer for Execption handling */
   ESP.wdtDisable(); 
   ESP.wdtEnable(WDTO_8S);
@@ -72,7 +77,7 @@ void setup() {
 /**************************************Came from Heaven to rescue********************************************/
 
   // connect to wifi.
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+ /* WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   //Serial.print("connecting");
   while (WiFi.status() != WL_CONNECTED) {
  //   Serial.print(".");
@@ -81,34 +86,33 @@ void setup() {
   //Serial.println();
  // Serial.print("connected: ");
   WiFi.localIP();
-
+*/
 /***********************************************************************************************************/
   
   /* connecting to wifi Sequence */
   //WiFiManager
   //Local intialization. Once its business is done, there is no need to keep it around
-  //WiFiManager wifiManager;
   //reset saved settings
-  //wifiManager.resetSettings();
-  //wifiManager.autoConnect("NodeMCU_Network");
+  //wifiManager.resetSettings();  
+  wifiManager.autoConnect("NodeMCU_Network");
   //Serial.print("Yaay");
 
   /* Setup the Firebase */
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
 
   /* Optional, set the size of BearSSL WiFi to receive and transmit buffers */ 
-  firebaseData.setBSSLBufferSize(4000, 4000); //minimum size is 4096 bytes, maximum size is 16384 bytes
+  firebaseData.setBSSLBufferSize(4000, 600); //minimum size is 4096 bytes, maximum size is 16384 bytes
 
   /* Optional, set the size of HTTP response buffer */
   firebaseData.setResponseSize(4000); //minimum size is 400 bytes
 
   /* TODO: to be removed, these variable controlled by PC  """"""""""""""""""TO BE REMOVED""""""""""""""""""  */
-  /*Firebase.setBool(firebaseData, "FlashNewApp", true );
+  Firebase.setBool(firebaseData, "FlashNewApp", true );
   Firebase.setBool(firebaseData, "Send", true );
   Firebase.setBool(firebaseData, "ResponseRQT", false );
   Firebase.setString(firebaseData, "Frame", "");
   Firebase.setString(firebaseData, "Marker", "Mostafa");
-  Firebase.setBool(firebaseData, "MarkerRQT", false );*/
+  Firebase.setBool(firebaseData, "MarkerRQT", false );
     
  bool Semphaore;
  while(1)
@@ -125,8 +129,8 @@ chipId = String(CHIP_NAME) + "-" + String(ESP.getChipId());
 Firebase.getString(firebaseData, "NodeMCUs"); 
 Node = firebaseData.stringData();
 
-Node2 = Node + chipId + " ";
-Firebase.setString(firebaseData, "NodeMCUs", Node2);
+Node = Node + chipId + " ";
+Firebase.setString(firebaseData, "NodeMCUs", Node);
 Firebase.setBool(firebaseData, "NodeMCUSemaphore", false );
 
  
@@ -340,8 +344,8 @@ void loop()
 
         for (int index = 0 ; index < (DATA_FRAMES_COUNT * DATA_FRAME_BYTES_SIZE) ; index++)
         {
-          DataTxBuffer_Option2[index] = strtoul(TX_string_buffer.substring( (2*index ) , (2*index )+2 ).c_str()  , NULL,16); 
-          Serial.write(DataTxBuffer_Option2[index]);
+          DataTxBuffer_Option2 = strtoul(TX_string_buffer.substring( (2*index ) , (2*index )+2 ).c_str()  , NULL,16); 
+          Serial.write(DataTxBuffer_Option2);
         }
 
 

@@ -6,7 +6,7 @@ This document describes the steps we followed and the errors we faced to connect
 * [Introduction to NodeMCU](#introduction-to-nodemcu)
 * [Steps for connecting NodeMcu with Google Firebase](#steps-for-connecting-nodemcu-with-google-firebase)
 * [Project Firebase Structure](#project-firebase-structure)
-* [Code FlowChart](#code-flowchart)
+* [Code FlowChart and Logic Explanation](#code-flowchart-and-logic-explanation)
 * [Errors Causes and Solutions](#the-errors-causes-and-solutions)
 
 ## Introduction to NodeMCU.
@@ -45,8 +45,31 @@ This document describes the steps we followed and the errors we faced to connect
 5. Add your WIFI name and password in WIFI_SSID & WIFI_PASSWORD respectively,then write the code sequence and build it.
 
 ## Project Firebase Structure. 
-## Code FlowChart.
+## Code FlowChart and Logic Explanation.
+<p align="center">
+  <img src="/Gateway_Node/Images/NodeMCU_FlowChart.png">
+</p>
 
+* **NodeMCU** is used as a Gateway, so it's main job is to receive commands through WIFI from Firebase and trasnmit them serially using UART to STM or any microcontroller used.
+* **NodeMCU** Synchrnoization between NodeMCU and PC Application responsible for Flashing Sequence is done through some Flags on Firebase ex) **Send** and **MarkerRQT**
+* **NodeMCU** starts with setting up its Environment like Initializing WatchDog, Connecting to WIFI and Firebase, Setting up capacity of HTTP Transfer and Finally Registering itself on available **NodeMCUs** channel on Firebase
+* **NodeMCU** Loop is Responsible for the Following:
+   * Feeding the WatchDog Timer.
+   * Fetching **FlashNewApp** and **SelectedGateway** Flags from Firebase, if the NodeMCU is the selected Node to be flashed and there is a new software to flash, **NodeMCU** enters Flashing Mode
+   * In **Flashing Mode**, NodeMCU gets important flags from Firebase which are : **Send**, **ResponseRQT** and **MarkerRQT**
+    * IF **MarkerRQT** is True it means that the **PC Application** started communication with the **NodeMCU**, and at that moment **NodeMCU** fires the DIO pin connecting it to STM to notify STM that there is a Flashing New Application Request
+    
+      When **STM** senses the event, it sends back Message to NodeMCU as a Notification that it's now available to receive the new **Marker**, at that moment **NodeMCU** fetches the **Marker** from **Firebase** and sends it STM, then wait for its response
+    
+      When **NodeMCU** receives Marker Response from STM, it checks against it, Positive Response means that the STM would proceed the flashing sequence, and Negative Response means that STM wouldn't proceed as the application already exists.
+    
+    * If **SendRQT** is True and **ResponseRQT** is True, this means that **NodeMCU** will receive Non-Data Command which it either **Erase Command** or **Verify Command**, these types of commands waits for response.
+    
+      So when it receives the command, **NodeMCU** sends it to **STM** and waits for the Response, when it receives Response it uploades the **Frame** to **Firebase** and set **Send** to false as an indicator that **PC Application** has something new to read.
+    
+    * If **SendRQT** is True and **ResponseRQT** is False, this means that **NodeMCU** will receive Data Command, this types of commands doesn't wait for response, and set **Send** to false as an indicator that **PC Application** has something new to read.
+    
+      So when it receives the command, **NodeMCU** sends it to **STM** and waits for **ResponseRQT** to be True -waits for **Verification Command**- , when it receives Response it Verification Command uploades the **Frame** to **Firebase** and set **Send** to false as an indicator that **PC Application** has something new to read.    
 
 ## The Errors Causes and Solutions 
 

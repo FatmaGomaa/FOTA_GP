@@ -21,7 +21,9 @@ pyinstaller --onefile --additional-hooks-dir C:\Users\user\hooks index.py
 
 3- pyinstaller --onefile -w --additional-hooks-dir G:\FOTA_GP\ELFI FirebaseTrial.py
 
-4- pyinstaller --onefile -w --icon=./Pic/elfi.ico gui_fota.py
+3- pyinstaller --onefile -w --additional-hooks-dir G:\FOTA_GP\ELFI FetchNodeMCUs.py
+
+4- pyinstaller --onefile -w --icon=./Pic/elfi.ico gui_fota_v2.py
 
 5- move a.exe and Pics to same directory of dist 
 

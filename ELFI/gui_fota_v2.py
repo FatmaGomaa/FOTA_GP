@@ -83,23 +83,26 @@ class Progress(QtCore.QThread):
 ##ComReceiver Thread Class  
 class Import(QtCore.QThread):
   ##The initialization function 
-  def __init__(self,MCU,ELFPath):
+  def __init__(self,MCU,ELFPath,TimeStamp):
       QtCore.QThread.__init__(self)
       self.MCU=MCU
       self.ELFPath=ELFPath
-  
+      self.TimeStamp = TimeStamp
+      
   ##The runnable of ComReceiver c file
   def run(self):
     ##Files needed to be executed
 
     print("before")
     ##To run the executable file with input arguments ("AVR comN ElfPath")
-    subprocess.call("./a.exe" + " " + self.ELFPath)
-    print("After")
+    subprocess.call("./a.exe" + " " + self.ELFPath + " " + str(int(self.TimeStamp)))
+    print("TimeStamp")
+    print(str(int(self.TimeStamp)))
+    
     
     print("python script")  
-    #call(["FirebaseTrial.exe"])
-    call(["python", "FirebaseTrial.py"])
+    call(["FirebaseTrial.exe"])
+    #call(["python", "FirebaseTrial.py"])
     ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()
@@ -116,7 +119,8 @@ class Import_NodeMCUs(QtCore.QThread):
 
     print("beforeNodeMCUs")
     ##To run the py file 
-    call(["python", "FetchNodeMCUs.py"])
+    call(["FetchNodeMCUs.exe"])
+    #call(["python", "FetchNodeMCUs.py"])
     print("AfterNodeMCUs")
     
     ##pending the Thread for 2Sec  
@@ -230,6 +234,11 @@ class Ui_ELFI(object):
         #self.fireright.setPixmap(QPixmap(u"Pic/fire.png"))
         #self.fireright.setScaledContents(True)
         
+        #adding Version Field
+        #self.lineEdit = QLineEdit(ELFI)
+        #self.lineEdit.setObjectName(u"Version")
+        #self.lineEdit.setGeometry(QRect(70, 160, 101, 22))
+        
         
         self.HardwareFamily_name = QLabel(ELFI)
         self.HardwareFamily_name.setObjectName(u"HardwareFamily_name")
@@ -243,9 +252,6 @@ class Ui_ELFI(object):
         self.refresh.setGeometry(QRect(377, 160, 75, 23))
         self.refresh.setStyleSheet(" QPushButton {color: white; background-color: rgb(13, 156, 141 , 0.5 ) ; border-style: outset;  border-color: black;  border-radius: 10px;  font: bold 14px;  min-width: 5em;  padding: 2px;} ")
 
-         ##starting the FetchNodeMCUs Thread
-        self.fileNodeMCU=Import_NodeMCUs()
-        self.fileNodeMCU.start()
         
         self.retranslateUi(ELFI)
 
@@ -258,15 +264,18 @@ class Ui_ELFI(object):
         self.BrowseButton.setText(QCoreApplication.translate("ELFI", u"Browse", None))
         self.FileLocation.setPlaceholderText("")
         self.UploadButton.setText(QCoreApplication.translate("ELFI", u"Upload", None))
-        self.HW_Family.setItemText(0, QCoreApplication.translate("ELFI", u"STM32", None))
-        self.HW_Family.setItemText(1, QCoreApplication.translate("ELFI", u"NXP", None))
-        self.HW_Family.setItemText(2, QCoreApplication.translate("ELFI", u"AVR ATmega32", None))
+        #self.HW_Family.setItemText(0, QCoreApplication.translate("ELFI", u"STM32", None))
+        #self.HW_Family.setItemText(1, QCoreApplication.translate("ELFI", u"NXP", None))
+        #self.HW_Family.setItemText(2, QCoreApplication.translate("ELFI", u"AVR ATmega32", None))
 
         self.Title.setText(QCoreApplication.translate("ELFI", u"ELFI \"! BLAME FAD\" ", None))
         self.FileLocation_name.setText(QCoreApplication.translate("ELFI", u"File Location", None))
         #self.fireleft.setText("")
         #self.fireright.setText("")
         self.HardwareFamily_name.setText(QCoreApplication.translate("ELFI", u"Hardware Family", None))
+        
+        #self.lineEdit.setText(QCoreApplication.translate("ELFI", u"Version Number", None))
+        
         self.refresh.setText(QCoreApplication.translate("ELFI", u"Refresh", None))
         # retranslateUi
         self.refresh.clicked.connect(self.AddDropDownList_NodeMCU)
@@ -279,6 +288,10 @@ class Ui_ELFI(object):
 
         ##object of progress class
         self.progressView = Progress()
+        
+        ##starting the FetchNodeMCUs Thread
+        self.fileNodeMCU=Import_NodeMCUs()
+        self.fileNodeMCU.start()
         
     def AddDropDownList_NodeMCU(self) :
         f = open('./NodeMCUs.txt','r')
@@ -308,8 +321,10 @@ class Ui_ELFI(object):
         
         ##To get the ELF_File
         ElfPath = filename[0]
+        TimeStamp = os.path.getmtime(ElfPath)
+        
         ##starting the ComReceiver Thread
-        self.file=Import(Index,ElfPath)
+        self.file=Import(Index,ElfPath, TimeStamp)
         self.file.start()
         
         

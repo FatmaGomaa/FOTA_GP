@@ -59,18 +59,11 @@ Elf32_Ehdr * Header = NULL;                                       // Pointer to 
 Elf32_Phdr * ProgramHeader = NULL;                                // Pointe to the program header in the elf file 
 Elf32_Shdr * SectionHeader = NULL;                                // Pointe to the section header in the elf file 
 
+
+long StringToInt(char* string);
+
 void main(int argc, char *argv[])
 {
-	/* Check if the file received input parameters */
-	if(argv[1])
-	{
-		ElfFileName = argv[1];		
-	}
-	
-	/* open the elf file with read stream of bytes permission */
-	ElfFileDescriptor = fopen(ElfFileName, "rb"); 
-	tstFileDescritor = fopen(ProgressFileName2 , "w");
-	
 	/* Initialization of used Commands in Code */	
 	EraseCommand_t EraseCommand = {0};
 	ResponseCommand_t ResponseCommand = {0};
@@ -78,6 +71,33 @@ void main(int argc, char *argv[])
 	VerifyCommand_t VerifyCommand = {0};
 	MarkerCommand_t MarkerCommand = {0};
     
+	
+	/* Check if the file received input parameters */
+	if(argv[1])
+	{
+		ElfFileName = argv[1];		
+	}
+	
+	if(argv[2])
+	{
+		long number=0;
+		MarkerCommand.marker = 0;
+		
+		printf("Hello I am marker from commreceive: ");
+		
+		number = StringToInt(argv[2]);
+		
+		printf("Hello I am marker after calculations: %d ", number);
+		
+		MarkerCommand.marker = number;		
+
+	}
+	
+	/* open the elf file with read stream of bytes permission */
+	ElfFileDescriptor = fopen(ElfFileName, "rb"); 
+	tstFileDescritor = fopen(ProgressFileName2 , "w");
+	
+
 	/* Initialize the buffer that will hold the program with 0xFF, so if (mem_size - file_size > 0) the extra bytes will be 0xFF */
 	long long ProgramIterator = 0;
 	for(ProgramIterator = 0;ProgramIterator < sizeof(ProgramDataToSend); ProgramIterator++){
@@ -143,7 +163,7 @@ void main(int argc, char *argv[])
 		}
 		
 		/************************************ Marker Sequence *******************************************/
-        MarkerCommand.marker = 5;
+        //MarkerCommand.marker = 5;
 	    TProtcol_sendFrame((void*)&MarkerCommand, CommandToSend, ID_MarkerCommand );
 		for(txtindex=0;txtindex<8;txtindex++)
 		{
@@ -212,4 +232,27 @@ void main(int argc, char *argv[])
 }
 
 
+long StringToInt(char* string)
+{
+	int i = 0;
+	int arr[100];
+	long result = 0;
+	int multi_factor = 1;
 
+	while(string[i] != '\0')
+	{
+	arr[i] = string[i] - 48;
+	printf("%d\n",arr[i]);
+	i++;
+	}
+	i--;
+
+	while(i >= 0)
+	{
+	result = result + (multi_factor *arr[i]);
+	printf("%d\n",result);
+	i--;
+	multi_factor = multi_factor*10;
+	}
+	return result;
+}

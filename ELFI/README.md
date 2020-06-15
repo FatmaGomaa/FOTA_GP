@@ -1,4 +1,213 @@
-**Description:**
+# Purpose 
+
+This document describes Firebase, python and Firebase, ELFI gui threads and code flow chart
+
+## Table of Contents
+* [What is Firebase](#What-is-Firebase)
+* [Firebase Realtime Database](#Firebase-Realtime-Database)
+* [Python and Firebase](#Python-and-Firebase)
+* [Qt Designer and GUI](#Qt-Designer-and-GUI)
+* [Threading in Python](#Threading-in-Python)
+* [Steps to operate our GUI and how it workes](#Steps-to-operate-our-GUI-and-how-it-workes)
+
+
+## What is Firebase
+
+<p align="center">
+  <img src="media/Firebase_Logo.png">
+</p>
+
+Firebase is a mobile and web app development platform that provides developers with a plethora of tools and services to help them develop high-quality apps, grow their user base, and earn more profit.
+
+### Firebase vs Google Cloud Storage
+
+* **Firebase**  : 
+  The Realtime App Platform. 
+  Firebase is a cloud service designed to power real-time, collaborative applications. 
+  Simply add the Firebase library to your application to gain access to a shared data structure; any changes you make to that data are automatically synchronized with the Firebase cloud and with other clients within milliseconds.
+
+* **Google Cloud Storage**  :   Durable and highly available object storage service. 
+  Google Cloud Storage allows world-wide storing and retrieval of any amount of data and at any time. 
+  It provides a simple programming interface which enables developers to take advantage of Google's own reliable and fast networking infrastructure to perform data operations in a secure and cost effective manner. 
+
+In conclusion we used Firebase because in our application we needed to instantly upload and download between the PC with the elf file and the ELFI GUI, the PC2 that is connected to the target.
+
+
+## Firebase Realtime Database
+
+The Firebase Realtime Database is a cloud-hosted database. 
+Data is stored as JSON and synchronized in realtime to every connected client. When you build cross-platform apps with iOS, Android, and JavaScript SDKs, all of your clients share one Realtime Database instance and automatically receive updates with the newest data.
+
+The Realtime Database is really just one big JSON object that the developers can manage in realtime.
+
+<p align="center">
+  <img src="media/1_kiliGRYQIVzsCTx_JsUYdg.png">
+</p>
+
+
+### Key capabilities
+
+* **Realtime**  : 
+  Instead of typical HTTP requests, the Firebase Realtime Database uses data synchronization—every time data changes, any connected device receives that update within milliseconds. 
+  Provide collaborative and immersive experiences without thinking about networking code.
+
+* **Offline**  : 
+  Firebase apps remain responsive even when offline because the Firebase Realtime Database SDK persists your data to disk. 
+  Once connectivity is reestablished, the client device receives any changes it missed, synchronizing it with the current server state.
+
+* **Accessible from Client Devices**  : 
+  The Firebase Realtime Database can be accessed directly from a mobile device or web browser; there’s no need for an application server. 
+  Security and data validation are available through the Firebase Realtime Database Security Rules, expression-based rules that are executed when data is read or written.
+ 
+
+### Create your Firebase Database
+
+1. Firebase website -->> https://firebase.google.com/
+2. Press Get started Button
+
+<p align="center">
+  <img src="media/1.JPG">
+</p>
+
+3. Click on add project 
+
+<p align="center">
+  <img src="media/2.JPG">
+</p>
+
+4. Write down your project name
+5. Press Continue
+
+<p align="center">
+  <img src="media/3.JPG">
+</p>
+
+6. Press Continue
+
+<p align="center">
+  <img src="media/4.JPG">
+</p>
+
+7. Name your Firebase Acoount
+
+<p align="center">
+  <img src="media/6.JPG">
+</p>
+
+8. Choose your Analytics location
+9. Accept the terms and policy
+
+<p align="center">
+  <img src="media/7.JPG">
+</p>
+
+10. Press Create project
+
+<p align="center">
+  <img src="media/8.JPG">
+</p>
+
+11. Press Continue
+
+<p align="center">
+  <img src="media/9.JPG">
+</p>
+
+12. Time to register your app
+
+<p align="center">
+  <img src="media/10.JPG">
+</p>
+
+13. Add a nickname to your app
+14. Press Register app
+
+<p align="center">
+  <img src="media/12.JPG">
+</p>
+
+
+15. Add Firebase SDK, press Next
+
+<p align="center">
+  <img src="media/13.JPG">
+</p>
+
+16. Install Firebase CLI, press Next
+
+<p align="center">
+  <img src="media/14.JPG">
+</p>
+
+17. Deploy to Firebase Hosting , press Continue to the console
+
+<p align="center">
+  <img src="media/15.JPG">
+</p>
+
+### Access your project's info. 
+
+* Press on the icone shown below
+
+<p align="center">
+  <img src="media/16.JPG">
+</p>
+
+* Get your Web API Key which is used to connect the gateway to firebase
+
+<p align="center">
+  <img src="media/17.JPG">
+</p>
+
+* Get Firebase SDK snippet used in the pythone script used to upload and download frames
+
+<p align="center">
+  <img src="media/18.JPG">
+</p> 
+
+## Python and Firebase
+
+FirebaseTrial.py is the script used to:
+1. Upload Marker, Erase, Verify and Data frames to our firebase database. 
+2. Download and check the responses uploaded to the firebase via the Gateway. 
+
+### Connect python script to Firebase Database
+
+```py
+   config = {
+  "apiKey": "AIzaSyCLVYhUGxHVeIfLW8DkWPZy7kBu4f1-79o",
+  "authDomain": "fota-905e1.firebaseapp.com",
+  "databaseURL": "https://fota-905e1.firebaseio.com",
+  "projectId": "fota-905e1",
+  "storageBucket": "fota-905e1.appspot.com",
+  "messagingSenderId": "746270454506",
+  "appId": "1:746270454506:web:32183900e0176d27b31d93",
+  "measurementId": "G-ZE9JE4FGRP"
+    }
+#FireBase Initialization     
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
+```
+
+### Operations done on firebase
+
+* Set value for a certain chiled, or to create the child  
+
+```py
+db.child("NodeMCUSemaphore").set(False)
+```
+
+* Get value of a particuler child
+```py
+result = db.child("NodeMCUs").get()
+if (result.val() ==  "No_Target_Connected"):
+```
+
+
+
+## Qt Designer and GUI
+
+### Description:
 
 **First we will start by how we can install Pyside2 to make our GUI:**
 
@@ -98,35 +307,77 @@ GUI**
 1.  Then open File.py and Write Your Logic that you needed to serve your
     application
 
--   ………………………………………………………………………………………………………………………………….
+## Threading in Python
 
-**Third we will discuss our Extra logic added to our GUI to serve our
-Application (Firmware over the air) :**
+### What Is a Thread?
+A thread is a separate flow of execution. This means that your program will have two things happening at once. But for most Python 3 implementations the different threads do not actually execute at the same time: they merely appear to.
 
--   It is the user interface to our project just open **Elfi.exe** and it will
-    direct you to the GUI,
+### Starting a Thread
 
--   But first must read the **readme.txt** file in this location and make the
-    necessary downloads
+To start a separate thread, you create a Thread instance and then tell it to .start():
 
--   After finishing the installation open Elfi.exe and Browse the **Elf file as
-    (Main_APP.elf)** needed to flash it on the target
+```py
+##FetchNodeMCUs Thread Class  
+class Import_NodeMCUs(QtCore.QThread):
+  ##The initialization function 
+  def __init__(self):
+      QtCore.QThread.__init__(self)
+	    
+  ##The runnable of FetchNodeMCUs py file 
+  def run(self):
+ 
+	call(["python", "FetchNodeMCUs.py"])
+    
+    ##pending the Thread for 2Sec  
+    time.sleep(2)
+    
+```
 
--   Then press upload, and our GUI will call first the **CommReceive.c** to add
-    all commands needed to flash in Text file (**tst.txt**)
+```py
+##starting the FetchNodeMCUs Thread
+self.fileNodeMCU=Import_NodeMCUs()
+self.fileNodeMCU.start()
+```
 
--   Then GUI Python Script will call the **FirebaseTrial.py** to start
-    Connection with FireBase and this done in parallel Thread with another
-    Thread to update progressbar by the new values added by **FirebaseTrial.py**
-    in **Progress.txt** file and this indicate how many number of frames have
-    been sent and flashed on our target and also updating the Title from setup
-    to n progress to the End according to the number of frames have been flashed
+## Steps to operate our GUI and how it workes
 
--   Then after finishing the process GUI will noticed you that the flashing done
-    .
+![](media/ELFI_v2.JPG)
 
-![](media/5a34c313048b2d6de2f903fbfac7a588.png)
+-   The user interface to our project just open **Elfi.exe** and it will
+    direct you to the GUI.
+	
+-   The GUI runs three different threads in the back ground.
+1.  Progress: which is responsible of updating the progress bar in the GUI with the percentage of how much of the hex file has been flashed.
+2.  Import: which is responsible of getting elf path from the Text Browser, the timestamp of the choosen elf file then passing them both to the **CommReceive.c** and then running it. 
+            Also it runs **FirebaseTrial.py**.
+3.  Import_NodeMCUs: which is responsible of running the **FetchNodeMCUs.py**.
 
->   C:\\Users\\DELL\\Pictures\\Screenshots\\Screenshot (476).png
+-   Press the Refresh button to choose one of the hardware targets, those targets are registersd through each user that has a gateway. 
+    The script that does this functionality is **FetchNodeMCUs.py** by getting values of NodeMCUs chiled in firebase and pasteing them in NodeMCUs.txt, leaving them for the GUI to fetch and add them to the drop down list.  
+	
+-   Browse the **Elf file as (Main_APP.elf)** to flash it to the target
 
-\\…………………………………………………………………………………………………………………………………………………/
+-   Press upload and the following will happen:
+1. **CommReceive.c** constructs the Marker Frame from the timestamp passed to it, then parsses the elf file and constructs all the Erase, Data, Verify frames. While it costructs those frames it opens **tst.txt** and pastes those frames in order, starting from the Marker frame.
+
+2. **FirebaseTrial.py** It updates the Marker on the firebase for the gateway to fetch it and compare it to the last verision that it has.
+   Then it waits for the choosen target to be connected to the firebase server, if it does not, the Status in the GUI will change to **Target not connected**.
+   If it is connected but the choosen elf is the same as the one already flashed the gateway will update the Marker on the firebase with "Same_Marker", then **FirebaseTrial.py** will fetch the Marker from the firebase, if it holds "Same_Marker", it will update the **progress.txt** and the GUI will show **Application already exists** Status.
+   If it is not the same application the gateway won't change the Marker on the firebase, and the check in the **FirebaseTrial.py** will lead to the start of the erasing and flashing sequence.
+   
+3. Erase and flash sequence is: the **FirebaseTrial.py** updates Frame in firebase with the Erase frame and waits for response, if the response is ok it sends 200 Data frames at a time and waits again for response if it is ok, it sends a Verify frame, it repeates the sending of Data and Verify Frames untill all Data frames has benn sent.
+   Also while uploading frames it writes in the **progress.txt** the number of sent data blocks and the total number of blocks that needs to be sent, so the GUI can update its progress bar.   
+   
+-  After finishing the process, the GUI will notify you that the flashing is done.
+  
+
+
+
+
+
+ 
+## References
+* https://hackernoon.com/introduction-to-firebase-218a23186cd7
+* https://firebase.google.com/docs/database/
+* https://stackshare.io/stackups/firebase-vs-google-cloud-storage
+* https://realpython.com/intro-to-python-threading/

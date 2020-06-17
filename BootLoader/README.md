@@ -9,7 +9,7 @@ This document describes the sequence of the Bootloader Application and the Flash
 
 ## Sequence of Flashing Commands 
 
-### ID_EraseCommand
+### 1. ID_EraseCommand
 
 1. We receive by tprotocol_ReceiveFrame the buffer and the erase command and the message id to check that the mcu received the command correctly
 2. Then we calculate checksum of that frame to check that we received the frame bytes correctly
@@ -26,13 +26,13 @@ This document describes the sequence of the Bootloader Application and the Flash
 10. If the Checksum of the EraseFrame is not equal to the EraseCommand.Checksum then set the response in responseCommand = R_NOT_MismatchData 
 11. Send the ResponseFrame to the TProtocol_SendFrame to fill the TransmitterBuffer and send it through UART to the Sender
 
-### ID_DataCommand
+### 2. ID_DataCommand
 
 1. We receive by tprotocol_ReceiveFrame the buffer and the DataCommand and the message id to check that the mcu received the command correctly
 2. Receive the data from the DataCommand.Data[FrameBytes] in the DataBytes[DataIterator]
 3. Calculate the Checksum for the Data send in the DataCommand.Data[FrameBytes]
 
-### ID_VerifyCommand
+### 3. ID_VerifyCommand
 
 1. We receive by tprotocol_ReceiveFrame the buffer and the VerifyCommand and the message id to check that the mcu received the command correctly
 2. Check if the DataCheckSum is equal VerifyCommand.CheckSum 
@@ -45,7 +45,7 @@ This document describes the sequence of the Bootloader Application and the Flash
 4. Send the ResponseFrame to the TProtocol_SendFrame to fill the TransmitterBuffer and send it through UART to the Sender
 5. Check if all the required sections are filled with data Erase the FlashedAppVersion, flash the RequestedAppVersion(RAM) to the FlashedAppVersion (ROM) and set Marker to High
 
-### ID_MarkerCommand
+### 4. ID_MarkerCommand
 
 1. We receive by tprotocol_ReceiveFrame the buffer and the MarkerCommand and the message id to check that the mcu received the command correctly
 2. Check if the Marker(in ROM) is equal MarkerCommand.marker(from NodeMcu)  

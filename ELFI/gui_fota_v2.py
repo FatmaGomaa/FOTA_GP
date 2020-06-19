@@ -368,9 +368,13 @@ class Ui_ELFI(object):
     def start(self):
       self.progressView.start()
 
+def myExitHandler():
+    os.system("taskkill /f /im FirebaseTrial.exe")
+    os.system("taskkill /f /im FetchNodeMCUs.exe")
 
 ##To create object of application
 app = QApplication(sys.argv)
+app.aboutToQuit.connect(myExitHandler)
 #to create the object of wedget
 Widget=QWidget()
 #to create form

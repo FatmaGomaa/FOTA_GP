@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['gui_fota_v2.py'],
-             pathex=['G:\\FOTA_GP\\ELFI'],
+             pathex=['H:\\_ITI_Final\\MY_Repos\\GP_FOTA\\ELFI'],
              binaries=[],
              datas=[],
              hiddenimports=[],

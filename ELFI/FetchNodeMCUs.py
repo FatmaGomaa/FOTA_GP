@@ -17,8 +17,24 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 while True:
+    Final_List_NodeMCUs = []
     result = db.child("NodeMCUs").get()
+    temp = result.val()
+    list_NodeMCUs = temp.split()
+    
+    #put the non similar elements in a list
+    for Node in list_NodeMCUs:
+        if Node not in Final_List_NodeMCUs :
+            Final_List_NodeMCUs.append(Node)
+            
+    NodestobeUpload = ''
+    
+    #concatinate the elements in string
+    for element in Final_List_NodeMCUs:
+        NodestobeUpload += element
+        NodestobeUpload += " "
+    
     f=open("NodeMCUs.txt","w")
-    f.write(result.val())
+    f.write(NodestobeUpload)
     f.close()
     

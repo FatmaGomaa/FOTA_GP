@@ -4,11 +4,11 @@ block_cipher = None
 
 
 a = Analysis(['FetchNodeMCUs.py'],
-             pathex=['G:\\FOTA_GP\\ELFI'],
+             pathex=['H:\\_ITI_Final\\MY_Repos\\GP_FOTA\\ELFI'],
              binaries=[],
              datas=[],
              hiddenimports=[],
-             hookspath=['G:\\FOTA_GP\\ELFI'],
+             hookspath=['H:\\_ITI_Final\\MY_Repos\\GP_FOTA\\ELFI'],
              runtime_hooks=[],
              excludes=[],
              win_no_prefer_redirects=False,

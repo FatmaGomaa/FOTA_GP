@@ -29,7 +29,6 @@ This Repository is the FOTA Graduation Project for Information Technology Instit
   - [Target Hardware Firmware (Bootloader)](#target-hardware-firmware-bootloader)
 - [Project Phases](#project-phases)
 - [Overall Project Design](#overall-project-design)
-- [Future Work](#future-work)
   
 ## Introduction
 
@@ -55,14 +54,15 @@ The Project is divided into 3 main Parts:
 ### User GUI
 
 <p align="center">
-  <img width="600" src="Images/Firstpage_images/GUI.PNG">
+  <img width="800" src="Images/Firstpage_images/GUI_new.jpeg">
 </p>
 
 * The User GUI is a friendly user interface with Cool Graphics and Informative layout that enables the user to upload and setup his file that needs to be uploaded on the remote hardware and let him knows the current status of the upload process, and if an error happens, a message will appear why the system has encountered an error to let the user know what to do to solve the problem.
 
 * The Core of User GUI consists of several coded files by Python, C ,and C++. these files are used inside of the GUI to Parse the targeted file (ex: ELF file), Construct The Transmittion protocol ,and Establishing the connection with the intermediate Server.  
 
-* The link to our GUI: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+* More about our latest [GUI](https://www.google.com)
+
 
 ### Intermediate Gateway and Server
 
@@ -78,8 +78,8 @@ The Project is divided into 3 main Parts:
 
 * An intermediate Gateway ECU is needed to be used to Communicate Through Firebase. NodeMCU is our Gateway that through it, we can get the data from the Server and send it to our selected Target (ECU) through a communication protocol (ex: UART)
 
-* The link to our Intermediate Gateway "NODEMCU": XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-* The link to our Intermediate Server "Firebase": XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+* More about our latest Intermediate Gateway [NodeMCU](https://www.google.com).
+* More about our latest Intermediate Server [Firebase](https://www.google.com).
 
 ### Target Hardware Firmware (Bootloader)
 
@@ -87,24 +87,24 @@ The Project is divided into 3 main Parts:
 
 * The Bootloader Firmware is Targeted depended which means every Family of ECU needs a standalone Bootloader.
 
-* The link to our Bootloader: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+* More about our latest [Bootloader](https://www.google.com).
 
 ## Project Phases
 
 The project includes Three Phases:
 
-1. First Phase contains:
+1. [First Phase](https://www.google.com) contains:
    1. Design Overall System View.
    2. Design and Implement transmission protocol.
    3. Design and Implement primitive Bootloader (Flash one Program if there is no another application).
    4. Wired UART communication protocol with PC (NO GUI - Cmd).
 
-2. Second Phase contains:
+2. [Second Phase](https://www.google.com) contains:
    1. Transfer the system to be Wirless using NoduMCU and Firebase Server
    2. Upgrade the GUI interface and functionality to deal with the Firebase Server.
    3. Flash First Program Wirelessly.
    
-3. Third Phase contains:
+3. [Third Phase](https://www.google.com) contains:
    1. Enhance the Overall System Functionality and Speed (from 10 min to 40 sec).
    2. Creating Executable GUI that doesn't need any dependencies. 
 
@@ -113,5 +113,3 @@ The project includes Three Phases:
 <p align="center">
   <img width="900" src="Images/Firstpage_images/Overall_Design.PNG">
 </p>
-
-## Future Work

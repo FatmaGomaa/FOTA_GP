@@ -101,6 +101,7 @@ if ( result.val() == "Same_Marker" ):
   progress_content =f.readlines()
   progress_content[1]="Same_Marker"
   f.seek(0)
+  db.child("FlashNewApp").set(False)
   for i in range(2):
     f.write(progress_content[i])
   #f.write('\n')
@@ -215,7 +216,7 @@ if Response == hex(R_OK) :
         DataToSend=""
         
          
-    #db.child("FlashNewApp").set(False)
+    db.child("FlashNewApp").set(False)
 else:
     print("Erase Failed and Flash operation Stopped")
 

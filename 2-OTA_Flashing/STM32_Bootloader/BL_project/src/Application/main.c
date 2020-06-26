@@ -488,6 +488,9 @@ void newApp(void)
 				ResponseCommand.Response = R_NOT_SAMEAPPLICATION;
 				TProtcol_sendFrame(&ResponseCommand, TrasnmitterBuffer, ID_ResponseCommand);
 				UART_SendBuffer(TrasnmitterBuffer, PROTOCOL_DATA_BYTES);
+				/*Requesting Software Reset */
+				SCB->AIRCR = (0x5FA0000 | ( 1 << 2 ));
+				
 			}
 			else
 			{

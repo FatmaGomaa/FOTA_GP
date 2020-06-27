@@ -41,30 +41,30 @@ Pyside2 is newer than PyQt and supports Python **v3.8.1** so:
 
 1.  First open Pyside2 just click on **designer.exe,** this page will open
 
-![](media/af7236bb6ee803b4ffe23b4d21e201a7.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/af7236bb6ee803b4ffe23b4d21e201a7.png)
 
 2.  Then choose Widget and press create button and this form will open
 
-![](media/e94639d2c9e8b09b4c34ad3aa9962963.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/e94639d2c9e8b09b4c34ad3aa9962963.png)
 
 3.  Now we can make your design of GUI by choosing the components from This list
 
-![](media/57e240cd30a529508889e54695f84cb6.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/57e240cd30a529508889e54695f84cb6.png)
 
 **Now we will see an example to make for example Hardware Family box in our
 GUI**
 
 -   First we will choose Combo Box from Component list
 
-![](media/0b6335744af827b4ba9863c96723704f.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/0b6335744af827b4ba9863c96723704f.png)
 
 -   Then we will add it in our form as below
 
-![](media/14ea3fbb80dd94123605bf57145657ae.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/14ea3fbb80dd94123605bf57145657ae.png)
 
 -   Then we need to add different types of ECU
 
-![](media/bd2bd9df81f6d5dac92e4efb1753a393.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/bd2bd9df81f6d5dac92e4efb1753a393.png)
 
 -   Then if you need for example to change many options related to Combo Box
 
@@ -75,11 +75,11 @@ GUI**
 3.  **By adding signal to connect ComboBox with any another component using
     signal/slot editor**
 
-![](media/e140c933d9be01eeeefb3660aee56767.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/e140c933d9be01eeeefb3660aee56767.png)
 
 -   Then to show result in GUI mode use **ctrl+R**
 
-![](media/bf9edabba57c00b0f736c28b30286be3.png)
+![](/2-OTA_Flashing/GUI/Python_ELFI/media/bf9edabba57c00b0f736c28b30286be3.png)
 
 **So in our GUI we used many components as:**
 

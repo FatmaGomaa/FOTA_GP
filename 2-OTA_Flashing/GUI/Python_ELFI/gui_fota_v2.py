@@ -95,14 +95,14 @@ class Import(QtCore.QThread):
 
     print("before")
     ##To run the executable file with input arguments ("AVR comN ElfPath")
-    subprocess.call("./a.exe" + " " + self.ELFPath + " " + str(int(self.TimeStamp)))
+    subprocess.call("./Dependencies/a.exe" + " " + self.ELFPath + " " + str(int(self.TimeStamp)))
     print("TimeStamp")
     print(str(int(self.TimeStamp)))
     
     
     print("python script")  
-    #call(["FirebaseTrial.exe"])
-    call(["python", "FirebaseTrial.py"])
+    call(["./Dependencies/FirebaseTrial.exe"])
+    #call(["python", "FirebaseTrial.py"])
     ##pending the Thread for 2Sec  
     time.sleep(2)
       #self.exit()
@@ -119,8 +119,8 @@ class Import_NodeMCUs(QtCore.QThread):
 
     print("beforeNodeMCUs")
     ##To run the py file 
-    #call(["FetchNodeMCUs.exe"])
-    call(["python", "FetchNodeMCUs.py"])
+    call(["./Dependencies/FetchNodeMCUs.exe"])
+    #call(["python", "FetchNodeMCUs.py"])
     print("AfterNodeMCUs")
     
     ##pending the Thread for 2Sec  
